@@ -11,13 +11,14 @@
 
 
 <!-- link to neccessary files -->
-<link href="images/dsw_logo_small.png" rel="SHORTCUT ICON">
+<link href="../images/dsw_logo_sc.png" rel="SHORTCUT ICON">
 <link href="../css/main.css" rel="stylesheet"> 
-<link href="css/data.css"rel="stylesheet">
+<link href="../css/live_rep.css" rel="stylesheet"> 
+<link href="css/data.css" rel="stylesheet">
 
 <body>
 <div id="nav-header">  
-   <img name="logo" src="images/dsw_logo_small.png" alt="DSW Logo">
+   <img name="logo" src="../images/dsw_logo_small.png" alt="DSW Logo">
    <h1>DSW Data</h1>  
    
    <ul id="nav-menu">
@@ -33,8 +34,8 @@
 		<li><a href="#">Static reports</a>
 			<ul>
 				<li><a href="#">Nyanza selected sites</a></li>
-				<li><a href="/ssm">Nyanza SSM</a></li>
-				<li><a href="/cd/waterpoints_hubs.php">Waterpoints</a></li>
+				<li><a href="#">Nyanza SSM</a></li>
+				<li><a href="#">Waterpoints</a></li>
 			</ul>
 		</li>
 		<li><a href="/datasets">Datasets</a></li>

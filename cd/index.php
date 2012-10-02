@@ -8,7 +8,7 @@ include '../php_funcs/header.php';
 ?>
 
 <div id="container">
-<div class="content">
+<div class="cd_content">
  <div class="top_header">
 				 Chlorine Delivery Report
 			 </div>
