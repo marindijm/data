@@ -13,6 +13,18 @@
    margin:0px auto;
  
 }
+.content1
+{
+   background-color:#FFFFFF;   	
+   border-bottom:solid;
+   border-left:solid;
+   border-right:solid;
+   border-width: 0px;
+   clear: both;
+   width:1090px;  
+   margin:0px auto;
+   
+}
 .top_header
 {
   color:#00416A;

@@ -19,7 +19,7 @@ include '../php_funcs/header.php'
 ?>
 
 <div id="container">  
-<div class="">  
+<div class="content1">  
 	<div id="hdr">    
 	         
 			  <div class="top_header">
