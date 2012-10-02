@@ -51,9 +51,11 @@ body
 	font-family:'Open Sans Bold', sans-serif;
 	font-size:30px; 
 	color:#00416A;
+	/*color:#800000;*/
 	position:absolute;
 	top:50px;
-	left:540px;
+	left:450px;
+text-shadow: grey 0.1em 0.1em 0.2em;
 	
 }
 #nav-header img{
@@ -126,20 +128,22 @@ body
 }
 #nav-menu li:hover ul{ /* Display the dropdown on hover */
 	left:10px; /* Bring back on-screen when needed */
-	top:52px;
+	top:53px;
 }
-#nav-menu li:hover a
+#nav-menu li a:hover 
 { /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
 	background:#00416A;
 	color:#FFFFFF;
 	
 }
 #nav-menu li:hover ul a{ /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
+
+
 	text-decoration:none;
 }
 #nav-menu li:hover ul li a:hover{ /* Here we define the most explicit hover states--what happens when you hover each individual link. */
-	background:#fff;
-	color:#00416A;
+	background:#00416A;
+	color:#fff;
 	
 
 }

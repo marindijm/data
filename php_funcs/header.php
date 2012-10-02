@@ -19,7 +19,7 @@
 <body>
 <div id="nav-header">  
    <img name="logo" src="../images/dsw_logo_small.png" alt="DSW Logo">
-   <h1>DSW Data</h1>  
+   <h1>Dispensers For Safe Water</h1>  
    
    <ul id="nav-menu">
 		<li><a href="/">Home</a></li>
