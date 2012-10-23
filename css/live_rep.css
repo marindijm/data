@@ -19,7 +19,8 @@
    border-bottom:solid;
    border-left:solid;
    border-right:solid;
-   border-width: 0px;
+   border-width: 1px;
+   border-color:#eee;
    clear: both;
    width:1090px;  
    margin:0px auto;

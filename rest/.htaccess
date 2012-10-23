@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+   # Turn on URL rewriting
+    RewriteEngine On
+
+
+  # Protect application and system files from being viewed
+   RewriteRule ^(application|modules|system) - [F,L]
+
+   # Allow any files or directories that exist to be displayed directly
+   RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+   # Rewrite all other URLs to ws.php/
+  #  RewriteRule ^([^.]+)/$ ws.php?rquest=$1
+  #RewriteRule ^([^.]+)$ ws.php?rquest=$1 [NC]
+   #RewriteRule ^([A-Za-z0-9-]+)/([0-9]+)/?$  ws.php?rquest=$1&wptid=$2 [PT,L] 
+RewriteRule    ^waterpoints/([A-Za-z0-9-]+)/?$   ws.php?rquest=$1   [NC,L]    # Process waterpoints
+RewriteRule    ^waterpoints/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$    ws.php?rquest=$1&id=$2   [NC,L]    # Process Waterpoint details
+RewriteRule    ^issues/([A-Za-z0-9-]+)/?$   ws.php?rquest=$1   [NC,L]    # Process issues
+RewriteRule    ^issues/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$    ws.php?rquest=$1&id=$2   [NC,L]    # Process issue details
+
+</IfModule>
