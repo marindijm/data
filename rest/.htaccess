@@ -19,4 +19,5 @@ RewriteRule    ^waterpoints/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$    ws.php?rquest=
 RewriteRule    ^issues/([A-Za-z0-9-]+)/?$   ws.php?rquest=$1   [NC,L]    # Process issues
 RewriteRule    ^issues/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$    ws.php?rquest=$1&id=$2   [NC,L]    # Process issue details
 
+
 </IfModule>

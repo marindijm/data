@@ -2,11 +2,10 @@
 require_once("rest.inc.php");
 class API extends REST 
 {
-     function __construct(){
-			parent::__construct();				// Init parent contructor
+    function __construct(){
+			parent::__construct();			// Init parent contructor
 		
-    }
-	
+    }	
 	function connectToDB()
 	{
 		 $dbc = pg_connect("host=127.0.0.1 port=5432 dbname=dsw_db user=postgres password=postgres");
@@ -31,12 +30,9 @@ class API extends REST
 	   // Cross validation if the request method is GET else it will return "Not Acceptable" status
 		if($this->get_request_method() != "GET"){
 			$this->response('',406);
-		}
-	     $conn = $this->connectToDB();
-		 $sql = "SELECT * FROM waterpoint_summary";
-		 $query_result = pg_query($conn, $sql);
-		 $this->getQueryData($query_result);	//get query results		
-		 pg_close($conn);
+		}	    
+		 $sql = "SELECT * FROM waterpoint_summary";	
+		 $this->getQueryData($sql);	//get query results	
 		 
 	}
 	private function getWaterpointContacts()
@@ -44,25 +40,18 @@ class API extends REST
 	     // Cross validation if the request method is GET else it will return "Not Acceptable" status
 		 if($this->get_request_method() != "GET"){
 			$this->response('',406);
-		 }
-	     $conn = $this->connectToDB();
-		 $sql = "SELECT * FROM waterpoint_contacts";
-		 $query_result = pg_query($conn, $sql);
-		 $this->getQueryData($query_result);	//get query results	
-		 pg_close($conn);
+		 }	   
+		 $sql = "SELECT * FROM waterpoint_contacts";		
+		 $this->getQueryData($sql);	//get query results	
 	}
 	private function getWaterpointDetails()
 	{
 	  	if($this->get_request_method() != "GET"){
 				$this->response('',406);
-			}
-       
-		 $id = (int)$this->_request['id'];//request for the sanitized waterpoint id	
-	     $conn = $this->connectToDB();
-		 $sql = "SELECT * FROM waterpoint_summary WHERE waterpoint_id = '".$id."'";
-		 $query_result = pg_query($conn, $sql);
-		 $this->getQueryData($query_result);	//get query results	
-		 pg_close($conn);
+		}       
+		 $id = (int)$this->_request['id'];//request for the sanitized waterpoint id		   
+		 $sql = "SELECT * FROM waterpoint_summary WHERE waterpoint_id = '".$id."'";		
+		 $this->getQueryData($sql);	//get query results	
 	}
 	private function getWaterpointContactDetails()
 	{
@@ -70,12 +59,9 @@ class API extends REST
 		 if($this->get_request_method() != "GET"){
 			$this->response('',406);
 		 }
-		 $id = (int)$this->_request['id'];//request for the sanitized waterpoint id	
-	     $conn = $this->connectToDB();
+		 $id = (int)$this->_request['id'];//request for the sanitized waterpoint id		
 		 $sql = "SELECT * FROM waterpoint_contacts WHERE waterpoint_id = '".$id."'";
-		 $query_result = pg_query($conn, $sql);
-		 $this->getQueryData($query_result);	//get query results	
-		 pg_close($conn);
+		 $this->getQueryData($sql);	//get query results	
 	}
 	private function getPromoterInfo()
 	{
@@ -83,10 +69,8 @@ class API extends REST
 		if($this->get_request_method() != "GET"){
 			$this->response('',406);
 		}
-	     $conn = $this->connectToDB();
-		 
-		 //relevant query
-		 pg_close($conn);
+	     $sql = "";
+		 $this->getQueryData($sql);	//get query results	
 	}
 	private function getInstallationInfo()
 	{
@@ -95,10 +79,8 @@ class API extends REST
 		if($this->get_request_method() != "GET"){
 			$this->response('',406);
 		}
-	    $conn = $this->connectToDB();
-		 
-		 //relevant query
-		 pg_close($conn);
+	     $sql = "";
+		 $this->getQueryData($sql);	//get query results	
 	}
 	private function getSpotcheckInfo()
 	{
@@ -106,8 +88,8 @@ class API extends REST
 		if($this->get_request_method() != "GET"){
 			$this->response('',406);
 		}
-	     $conn = $this->connectToDB();
-		 pg_close($conn);
+	     $sql = "";
+		 $this->getQueryData($sql);	//get query results	
 	}
 	private function getCommunitySurveyInfo()
 	{
@@ -115,8 +97,8 @@ class API extends REST
 		if($this->get_request_method() != "GET"){
 			$this->response('',406);
 		}
-	     $conn = $this->connectToDB();
-		 pg_close($conn);
+	      $sql = "";
+		 $this->getQueryData($sql);	//get query results	
 	}
 	private function getCemInfo()
 	{
@@ -124,8 +106,8 @@ class API extends REST
 		if($this->get_request_method() != "GET"){
 			$this->response('',406);
 		}
-	     $conn = $this->connectToDB();
-		 pg_close($conn);
+	     $sql = "";
+		 $this->getQueryData($sql);	//get query results	
 	}
 	private function getHouseHoldInfo()
 	{
@@ -133,20 +115,17 @@ class API extends REST
 		if($this->get_request_method() != "GET"){
 			$this->response('',406);
 		}
-	     $conn = $this->connectToDB();
-		 pg_close($conn);
+	     $sql = "";
+		 $this->getQueryData($sql);	//get query results	
 	}
 	private function getIssues()
 	{
 	   // Cross validation if the request method is GET else it will return "Not Acceptable" status
 		 if($this->get_request_method() != "GET"){
 			$this->response('',406);
-		 }		
-	     $conn = $this->connectToDB();
+		 }			    
 		 $sql = "SELECT * FROM issue";
-		 $query_result = pg_query($conn, $sql);
-		 $this->getQueryData($query_result);	//get query results	
-		 pg_close($conn);
+		 $this->getQueryData($sql);	//get query results	
 	}
 	private function getIssueDetails()
 	{
@@ -154,24 +133,45 @@ class API extends REST
 		 if($this->get_request_method() != "GET"){
 			$this->response('',406);
 		 }
-		 $id = (int)$this->_request['id'];//request for the sanitized issue id	
-	     $conn = $this->connectToDB();
+		 $id = (int)$this->_request['id'];//request for the sanitized issue id		   
 		 $sql = "SELECT * FROM issue WHERE issueid ='".$id."'";
-		 $query_result = pg_query($conn, $sql);
-		 $this->getQueryData($query_result);	//get query results	
-		 pg_close($conn);
+		 $this->getQueryData($sql);	//get query results	
+		
 	}
-	private function createIssue($waterpointid,$createdby,$issuetypeid,$createsourceid)
+	private function getIssueDetailsByWaterpointID()
 	{
-	 // Cross validation if the request method is POST else it will return "Not Acceptable" status
-		if($this->get_request_method() != "POST"){
+	   // Cross validation if the request method is GET else it will return "Not Acceptable" status
+		 if($this->get_request_method() != "GET"){
 			$this->response('',406);
-		}
-	     $conn = $this->connectToDB();
-		 pg_close($conn);
- 	}
-	private function getQueryData($query_result)// for gets only
+		 }
+		 $id = (int)$this->_request['id'];//request for the sanitized issue id		   
+		 $sql = "SELECT * FROM issue WHERE waterpointid  ='".$id."'";
+		 $this->getQueryData($sql);	//get query results	
+		
+	}
+	private function createIssue()
 	{
+	
+	 $wptid = $this->_request['wptid'];  
+	 $createdby = $this->_request['createdby'];  
+	 $issuetypeid = $this->_request['issuetypeid'];  
+	 $createsourceid = $this->_request['createsourceid'];  
+	 $userassigned = $this->_request['userassigned'];  
+	 // Cross validation if the request method is POST else it will return "Not Acceptable" status
+	if($this->get_request_method() != "POST"){
+		$this->response('',406);
+	}	   
+	$sql = "INSERT INTO issue(waterpointid, date_time_created, status, user_assigned,issuetypeid, issuesourceid, createdby)
+	   VALUES 
+	  ('". $wptid."','".date("Y-m-d H:i:s")."', 'False', '".$userassigned."','". $issuetypeid ."','".$createsourceid."', '".$createdby."');";
+	
+	$this->setQueryData($sql,"Successfully created issue","Failed to create issue, query was ");	//set query results	
+		 
+ 	}
+	private function getQueryData($sql)// use central function to process all queries for gets 
+	{
+	    $conn = $this->connectToDB();
+	    $query_result = pg_query($conn, $sql);
 	    if(pg_num_rows($query_result) > 0)
 		 {
 			$result = array();
@@ -186,6 +186,23 @@ class API extends REST
 		  {
 		      $this->response('',204);
 		  }
+		  pg_close($conn);
+	}
+	private function setQueryData($sql,$successmsg,$errormsg)// use central function to process all queries for posts/puts
+	{
+	    $conn = $this->connectToDB();
+	    $query_result = pg_query($conn, $sql);
+	    if($query_result)
+		 {
+			$success = array('status' => "Post Success", "msg" => $successmsg);
+             $this->response($this->json($success),200);
+		  }
+		  else
+		  {
+		     $error = array('status' => "Post Failure", "msg" => $errormsg.$sql);
+              $this->response($this->json($error), 400);
+		  }
+		 pg_close($conn);
 	}
 	/*
 	 *	Encode array into JSON
