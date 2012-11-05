@@ -5,7 +5,8 @@
 	class REST {
 		
 		public $_allow = array();
-		public $_content_type = "application/json";
+		public $json_content_type = "application/json";
+		public $xml_content_type = "application/xml";
 		public $_request = array();
 		
 		private $_method = "";		
@@ -19,9 +20,9 @@
 			return $_SERVER['HTTP_REFERER'];
 		}
 		
-		public function response($data,$status){
+		public function response($data,$status,$format){
 			$this->_code = ($status)?$status:200;
-			$this->set_headers();
+			$this->set_headers($format);
 			echo $data;
 			exit;
 		}
@@ -79,17 +80,17 @@
 		private function inputs(){
 			switch($this->get_request_method()){
 				case "POST":
-					$this->_request = $this->cleanInputs($_POST);
+					$this->_request = $this->sanitize($_POST);
 					break;
 				case "GET":
-				   $this->_request = $this->cleanInputs($_GET);
+				   $this->_request = $this->sanitize($_GET);
 					break;
 				case "DELETE":
-					$this->_request = $this->cleanInputs($_GET);
+					$this->_request = $this->sanitize($_GET);
 					break;
 				case "PUT":
 					parse_str(file_get_contents("php://input"),$this->_request);
-					$this->_request = $this->cleanInputs($this->_request);
+					$this->_request = $this->sanitize($this->_request);
 					break;
 				default:
 					$this->response('',406);
@@ -97,25 +98,47 @@
 			}
 		}		
 		
-		private function cleanInputs($data){
-			$clean_input = array();
-			if(is_array($data)){
-				foreach($data as $k => $v){
-					$clean_input[$k] = $this->cleanInputs($v);
+		
+		function cleanInput($input) {
+ 
+		  $search = array(
+			'@<script[^>]*?>.*?</script>@si',   // Strip out javascript
+			'@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+			'@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+			'@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
+		  );
+		 
+			$output = preg_replace($search, '', $input);
+			return $output;
+       }
+	   function sanitize($input) {
+			if (is_array($input)) {
+				foreach($input as $var=>$val) {
+					$output[$var] = $this->sanitize($val);
 				}
-			}else{
-				if(get_magic_quotes_gpc()){
-					$data = trim(stripslashes($data));
-				}
-				$data = strip_tags($data);
-				$clean_input = trim($data);
 			}
-			return $clean_input;
+			else {
+				if (get_magic_quotes_gpc()) {
+					$input = stripslashes($input);
+				}
+				$input  = $this->cleanInput($input);
+				$input = strip_tags($input);
+				$output = pg_escape_string($input);
+			}
+			return $output;
 		}		
 		
-		private function set_headers(){
+		private function set_headers($format){
 			header("HTTP/1.1 ".$this->_code." ".$this->get_status_message());
-			header("Content-Type:".$this->_content_type);
+			//header("Content-Type:".$this->_content_type);
+			if($format =='json')
+			{
+			   header("Content-Type:".$this->json_content_type);
+			}
+			else
+			{
+			   header("Content-Type:".$this->xml_content_type);
+			}
 		}
 	}	
 ?>

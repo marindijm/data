@@ -8,16 +8,22 @@
 
    # Allow any files or directories that exist to be displayed directly
    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteCond %{REQUEST_FILENAME} !-d
 
    # Rewrite all other URLs to ws.php/
-  #  RewriteRule ^([^.]+)/$ ws.php?rquest=$1
-  #RewriteRule ^([^.]+)$ ws.php?rquest=$1 [NC]
-   #RewriteRule ^([A-Za-z0-9-]+)/([0-9]+)/?$  ws.php?rquest=$1&wptid=$2 [PT,L] 
+ 
+
 RewriteRule    ^waterpoints/([A-Za-z0-9-]+)/?$   ws.php?rquest=$1   [NC,L]    # Process waterpoints
+RewriteRule    ^waterpoints/([A-Za-z0-9-]+)/xml/?$   ws.php?rquest=$1&format=xml    [NC,L]    # Process Xml for waterpoints request
 RewriteRule    ^waterpoints/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$    ws.php?rquest=$1&id=$2   [NC,L]    # Process Waterpoint details
+RewriteRule    ^waterpoints/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/xml/?$   ws.php?rquest=$1&id=$2&format=xml   [NC,L]    # Process  Xml  format for waterpoint details
+
 RewriteRule    ^issues/([A-Za-z0-9-]+)/?$   ws.php?rquest=$1   [NC,L]    # Process issues
+RewriteRule    ^issues/([A-Za-z0-9-]+)/xml/?$   ws.php?rquest=$1&format=xml    [NC,L]    # Process Xml for issues request
 RewriteRule    ^issues/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$    ws.php?rquest=$1&id=$2   [NC,L]    # Process issue details
+RewriteRule    ^issues/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/xml/?$    ws.php?rquest=$1&id=$2&format=xml   [NC,L]    # Process xml format for issue details
+   
+   
 
 
 </IfModule>

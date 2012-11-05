@@ -2,6 +2,9 @@
 require_once("rest.inc.php");
 class API extends REST 
 {
+    private $pnode ='';
+	private $cnode ='';
+	private $thumburl = '';// for the issue tracker xml
     function __construct(){
 			parent::__construct();			// Init parent contructor
 		
@@ -30,7 +33,11 @@ class API extends REST
 	   // Cross validation if the request method is GET else it will return "Not Acceptable" status
 		if($this->get_request_method() != "GET"){
 			$this->response('',406);
-		}	    
+		}
+		
+		//set the xml nodes just in case xml is requested	
+		$this->pnode = 'waterpoints';
+		$this->cnode = 'waterpoint';    
 		 $sql = "SELECT * FROM waterpoint_summary";	
 		 $this->getQueryData($sql);	//get query results	
 		 
@@ -40,7 +47,10 @@ class API extends REST
 	     // Cross validation if the request method is GET else it will return "Not Acceptable" status
 		 if($this->get_request_method() != "GET"){
 			$this->response('',406);
-		 }	   
+		 }	
+		 //set the xml nodes just in case xml is requested	
+		$this->pnode = 'contacts';
+		$this->cnode = 'contact';     
 		 $sql = "SELECT * FROM waterpoint_contacts";		
 		 $this->getQueryData($sql);	//get query results	
 	}
@@ -48,7 +58,10 @@ class API extends REST
 	{
 	  	if($this->get_request_method() != "GET"){
 				$this->response('',406);
-		}       
+		}   
+		//set the xml nodes just in case xml is requested	
+		$this->pnode = 'waterpoints';
+		$this->cnode = 'waterpoint';        
 		 $id = (int)$this->_request['id'];//request for the sanitized waterpoint id		   
 		 $sql = "SELECT * FROM waterpoint_summary WHERE waterpoint_id = '".$id."'";		
 		 $this->getQueryData($sql);	//get query results	
@@ -59,6 +72,9 @@ class API extends REST
 		 if($this->get_request_method() != "GET"){
 			$this->response('',406);
 		 }
+		  //set the xml nodes just in case xml is requested	
+		$this->pnode = 'contacts';
+		$this->cnode = 'contact';  
 		 $id = (int)$this->_request['id'];//request for the sanitized waterpoint id		
 		 $sql = "SELECT * FROM waterpoint_contacts WHERE waterpoint_id = '".$id."'";
 		 $this->getQueryData($sql);	//get query results	
@@ -123,7 +139,10 @@ class API extends REST
 	   // Cross validation if the request method is GET else it will return "Not Acceptable" status
 		 if($this->get_request_method() != "GET"){
 			$this->response('',406);
-		 }			    
+		 }
+		  //set the xml nodes just in case xml is requested	
+		$this->pnode = 'issues';
+		$this->cnode = 'issue';  			    
 		 $sql = "SELECT * FROM issue";
 		 $this->getQueryData($sql);	//get query results	
 	}
@@ -133,17 +152,39 @@ class API extends REST
 		 if($this->get_request_method() != "GET"){
 			$this->response('',406);
 		 }
+		 $this->pnode = 'issues';
+		$this->cnode = 'issue';  	
 		 $id = (int)$this->_request['id'];//request for the sanitized issue id		   
 		 $sql = "SELECT * FROM issue WHERE issueid ='".$id."'";
 		 $this->getQueryData($sql);	//get query results	
 		
 	}
-	private function getIssueDetailsByWaterpointID()
+	private function getIssuesAssigned()
 	{
 	   // Cross validation if the request method is GET else it will return "Not Acceptable" status
 		 if($this->get_request_method() != "GET"){
 			$this->response('',406);
 		 }
+		 $this->pnode = 'issues';
+		 $this->cnode = 'issue';  	
+		 $id = (int)$this->_request['id'];//request for the sanitized issue id		   
+		 $sql = "SELECT issueid,
+				(SELECT waterpoint_name FROM waterpoints WHERE waterpoint_id = waterpointid) AS   waterpoint_name, waterpointid,
+				(SELECT issuetypename FROM issuetype WHERE issuetype.issuetypeid=issue.issuetypeid) AS issuetype, date_time_created,
+				(SELECT username FROM users WHERE user_id=user_assigned) AS assigned_for
+				 FROM issue WHERE user_assigned ='".$id."' ORDER BY  waterpointid";
+		 $this->thumburl = 'http://data.safe-water.org/images/thumb.png';// for the issue tracker xml	 
+		 $this->getQueryData($sql);	//get query results	
+		
+	}
+	private function getIssuesByWaterpointID()
+	{
+	   // Cross validation if the request method is GET else it will return "Not Acceptable" status
+		 if($this->get_request_method() != "GET"){
+			$this->response('',406);
+		 }
+		 $this->pnode = 'issues';
+		$this->cnode = 'issue';  	
 		 $id = (int)$this->_request['id'];//request for the sanitized issue id		   
 		 $sql = "SELECT * FROM issue WHERE waterpointid  ='".$id."'";
 		 $this->getQueryData($sql);	//get query results	
@@ -151,7 +192,7 @@ class API extends REST
 	}
 	private function createIssue()
 	{
-	
+	//first of all sanitize the inputs to prevent code injections
 	 $wptid = $this->_request['wptid'];  
 	 $createdby = $this->_request['createdby'];  
 	 $issuetypeid = $this->_request['issuetypeid'];  
@@ -165,7 +206,7 @@ class API extends REST
 	   VALUES 
 	  ('". $wptid."','".date("Y-m-d H:i:s")."', 'False', '".$userassigned."','". $issuetypeid ."','".$createsourceid."', '".$createdby."');";
 	
-	$this->setQueryData($sql,"Successfully created issue","Failed to create issue, query was ");	//set query results	
+	$this->setQueryData($sql,"Successfully created issue","Failed to create issue, query was ".$sql);	//set query results	
 		 
  	}
 	private function getQueryData($sql)// use central function to process all queries for gets 
@@ -180,7 +221,23 @@ class API extends REST
 				$result[] = $rlt;
 			}
 			// If success everythig is good send header as "OK" and return list of users in JSON format
-			$this->response($this->json($result), 200);
+			$returnformat = 'json';
+			 $format = (string)@$this->_request['format'];
+			 if(!empty($format))
+			 {
+			   $returnformat = $format;
+			 }
+			if($returnformat =='json')
+			{
+			   $this->response($this->json($result), 200,$returnformat);
+			}
+			else
+			{
+			   //$this->response($this->genXML($query_result,'issues','issue'), 200,$returnformat);
+			   $query_result = pg_query($conn, $sql);
+			 //  $this->genXML($query_result);
+			 $this->response($this->genXML($query_result,$this->pnode,$this->cnode), 200,$returnformat);
+			 }
 		  }
 		  else
 		  {
@@ -188,6 +245,7 @@ class API extends REST
 		  }
 		  pg_close($conn);
 	}
+	
 	private function setQueryData($sql,$successmsg,$errormsg)// use central function to process all queries for posts/puts
 	{
 	    $conn = $this->connectToDB();
@@ -203,6 +261,44 @@ class API extends REST
               $this->response($this->json($error), 400);
 		  }
 		 pg_close($conn);
+	}
+	private function genXML($result,$rootnode,$childnode)
+	{ 
+	   // Create XML document
+		$doc = new DomDocument('1.0', 'UTF-8');
+		
+		// Create root node
+		$root = $doc->createElement($rootnode);
+		$root = $doc->appendChild($root);
+		
+		while ($row = pg_fetch_assoc($result)) {
+			// add node for each row
+		
+			$node = $doc->createElement($childnode);
+			$node = $root->appendChild($node);
+		
+			foreach ($row as $column => $value) {
+				$columnElement = $doc->createElement($column);
+				$columnElement = $node->appendChild($columnElement);
+		
+				$columnValue = $doc->createTextNode($value);
+				$columnValue = $columnElement->appendChild($columnValue);
+			}
+			if(!empty($this->thumburl))// customized addition to the xml
+			{
+			    $columnElement = $doc->createElement('thumb_url');
+				$columnElement = $node->appendChild($columnElement);
+		
+				$columnValue = $doc->createTextNode($this->thumburl);
+				$columnValue = $columnElement->appendChild($columnValue);
+			}
+		
+		}
+	        	
+		// Complete XML document
+		$doc->formatOutput = true;
+		$xmlContent = $doc->saveXML();
+		echo $xmlContent;
 	}
 	/*
 	 *	Encode array into JSON
