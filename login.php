@@ -16,6 +16,7 @@ include 'php_funcs/header.php';
 
 
  $obj = new MainFuncs();//initialize the functions class
+ $obj->logOutUser();//make sure previou sessions nullified
 
 if(@$_GET['auth'] == 'yes')//supress notice
 {
@@ -40,6 +41,7 @@ if(isset($_SESSION['googleidentity']))//check if user has logged in
 
  <div class="top_header">User Login</div> 	     
 			  <br/>
+			  <div class="snow"></div>
 			  <div class="login">
 	<a href="<?php 
 	$openid_link = $obj->loginUser();//get the open id authentication link

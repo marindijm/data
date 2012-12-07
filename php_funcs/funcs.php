@@ -1,6 +1,7 @@
 <?php
 class MainFuncs
 {
+   public $_domain = 'data.safe-water.org';
    
 	function connectToDB($dbname)
 	{
@@ -13,8 +14,8 @@ class MainFuncs
 	
 	function loginUser()
 	{
-	
-	    $openid = new LightOpenID("data.safe-water.org");
+	 
+	    $openid = new LightOpenID($this->_domain);
  
 		$openid->identity = 'https://www.google.com/accounts/o8/id';
 		$openid->required = array(
@@ -23,13 +24,13 @@ class MainFuncs
 		  'contact/email',
 		);
 	
-		$openid->returnUrl = 'http://data.safe-water.org/login.php?auth=yes';
+		$openid->returnUrl = 'http://'.$this->_domain.'/login.php?auth=yes';
 		
 		return $openid->authUrl();//return the authentication url
 	}
 	function authenticateUser()
 	{
-		 $openid = new LightOpenID("data.safe-water.org");
+		 $openid = new LightOpenID($this->_domain);
 		 
  
 		 if ($openid->mode) 
@@ -50,14 +51,9 @@ class MainFuncs
 				$_SESSION['username'] = $first.'  '.$last;
 				$_SESSION['fname'] = $first;
 				$_SESSION['lname'] = $last;
+				
+				$this->logUser($openid->identity,$email,date("Y-m-d H:i:s"),session_id(),$first.'  '.$last);//logdetails of user for audit trail purposes
 				header("location:index.php");//if not redirect to the login page
-			
-				
-				
-				/*echo "Identity : $openid->identity <br>";
-				echo "Email : $email <br>";
-				echo "First name : $first<br>";
-				echo "Last name : $last";*/
 			} 
 			else 
 			{
@@ -374,7 +370,7 @@ class MainFuncs
 		 $sql = "SELECT survey_choice FROM ".$schema.".dashboard_vars where id ='".$var."'";		 
 		 return $this->processReturnQuery($sql,'odk_prod');
 	}
-	private function processReturnQuery($sql,$dbname)//query returns result set
+	function processReturnQuery($sql,$dbname)//query returns result set
 	{
 	  $conn = $this->connectToDB($dbname);
 	   $result = pg_query($conn, $sql);
@@ -384,6 +380,7 @@ class MainFuncs
 		 pg_close($conn);
 	   return $result;
 	}
+	
 	//check if browser is internet explorer
 	function getMSIE6() {
        $userAgent = strtolower($_SERVER["HTTP_USER_AGENT"]);
@@ -549,6 +546,50 @@ class MainFuncs
 		$Table.= "\t</table>\n";
 		
 		return $Table;
+	}
+	function cleanInput($input) {
+ 
+		  $search = array(
+			'@<script[^>]*?>.*?</script>@si',   // Strip out javascript
+			'@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+			'@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+			'@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
+		  );
+		 
+			$output = preg_replace($search, '', $input);
+			return $output;
+       }
+	   function sanitize($input) {
+			if (is_array($input)) {
+				foreach($input as $var=>$val) {
+					$output[$var] = $this->sanitize($val);
+				}
+			}
+			else {
+				if (get_magic_quotes_gpc()) {
+					$input = stripslashes($input);
+				}
+				$input  = $this->cleanInput($input);
+				$input = strip_tags($input);
+				$output = pg_escape_string($input);
+			}
+			return $output;
+	}		
+		
+	function logUser($openid,$email,$timeloggedin,$sessionid,$username)
+	{
+	  $sql = "INSERT INTO loggedin(
+             username, email, openid_identity, session_id, loggedin, timeloggedin)
+             VALUES ('".$this->sanitize($username)."','".$this->sanitize($email)."',
+			 '".$this->sanitize($openid)."', '".$this->sanitize($sessionid)."', 'true', '".$this->sanitize($timeloggedin)."')";
+	  $result = $this->processReturnQuery($sql,'dsw_db');//
+
+	}
+	function logOutUser()
+	{
+	 $sql = "UPDATE loggedin SET loggedin = 'false', timeloggedout='".date("Y-m-d H:i:s")."' WHERE session_id ='".session_id()."'";
+	  $result = $this->processReturnQuery($sql,'dsw_db');//
+
 	}
 
 }

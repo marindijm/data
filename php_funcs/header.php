@@ -9,7 +9,9 @@
 {
         $_SESSION = array();
          session_destroy();
+		  //logOutUser();
 		 header("location:../login.php");
+		
  
 }
 

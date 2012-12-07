@@ -1,22 +1,17 @@
 <?php
-require_once("rest.inc.php");
+include '../php_funcs/funcs.php';
+include 'rest.inc.php';
 class API extends REST 
 {
     private $pnode ='';
 	private $cnode ='';
 	private $thumburl = '';// for the issue tracker xml
+
     function __construct(){
 			parent::__construct();			// Init parent contructor
 		
     }	
-	function connectToDB()
-	{
-		 $dbc = pg_connect("host=127.0.0.1 port=5432 dbname=dsw_db user=postgres password=postgres");
-		 if (!$dbc) {
-			 die("Error in connection: " . pg_last_error());
-		 }
-		 return $dbc;    
-	}
+
 	//Public method for access api.
     //This method dynmically call the method based on the query string
 	public function processApi()
@@ -172,8 +167,8 @@ class API extends REST
  	}
 	private function getQueryData($sql)// use central function to process all queries for gets 
 	{
-	    $conn = $this->connectToDB();
-	    $query_result = pg_query($conn, $sql);
+	    $obj = new MainFuncs(); 
+	    $query_result = $obj->processReturnQuery($sql,'dsw_db');//
 	    if(pg_num_rows($query_result) > 0)
 		 {
 			$result = array();
@@ -195,7 +190,7 @@ class API extends REST
 			else
 			{
 			   //$this->response($this->genXML($query_result,'issues','issue'), 200,$returnformat);
-			   $query_result = pg_query($conn, $sql);
+			   $query_result =  $obj->processReturnQuery($sql,'dsw_db');//
 			 //  $this->genXML($query_result);
 			 $this->response($this->genXML($query_result,$this->pnode,$this->cnode), 200,$returnformat);
 			 }
@@ -209,8 +204,8 @@ class API extends REST
 	
 	private function setQueryData($sql,$successmsg,$errormsg)// use central function to process all queries for posts/puts
 	{
-	    $conn = $this->connectToDB();
-	    $query_result = pg_query($conn, $sql);
+	     $obj = new MainFuncs(); 
+	    $query_result = $obj->processReturnQuery($sql,'dsw_db');//
 	    if($query_result)
 		 {
 			$success = array('status' => "Post Success", "msg" => $successmsg);

@@ -8,7 +8,7 @@
 		public $json_content_type = "application/json";
 		public $xml_content_type = "application/xml";
 		public $_request = array();
-		
+		 
 		private $_method = "";		
 		private $_code = 200;
 		
@@ -77,56 +77,28 @@
 			return $_SERVER['REQUEST_METHOD'];
 		}
 		
-		private function inputs(){
+		private function inputs()
+		{
+	$obj = new MainFuncs(); 
 			switch($this->get_request_method()){
 				case "POST":
-					$this->_request = $this->sanitize($_POST);
+					$this->_request = $obj->sanitize($_POST);
 					break;
 				case "GET":
-				   $this->_request = $this->sanitize($_GET);
+				   $this->_request = $obj->sanitize($_GET);
 					break;
 				case "DELETE":
-					$this->_request = $this->sanitize($_GET);
+					$this->_request = $obj->sanitize($_GET);
 					break;
 				case "PUT":
 					parse_str(file_get_contents("php://input"),$this->_request);
-					$this->_request = $this->sanitize($this->_request);
+					$this->_request = $obj->sanitize($this->_request);
 					break;
 				default:
 					$this->response('',406);
 					break;
 			}
-		}		
-		
-		
-		function cleanInput($input) {
- 
-		  $search = array(
-			'@<script[^>]*?>.*?</script>@si',   // Strip out javascript
-			'@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
-			'@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
-			'@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
-		  );
-		 
-			$output = preg_replace($search, '', $input);
-			return $output;
-       }
-	   function sanitize($input) {
-			if (is_array($input)) {
-				foreach($input as $var=>$val) {
-					$output[$var] = $this->sanitize($val);
-				}
-			}
-			else {
-				if (get_magic_quotes_gpc()) {
-					$input = stripslashes($input);
-				}
-				$input  = $this->cleanInput($input);
-				$input = strip_tags($input);
-				$output = pg_escape_string($input);
-			}
-			return $output;
-		}		
+		}	
 		
 		private function set_headers($format){
 			header("HTTP/1.1 ".$this->_code." ".$this->get_status_message());

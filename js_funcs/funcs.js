@@ -7,8 +7,11 @@ $(document).ready(function() {
 	   'dsw_logo.png','dsw_logo_sc.png','dsw_logo_small.png','evidence.png',
 	   'gears.gif','icon_bug_1.png','live_rep.png','loading.gif','models.png',
 	   'motorcycle_rep.png','partners.png','random.png','solution.png',
-	   'static_rep.png','thumb.png','total_disps.png','wazi.png']).preload();
+	   'static_rep.png','thumb.png','total_disps.png','wazi.png','map.png']).preload();
 	//call the necessary javascript functions
+	$('.snow').exists(function() {
+      $.fn.snow();//only call when snow element exists
+     });
 	$('#pie').exists(function() {
        $.fn.charting();//only call when pie element exists
      });
