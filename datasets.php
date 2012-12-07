@@ -1,16 +1,18 @@
 <?php
  //header file
 include 'php_funcs/header.php';
-?>
+
+
+ ?>
  <div class="top_header">Program Datasets</div>     
 			  <br/>
 	<div class="ds_tbl">
 			<table>	
 						 
 			<tbody>
-				 <tr><td width="169"><a href="#repbox1" id="ds"><img src="images/thumb.png"/><br/>Waterpoint Summary</a></td> </tr>	
-				 <tr><td><a href="#repbox2" id="ds"><img src="images/thumb.png"/><br/>Chlorine Delivery</a></td></tr>
-				 <tr><td><a href="#repbox3" id="ds"><img src="images/thumb.png"/><br/> Miscellanous information</a></td></tr>	
+				 <tr><td width="169"><a href="#repbox1" id="ds"><img src="images/dataset.png"/><br/>Waterpoint Summary</a></td> </tr>	
+				 <tr><td><a href="#repbox2" id="ds"><img src="images/dataset.png"/><br/>Chlorine Delivery</a></td></tr>
+				 <tr><td><a href="#repbox3" id="ds"><img src="images/dataset.png"/><br/> Miscellanous information</a></td></tr>	
 					
 			</tbody>
 			</table>

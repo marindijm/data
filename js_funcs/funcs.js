@@ -1,6 +1,13 @@
 // JavaScript Document
 //$.noConflict();
-$(document).ready(function() {  	
+$(document).ready(function() { 
+						   
+	//preload all our images for faster display
+	$(['challenge.png','dataset.png',
+	   'dsw_logo.png','dsw_logo_sc.png','dsw_logo_small.png','evidence.png',
+	   'gears.gif','icon_bug_1.png','live_rep.png','loading.gif','models.png',
+	   'motorcycle_rep.png','partners.png','random.png','solution.png',
+	   'static_rep.png','thumb.png','total_disps.png','wazi.png']).preload();
 	//call the necessary javascript functions
 	$('#pie').exists(function() {
        $.fn.charting();//only call when pie element exists
@@ -286,5 +293,10 @@ fileDownloadCheckTimer = window.setInterval(function () {
 	  }
     }, 1000);
  }
+ $.fn.preload = function() {
+    this.each(function(){
+        $('<img/>')[0].src = "images/"+this;
+    });
+}
 
 

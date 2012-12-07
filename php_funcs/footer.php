@@ -34,7 +34,13 @@
   </tbody>
 </table>
 </div>
-
+<!-- load jquery first -->
+<script src="../js_funcs/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="../js_funcs/jquery-ui-1.9.1.min.js" type="text/javascript"></script>
+<script src="../js_funcs/jquery_cookie.js" type="text/javascript"></script>
+<script src="../js_funcs/jquery_blockUI.js" type="text/javascript"></script>
+<script src="../js_funcs/highcharts.js" type="text/javascript"></script>
+<script src="../js_funcs/exporting.js" type="text/javascript"></script>
 <script src="../js_funcs/funcs.js" type="text/javascript"></script><!--load the javascript functions as the last thing in page-->
 </body>
 </html>

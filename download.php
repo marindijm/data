@@ -19,7 +19,7 @@ if(@isset($_GET['ds']))//self server calls
       $sql = "SELECT * FROM waterpoint_summary"; 
 	  $cookieVal = $_GET['dl_cookie'];	
 	  $obj->genDataset($sql,'DSW Waterpoint Summary','Waterpoint Summary',$cookieVal);
-	  
+
    }
       if($ds == 'cd')
    { 

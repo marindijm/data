@@ -8,7 +8,7 @@ include 'php_funcs/funcs.php'; //include all the functions to be used all the pa
 include 'php_funcs/header.php';
 ?>
 <div class="summary_layout">
- 
+ <br/>
    <span class="dropcharacter">W</span>elcome <span class="username"><?php echo @$_SESSION['fname'];?> </span> <img src="images/wazi.png" alt="" name="wazi_mzeiya" width="47" height="40" id="img1" />, to the dispensers for safe water data portal. We hope to serve all your data needs here. But in case we don't, <a href="#">please let us know</a> so that we serve you best.
   
    <div class="center_header">Program Summary</div>

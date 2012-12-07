@@ -11,8 +11,6 @@ $obj = new MainFuncs();
 			<div id="pie"></div>
 
 
-<script src="js_funcs/highcharts.js" type="text/javascript"></script>
-<script src="js_funcs/exporting.js" type="text/javascript"></script>
 
 <?php 
 //footer file

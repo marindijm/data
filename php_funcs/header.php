@@ -36,11 +36,7 @@ if(!isset($_SESSION['googleidentity']) && $_SESSION['headertype'] != 'login')//c
 <link href="../css/live_rep.css" rel="stylesheet"> 
 <link href="../css/jquery-ui-1.9.1.min.css" rel="stylesheet"> 
 
-<!-- load jquery first -->
-<script src="../js_funcs/jquery-1.8.2.min.js" type="text/javascript"></script>
-<script src="../js_funcs/jquery-ui-1.9.1.min.js" type="text/javascript"></script>
-<script src="../js_funcs/jquery_cookie.js" type="text/javascript"></script>
-<script src="../js_funcs/jquery_blockUI.js" type="text/javascript"></script>
+
 </head>
 
 <body>
