@@ -38,10 +38,11 @@ if(isset($_SESSION['googleidentity']))//check if user has logged in
 	For full functionality of this site it is necessary to enable JavaScript. 
 	Here are the <a href="http://www.enable-javascript.com"> instructions how to enable JavaScript in your web browser</a>
 	</noscript>	
-
+<div class="snow"></div>
+<div class="preload_imgs"></div>
  <div class="top_header">User Login</div> 	     
 			  <br/>
-			  <div class="snow"></div>
+			  
 			  <div class="login">
 	<a href="<?php 
 	$openid_link = $obj->loginUser();//get the open id authentication link
