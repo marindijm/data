@@ -34,7 +34,7 @@
   </tbody>
 </table>
 </div>
-<script src="../js_funcs/export.js" type="text/javascript"></script> 
+
 <script src="../js_funcs/funcs.js" type="text/javascript"></script><!--load the javascript functions as the last thing in page-->
 </body>
 </html>

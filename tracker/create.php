@@ -7,13 +7,13 @@ if(!isset($_SESSION))
  include '../php_funcs/header.php'; 
  include '../php_funcs/funcs.php'; //include all the functions to be used all the pages 
 
- if(isset($_POST['submit']))
+ if(isset($_POST['submit'])) //page self call
  {
- 
-
-   $obj = new MainFuncs();
-   extract($_POST);
-   $url = 'http://data.safe-water.org/rest/issues/createissue';
+   $obj = new MainFuncs();//initialize the main class.
+   extract($_POST);//get the post variables.
+   $url = 'http://localhost/rest/issues/createissue'; //use localhost in this case because execution is in the server.
+   
+   //encode the post variables
    $fields = array(
             'wptid' => urlencode($wpt_id),
             'createdby' => urlencode($assign_to),

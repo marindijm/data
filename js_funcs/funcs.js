@@ -21,6 +21,70 @@ $(document).ready(function() {
 	$('#usersoptions').exists(function() {
        $.fn.getusers();
     });
+	$('.export_rpt').exists(function() {//shoddy code to export html table to excel
+       $("a#exp").click(function(){
+			        $('#oaf_report').exists(function() {					
+			              $.fn.ToExcel('oaf_report', 'OAF Spotcheck Results');
+					 });
+					 $('#mph_report').exists(function() {					
+			              $.fn.ToExcel('mph_report', 'MPH Spotcheck Results');
+					 });
+					  $('#moe_report').exists(function() {					
+			              $.fn.ToExcel('moe_report', 'MOE Spotcheck Results');
+					 });
+					  $('#cd_report').exists(function() {					
+			              $.fn.ToExcel('cd_report', 'Chlorine Delivery Results');
+					 });
+					  $('#mc_report').exists(function() {					
+			              $.fn.ToExcel('mc_report', 'Motorcycle Records');
+					 });
+					   $('#pilots').exists(function() {					
+			              $.fn.ToExcel('pilots', 'Reference Pilots ');
+					 });
+		});
+    });
+	$('#gb').exists(function() {
+       $("#gb").click(function(){	
+			 if(document.referrer.indexOf(window.location.hostname) != -1){
+				parent.history.back();
+				return false;
+			}
+			// $("#link2").trigger('click');	
+            
+		});
+    });
+	$('.rep_tbl').exists(function() {								  
+		 $('html, body').animate({ scrollTop: $(".repbox").offset().top  }, 2000);//animate scrolling to the description to capture att
+		 $("a#rep").click(function(){
+			
+			$(".repbox").hide(600);
+			var toShow = $(this).attr('href');
+			$(toShow).show(200);
+			 return false;
+		});
+		
+    });
+	$('.ds_tbl').exists(function() {								  
+		 $('html, body').animate({ scrollTop: $(".repbox").offset().top  }, 2000);//animate scrolling to the description to capture att
+		 
+		 $("a#ds").click(function(){			
+			$(".repbox").hide(600);
+			var toShow = $(this).attr('href');
+			$(toShow).show(200);
+		//	$('html, body').animate({ scrollTop: $(".repbox").offset().top  }, 2000);//animate scrolling to the description to capture att
+			 return false;
+		});
+		 $("a.export_rpt").click(function(){				  
+			 
+			 
+		     $.fn.dlFile($(this).attr('href'));	//pass the relevant parameters
+			return false;
+		});
+		 
+		 
+		
+				
+    });
 	$(".challenge").middleBoxButton("The Challenge", "http://www.poverty-action.org/safewater/test/challenge");
 	$(".solution").middleBoxButton("The Solution", "http://www.poverty-action.org/safewater/test/solution");
 	$(".evidence").middleBoxButton("The Evidence", "http://www.poverty-action.org/safewater/test/evidence");
@@ -135,18 +199,6 @@ $.fn.exists = function(callback) {
 
   return this;
 }
-$.fn.showonlyone = function(thechosenone) {
-     $('.newboxes').each(function(index) {
-          if ($(this).attr("id") == thechosenone) 
-		  {
-               $(this).show(200);
-          }
-          else 
-		  {
-               $(this).hide(600);
-          }
-     });
-}
 $.fn.wpt_id_autocomplete = function()
 {
 	  var waterpoints = [];
@@ -172,13 +224,7 @@ $.fn.getssueTypes = function()
 			$.each(data, function() {
 				options.append($("<option/>").val(this.issuetypeid).text(this.issuetypename));
 			});
-		});
-       /* $.getJSON('http://data.safe-water.org/rest/issues/getusers', function(data) {	//do a json call to get issuetype		
-			 var options = $("#usersoptions");
-			$.each(result, function() {
-				options.append($("<option />").val(this.ImageFolderID).text(this.Name));
-			});
-		});*/
+		});      
 }
 $.fn.getusers= function()
 {	 
@@ -190,4 +236,55 @@ $.fn.getusers= function()
 			});
 		});
 }
+$.fn.ToExcel = function(table,name)
+{
+ 
+  var uri = 'data:application/vnd.ms-excel;base64,';
+  var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>';
+  
+   var base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+    var format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+	
+  function a(table, name) 
+  {
+	    
+    if (!table.nodeType) table = document.getElementById(table)
+    var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+    window.location.href = uri + base64(format(template, ctx))
+  }
+  
+  return a(table, name);
+
+}
+ $.fn.dlFile=function(sc)
+ {
+	var fileDownloadCheckTimer;
+    var token = new Date().getTime(); //use the current timestamp as the token value
+  var boxID = $(".repbox").attr('id');
+			  $('#' + boxID).append('<iframe id="downloadFrame"></iframe>');//internal frame to download the file
+			  $('#' + boxID).append('<br/><br/><div id="dvloader">Please wait, the dataset is being generated<br/><br/><img src="images/gears.gif"/></div>');
+		 $.blockUI({ message: $('#dvloader'), 
+             css: { 
+             border: 'none', 
+             padding: '15px',         
+            '-webkit-border-radius': '10px', 
+            '-moz-border-radius': '10px', 
+			'border-radius': '10px',            
+            'font-family':'Open Sans Bold',
+             color:'#00416A' 
+            }  }); 
+  
+   $("#downloadFrame").attr({ src: sc + "/" + token});//use iframe to download the file
+
+fileDownloadCheckTimer = window.setInterval(function () {
+      var cookieValue =$.cookie('fileDownloadToken');//read the cookie
+	
+	if ($.trim(cookieValue) == $.trim(token))
+	  {	
+		 $.cookie('fileDownloadToken', null); //clears this cookie value
+         $.unblockUI();		
+	  }
+    }, 1000);
+ }
+
 

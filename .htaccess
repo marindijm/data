@@ -1,0 +1,29 @@
+#handle error re-directs
+ErrorDocument 400 /error.php
+ErrorDocument 401 /error.php
+ErrorDocument 403 /error.php
+ErrorDocument 404 /error.php
+ErrorDocument 500 /error.php
+ErrorDocument 502 /error.php
+ErrorDocument 504 /error.php
+
+
+
+
+# BEGIN GZIP
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
+</ifmodule>
+# END GZIP
+
+<IfModule mod_rewrite.c>
+   # Turn on URL rewriting
+    RewriteEngine On 
+
+
+
+RewriteRule  ^dl/([A-Za-z0-9-]+)/?$    download.php?ds=$1    [NC,L] #dummy rewriting to prevent a 404 error
+RewriteRule  ^dl/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$    download.php?ds=$1&dl_cookie=$2    [NC,L]    # rule for datasets
+RewriteRule  ^mr/([A-Za-z0-9-]+)/?$    mr/index.php?mc=$1    [NC,L]    # rule for motorcycle records
+
+</IfModule>

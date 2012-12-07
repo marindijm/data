@@ -1,0 +1,1 @@
+<?php header("location:create.php"); //redirect to create.php instead of showing folder structure ?>

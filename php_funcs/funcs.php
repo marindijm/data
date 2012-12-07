@@ -14,7 +14,7 @@ class MainFuncs
 	function loginUser()
 	{
 	
-	    $openid = new LightOpenID("localhost");
+	    $openid = new LightOpenID("data.safe-water.org");
  
 		$openid->identity = 'https://www.google.com/accounts/o8/id';
 		$openid->required = array(
@@ -23,13 +23,13 @@ class MainFuncs
 		  'contact/email',
 		);
 	
-		$openid->returnUrl = 'http://localhost/login.php?auth=yes';
+		$openid->returnUrl = 'http://data.safe-water.org/login.php?auth=yes';
 		
 		return $openid->authUrl();//return the authentication url
 	}
 	function authenticateUser()
 	{
-		 $openid = new LightOpenID("localhost");
+		 $openid = new LightOpenID("data.safe-water.org");
 		 
  
 		 if ($openid->mode) 
@@ -392,9 +392,12 @@ class MainFuncs
        }
        return false;
     }
-	function genDataset($sql,$filename,$title,$columnnames_tbl)
+	function genDataset($sql,$filename,$title,$cookieVal)
 	{
-	    // Create new PHPExcel object		
+	
+	    ini_set("memory_limit", "-1");
+    	ini_set('max_execution_time', 123456);
+	   // Create new PHPExcel object		
 		$objPHPExcel = new PHPExcel(); 		
 		// Set document properties
 		$objPHPExcel->getProperties()->setCreator("Dispensers For Safe Water")
@@ -403,51 +406,55 @@ class MainFuncs
 									 ->setKeywords("dsw datasets")
 									 ->setCategory("Datasets");		
 		// Database with existing object		
-			
-		$result = $this-> processReturnQuery($sql,'dsw_db');
-		 
+
+		$result = $this-> processReturnQuery($sql,'dsw_db'); 
 		
 		// First Row (Names)		
 		$objPHPExcel->setActiveSheetIndex(0);
-		$columnname_rst = $this->getColumnNames($columnnames_tbl);
+		
+		$sheet = $objPHPExcel->getActiveSheet();	
+		$sheet->setTitle($title);
 		
 		$col = 0;
-		while($value = pg_fetch_array($columnname_rst)) //set column names
-		{		
-		   $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col,1,$value[0]);
+		$NumFields = pg_num_fields($result);
+		
+		/*$cacheMethod = PHPExcel_CachedObjectStorageFactory:: cache_to_phpTemp;
+		$cacheSettings = array( ' memoryCacheSize ' => '80MB');
+		PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);	*/	
+		
+		for ($i=0; $i < $NumFields; $i++)
+		{  		
+		   $sheet->setCellValueByColumnAndRow($col,1,pg_field_name($result, $i));
 		   $col = $col + 1;
 			
-		}					
+		}				
 		// Other Rows (Data)		
-		$i = 2;		
-		while ($row = pg_fetch_row($result))
+		$i = 2;
+	
+				
+		while ($rw = pg_fetch_row($result))
 		{		
-		   foreach ($row as $col=>$dado) $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow ($col,$i,$dado);	
-		   $i++;		
+			  foreach ($rw as $col=>$dado) $sheet->setCellValueByColumnAndRow ($col,$i,$dado);
+			  $i++;
+			  		
 		}
-		$objPHPExcel->setActiveSheetIndex(0);				
-		$objPHPExcel->getActiveSheet()->setTitle($title);
-		$objPHPExcel->getActiveSheet()->calculateColumnWidths();
-		
 		//  Define a style to set
-		$styleArray = array('font' => array('bold' => true,
-										   )
-						   );
+		$styleArray = array('font' => array('bold' => true,   )   );
 		//  And a range of cells to set it for
 		$fromCol = 'A';
-		$toCol = $objPHPExcel->getActiveSheet()->getColumnDimension($objPHPExcel->getActiveSheet()->getHighestColumn())->getColumnIndex();
+		$toCol = $sheet->getColumnDimension($sheet->getHighestColumn())->getColumnIndex();
 		$fromRow = 1;
 		$toRow = 1;
 		$cellRange = $fromCol . $fromRow . ':' . $toCol . $toRow;
-		
-		$objPHPExcel->getActiveSheet()->getStyle($cellRange)->applyFromArray($styleArray);//bolden the top column
 
-		
-		
+		$sheet->getStyle($cellRange)->applyFromArray($styleArray);//bolden the top column
+
+
+
 		$toCol++;
 		for($i = "A"; $i !== $toCol; $i++) {
-			$calculatedWidth = $objPHPExcel->getActiveSheet()->getColumnDimension($i)->getWidth();
-			$objPHPExcel->getActiveSheet()->getColumnDimension($i)->setWidth(abs((int)$calculatedWidth) * 23 );
+			$calculatedWidth = $sheet->getColumnDimension($i)->getWidth();
+			$sheet->getColumnDimension($i)->setWidth(abs((int)$calculatedWidth) * 23 );
 		}
       
 		// Redirect output to a client's web browser (Excel5)
@@ -455,41 +462,16 @@ class MainFuncs
 		header('Content-Type: application/vnd.ms-excel');		
 		header('Content-Disposition: attachment;filename="'.$filename.'.xls"');
 		header("Content-Transfer-Encoding: binary ");		
-		header('Cache-Control: max-age=0');
-		
-		
-		
+		header('Cache-Control: max-age=0');		 
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');	
-		//PHPExcel_Shared_Font::setAutoSizeMethod(PHPExcel_Shared_Font::AUTOSIZE_METHOD_EXACT);	
-		$objWriter->save('php://output');		
-		exit;
-		
+		$objWriter->save('php://output');	
 	}
 	function getColumnNames($tableName)
 	{
 	   $sql = "select column_name from information_schema.columns where table_name='".$tableName."'";	 
 	   return $this->processReturnQuery($sql,'dsw_db');
 	}
-	function autoFitColumnWidthToContent($sheet, $fromCol, $toCol)
-	{
 	
-	    
-        if (empty($toCol) ) {//not defined the last column, set it the max one
-            $toCol = $sheet->getColumnDimension($sheet->getHighestColumn())->getColumnIndex();
-			//echo 'to column is '.$toCol;
-        }
-        $toCol++;
-        for($i = $fromCol; $i !== $toCol; $i++) {
-		
-	
-			$calculatedWidth = $sheet->getColumnDimension($i)->getWidth();
-			$sheet->getColumnDimension($i)->setWidth((int) $calculatedWidth * 1.9);
-		}
-		
-        $sheet->calculateColumnWidths();
-		
-		
-    }
 	function curl_request($url,  $postdata ) //single custom cURL request.
 	{
 		$ch = curl_init();
@@ -512,6 +494,63 @@ class MainFuncs
 	
 		return $response;
 	}
+	function SQLResultTable($sql)
+	{
+		
+		$Table = "";  //initialize table variable
+		
+		$Table.= "\t<table id="."\"mc_report\"".">\n"; //Open HTML Table
+		
+		$Result = $this->processReturnQuery($sql,'dsw_db');//
+		if(!$Result )
+		{
+			$Table.= "<tr><td>POSTGRES ERROR: " . $Result . "</td></tr>";
+		}
+		else
+		{
+			//Header Row with Field Names
+			$NumFields = pg_num_fields($Result);
+			$Table.= "\t<thead>\n"; 
+			$Table.= "\t\t<tr>\n";
+			for ($i=0; $i < $NumFields; $i++)
+			{     
+				$Table.= "\t\t\t<th>" . pg_field_name($Result, $i) . "</th>\n"; 
+			}
+			$Table.= "\t\t</tr>\n";
+		    $Table.= "\t</thead>\n"; 
+			
+			$Table.= "\t<tbody>\n"; //add tbody tag
+			//Loop thru results
+			$RowCt = 0; //Row Counter
+			while($Row = pg_fetch_assoc($Result))
+			{	
+				$Table.= "\t\t<tr>\n";
+				//Loop thru each field
+				$cellCounter = '0';
+				foreach($Row as $field => $value)
+				{
+				  $cellCounter = $cellCounter + 1;
+				      if($cellCounter == 1)//first cell
+					  {
+					    $Table.= "\t\t\t<td class="."\"align_left\"".">$value</td>\n"; //allgin values left
+					  }
+					  else
+					  {
+					    $Table.= "\t\t\t<td class="."\"align_right\"".">$value</td>\n"; //allgin values right
+					  }
+				
+				}
+				$Table.= "\t\t</tr>\n";
+			}
+			
+			//$Table.= "\t\t<tr style=\"background-color: #000066; color: #FFFFFF;\"><td colspan='$NumFields'>Query Returned " . pg_num_rows($Result) . " records</td></tr>\n";
+			$Table.= "\t</tbody>\n"; //close tbody tag
+		}
+		$Table.= "\t</table>\n";
+		
+		return $Table;
+	}
+
 }
 
 ?>
