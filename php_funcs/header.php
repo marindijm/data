@@ -17,7 +17,7 @@
 
 if(!isset($_SESSION['googleidentity']) && $_SESSION['headertype'] != 'login')//check if user has logged in
 {
- 	 header("location:../login.php");//if not redirect to the login page
+ 	// header("location:../login.php");//if not redirect to the login page
 }
 
 ?>
@@ -37,7 +37,17 @@ if(!isset($_SESSION['googleidentity']) && $_SESSION['headertype'] != 'login')//c
 <link href="../css/main.css" rel="stylesheet"> 
 <link href="../css/live_rep.css" rel="stylesheet"> 
 <link href="../css/jquery-ui-1.9.1.min.css" rel="stylesheet"> 
+<!--
+<link rel="stylesheet" media="screen" href="css/christmaslights.css" />
+<script type="text/javascript" src="js_funcs/soundmanager2-nodebug-jsmin.js"></script>
+<script type="text/javascript" src="js_funcs/animation-min.js"></script>
+<script type="text/javascript" src="js_funcs/christmaslights.js"></script>
+<script type="text/javascript">
+var urlBase = './';
+soundManager.url = './';
+</script>
 
+-->
 
 </head>
 

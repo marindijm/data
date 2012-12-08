@@ -15,9 +15,7 @@ include 'php_funcs/header.php';
 				 <tr><td><a href="#repbox3" id="ds"><img src="images/dataset.png"/><br/> Miscellanous information</a></td></tr>	
 					
 			</tbody>
-			</table>
-			
-			
+			</table>			
 			<div class="repbox" id="repbox1">
 				<div class="center_header" id="desc">Description</div>
 				 This dataset includes  all the waterpoints plus relevant info i.e. districts, counties, divisions, directions, promoter info, location, village elder contacts etcetera.	
@@ -28,19 +26,14 @@ include 'php_funcs/header.php';
 			<div class="repbox" id="repbox2">
 				<div class="center_header" id="desc">Description</div>
 					This dataset, is of all the chlorine delivery records since the inception of the program
-					<br/>
-					 <br/>
-					  <div style="display:none" id="dvloader"><img src="images/loading.gif" /></div>
-				  <br/>
+					<br/><br/>
 					 <a href="dl/cd" class="export_rpt" id="dl">Download Dataset</a>			
 	        </div>
+			
 			<div class="repbox" id="repbox3">
 				<div class="left_header" id="desc">Description</div>
 			        A compilation of all other information pertaining a waterpoint which is not in the summary
-			     <br/>	
-				  <br/>
-				   <div style="display:none" id="dvloader"><img src="images/loading.gif" /></div>
-				  <br/>
+			     <br/><br/>
 			   <a href="dl/misc" class="export_rpt" id="dl">Download Dataset</a>			
 	        </div>
   </div>

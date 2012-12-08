@@ -7,7 +7,7 @@
   
     <td>
 		<div class="widget challenge rounded">
-			<img src="../images/challenge.png" alt=""   id="the_challenge" />
+			<img src="../images/challenge.png"  id="the_challenge" />
 		</div>
     </td>
     <td>
