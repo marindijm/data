@@ -1,14 +1,16 @@
 // JavaScript Document
 //$.noConflict();
 $(document).ready(function() { 
-						   
+	 $('.login').exists(function() {
+         $.fn.getLoginLink();
+     });					   
 	//preload all our images for faster display
 	$('.preload_imgs').exists(function() {
-	$(['challenge.png','dataset.png',
-	   'dsw_logo.png','dsw_logo_sc.png','dsw_logo_small.png','evidence.png',
-	   'gears.gif','icon_bug_1.png','live_rep.png','loading.gif','models.png',
-	   'motorcycle_rep.png','partners.png','random.png','solution.png',
-	   'static_rep.png','thumb.png','total_disps.png','wazi.png','map.png','snow.png']).preload();
+		$(['challenge.png','dataset.png',
+		   'dsw_logo.png','dsw_logo_sc.png','dsw_logo_small.png','evidence.png',
+		   'gears.gif','icon_bug_1.png','live_rep.png','loading.gif','models.png',
+		   'motorcycle_rep.png','partners.png','random.png','solution.png',
+		   'static_rep.png','thumb.png','total_disps.png','wazi.png','map.png','snow.png']).preloadImages();
 	});
 	//call the necessary javascript functions
 	$('.snow').exists(function() {
@@ -211,23 +213,7 @@ $.fn.exists = function(callback) {
 
   return this;
 }
-$.fn.wpt_id_autocomplete = function()
-{
-	  var waterpoints = [];
-	 
-		  //change link later to more advance link
-		   $.getJSON('http://data.safe-water.org/rest/waterpoints/getwaterpoints', function(data) {	//do a json call to get waterpoint id's 		
-				  $.each(data, function(i, obj) {
-							waterpoints.push(obj.waterpoint_id );//add waterpoint id's to autocomplete field
-				  });
-			});
-	 
-		 
-        $( "#wpts_id" ).autocomplete({
-            source: waterpoints
-        });
-	 
-}
+
 $.fn.getssueTypes = function()
 {	 
 	  //change link later to more advance link
@@ -298,10 +284,17 @@ fileDownloadCheckTimer = window.setInterval(function () {
 	  }
     }, 1000);
  }
- $.fn.preload = function() {
+$.fn.preloadImages = function() {
     this.each(function(){
         $('<img/>')[0].src = "images/"+this;
     });
 }
-
-
+$.fn.getLoginLink = function() {
+    $.ajax({
+            url: 'link.php',
+            success: function(response) {
+            //   document.write(data);
+			  $("a").attr("href", response)
+            }
+        });
+}

@@ -1266,3 +1266,38 @@ REQUEST_URI=/dispenserapp/index.php?r=issues/index
 in /var/www/data/dispenserapp/protected/views/issues/_view.php (13)
 in /var/www/data/dispenserapp/protected/views/issues/index.php (20)
 in /var/www/data/dispenserapp/protected/controllers/IssuesController.php (128)
+2012/12/10 10:59:27 [error] [exception.CException] exception 'CException' with message 'Property "User.openid_identity" is not defined.' in /var/www/data/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/data/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('openid_identity')
+#1 /var/www/data/dispenserapp/protected/views/users/_view.php(21): CActiveRecord->__get('openid_identity')
+#2 /var/www/data/yii/framework/web/CBaseController.php(131): require('/var/www/data/d...')
+#3 /var/www/data/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/data/d...', Array, false)
+#4 /var/www/data/yii/framework/zii/widgets/CListView.php(260): CBaseController->renderFile('/var/www/data/d...', Array)
+#5 /var/www/data/yii/framework/zii/widgets/CBaseListView.php(161): CListView->renderItems()
+#6 [internal function]: CBaseListView->renderSection(Array)
+#7 /var/www/data/yii/framework/zii/widgets/CBaseListView.php(144): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{sort...')
+#8 /var/www/data/yii/framework/zii/widgets/CBaseListView.php(129): CBaseListView->renderContent()
+#9 /var/www/data/yii/framework/web/CBaseController.php(174): CBaseListView->run()
+#10 /var/www/data/dispenserapp/protected/views/users/index.php(20): CBaseController->widget('zii.widgets.CLi...', Array)
+#11 /var/www/data/yii/framework/web/CBaseController.php(127): require('/var/www/data/d...')
+#12 /var/www/data/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/data/d...', Array, true)
+#13 /var/www/data/yii/framework/web/CController.php(870): CBaseController->renderFile('/var/www/data/d...', Array, true)
+#14 /var/www/data/yii/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
+#15 /var/www/data/dispenserapp/protected/controllers/UsersController.php(128): CController->render('index', Array)
+#16 /var/www/data/yii/framework/web/actions/CInlineAction.php(50): UsersController->actionIndex()
+#17 /var/www/data/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#18 /var/www/data/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 /var/www/data/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#20 /var/www/data/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#21 /var/www/data/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#22 /var/www/data/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 /var/www/data/yii/framework/web/CController.php(292): CFilterChain->run()
+#24 /var/www/data/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 /var/www/data/yii/framework/web/CWebApplication.php(283): CController->run('index')
+#26 /var/www/data/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('users/index')
+#27 /var/www/data/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#28 /var/www/data/dispenserapp/index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/dispenserapp/index.php?r=users/index
+HTTP_REFERER=http://data.safe-water.org/dispenserapp/index.php
+---

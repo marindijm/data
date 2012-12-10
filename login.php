@@ -139,19 +139,7 @@ if (ie4up||ns6up){
 			  <br/>
 			  
 			  <div class="login">
-	<a href="<?php 
-	$openid_link = $obj->loginUser();//get the open id authentication link
-	
-	if(!$openid_link)
-	{
-	   echo '#';
-	}
-	else
-	{
-	   echo $openid_link;
-	} 
-	
-	 ?>">Please Sign In With Your Poverty Action Account</a>
+	            <a href="#">Please Sign In With Your Poverty Action Account</a>
 	         </div>
 	         <br/>
 	

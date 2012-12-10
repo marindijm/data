@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="funcs.js" local="129994369713910251" remote="129994369710000000" testing="129994369710000000" />
+<file name="funcs.js" local="129995226892348528" remote="129995226890000000" testing="129995226890000000" />
 <file name="highcharts.js" local="129943321040631056" remote="129943321040000000" testing="129943321040000000" />
 <file name="exporting.js" local="129936624300000000" remote="129936624300000000" testing="129936624300000000" />
 <file name="jquery-1.8.2.min.js" local="129975417856552767" remote="129975417850000000" testing="129975417850000000" />
@@ -10,4 +10,5 @@
 <file name="jquery_cookie.js" local="129989955802845714" remote="129989955800000000" testing="129989955800000000" />
 <file name="animation-min.js" local="129994381703746030" remote="129994381700000000" testing="129994381700000000" />
 <file name="christmaslights.js" local="129994387928842085" remote="129994387920000000" testing="129994387920000000" />
+<file name="soundmanager2-nodebug-jsmin.js" local="129994378542995246" remote="129994378540000000" testing="129994378540000000" />
 </dwsync>

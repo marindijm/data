@@ -16,6 +16,7 @@
          url('fnt/OpenSans-Bold-webfont.ttf') format('truetype'),
          url('fnt/OpenSans-Bold-webfont.svg#OpenSansBold') format('svg');  
 }
+a img {border: none; }
 body
 {
   margin-bottom:10px; 
@@ -70,7 +71,7 @@ body
 	height:100px;
 	position:relative;
 	left:40px;
-	
+
 }
 
 /*------------------------------------*\
@@ -104,41 +105,39 @@ body
 	
 }
 /*---SUBMENUS FOR TRACKER, CDM, ETCETERA ----*/
-#sub-menu{
-	list-style:none;	
-	margin:0px auto;	
-	position:relative;
-	top:5px;
-	font-family:'Open Sans Bold', sans-serif;
-	font-size:16px; 
-	color:#00416A;	
+.sub-menu{		
+	
+	font-family:'Open Sans Bold', sans-serif;	
+	color:#00416A;
 	border-top:1px solid #eee;	
-	border-bottom:1px solid #eee;
-	height:53px;
-}
-#sub-menu li{
-	float:left;
-
+	border-bottom:1px solid #eee;	
+	height:55px;
 	
 		
 }
-#sub-menu li a{
-	padding-left:110px;
+
+.sub-menu ul li{	
+	list-style:none;
+   display:inline;
+
+}
+.sub-menu ul li a{
+	padding-left:75px;
+	padding-right:65px;
 	padding-top:15px;
-	padding-right:110px;
 	padding-bottom:15px;
+	font-size:16px; 
 	background:#fff;
 	text-decoration:none;
 	color:#00416A;
 	
-	
 }
-#sub-menu li a:hover 
+.sub-menu li a:hover 
 { /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
 	background:#00416A;
 	color:#FFFFFF;	
 }
-#sub-menu #active 
+.sub-menu #active 
 { /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
 	background:#00416A;
 	color:#FFFFFF;	
@@ -383,8 +382,8 @@ padding-top: 4px;
 	padding-bottom:10px;
 	text-align:center;
     font-family:'Open Sans Bold', sans-serif;
+	
 }
-
 .rep_tbl .repbox{    margin-left:3%;    font-family:'Open Sans Bold', sans-serif;  }
 .rep_tbl #repbox1{ display:block;} 
 .rep_tbl #repbox2{ display:none;} 
@@ -399,17 +398,12 @@ padding-top: 4px;
    border-collapse:collapse;   
    margin-left:3%;
 }
-.ds_tbl #dvloader{
-  display:none; 
-  
-  
-}
+.ds_tbl #dvloader{  display:none; }
 .ds_tbl #downloadFrame{display:none;}
 .ds_tbl tbody td a{text-decoration:none; color:#000000;  font-family:'Open Sans Bold', sans-serif; font-size:13px;}
 .ds_tbl tbody td a:hover{ text-decoration: underline; color:#00416A;}
-.ds_tbl tbody td a:visited {color:#00416A;	}
 .ds_tbl tbody td {padding-top:10px; padding-bottom:10px; }
-.ds_tbl tbody td img{	padding-left:20px;}
+.ds_tbl tbody td img{padding-left:20px;}
 .ds_tbl .repbox{margin-left:20%; font-family:'Open Sans Bold', sans-serif; margin-top:-400px; margin-bottom:350px;  }
 .ds_tbl #repbox1{ display:block;} 
 .ds_tbl #repbox2{ display:none;} 
@@ -493,21 +487,8 @@ padding-top: 4px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
 }
-.login a:hover
-{
-  color:#990000; 
-  text-decoration:underline; 
-  border-color:#00416A;
-  border:outset;
-}
-.logout
-{
- position:relative;
- left:87%;
- top:50px;
- width:130px;
- /*margin-top:-23px;*/
-}
+.login a:hover{ color:#990000;   text-decoration:underline; }
+.logout { position:relative; left:87%;  top:50px; width:130px; }
 .logout a
 {
  text-decoration:none;
@@ -522,13 +503,7 @@ padding-top: 4px;
  border-color:#000000;
  padding:5px;
 }
-.logout a:hover
-{
-  color:#990000; 
-  text-decoration:underline; 
-  border-color:#00416A;
-  border:outset;
-}
+.logout a:hover{  color:#990000;  text-decoration:underline; }
 .compiled_by
 {
  float:right; 

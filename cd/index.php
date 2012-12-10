@@ -4,14 +4,15 @@ include '../php_funcs/header.php';
 include '../php_funcs/funcs.php';
 $obj = new MainFuncs(); 
 ?>
-
-	   <ul id="sub-menu">
+<div class="sub-menu">
+	   <ul>
 			
 			<li><a href="index.php">Live Report</a></li>		
 			<li><a href="pilots.php">Pilots</a></li>
 			<li><a href="wpts.php">Waterpoints/Hubs</a></li>			
 		
 	  </ul>
+	  </div>
 
 
  <div class="top_header">Chlorine Delivery Report</div>
