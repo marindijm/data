@@ -12,6 +12,7 @@ $this->menu=array(
 	array('label'=>'Create Issue', 'url'=>array('create')),
 	array('label'=>'Update Issue', 'url'=>array('update', 'id'=>$model->issueid)),
 	array('label'=>'Delete Issue', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->issueid),'confirm'=>'Are you sure you want to delete this item?')),
+        array('label'=>'Assign Issue', 'url'=>array('update', 'id'=>$model->issueid)),
 	array('label'=>'Manage Issue', 'url'=>array('admin')),
 );
 ?>
@@ -28,7 +29,7 @@ $this->menu=array(
 		'status',
 		'user_assigned',
 		array('label'=>'Issue Type', 'value'=>$model->issuetype->issuetypename),
-		'issuesourceid',
+                array('label'=>'Issue Source', 'value'=>$model->issuesource->description),
 		'createdby',
 		'resolvedby',
 		'date_resolved',

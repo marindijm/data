@@ -1209,95 +1209,200 @@ REQUEST_URI=/dispenserapp/index.php
 in C:\wamp\www\dispenserapp\protected\views\site\index.php (79)
 in C:\wamp\www\dispenserapp\protected\controllers\SiteController.php (32)
 in C:\wamp\www\dispenserapp\index.php (13)
-2012/12/06 08:57:29 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "/var/www/data/dispenserapp/assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in /var/www/data/yii/framework/web/CAssetManager.php:128
+2012/12/06 06:23:48 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 7 ERROR:  invalid input syntax for type date: "". The SQL statement executed was: INSERT INTO "issue" ("waterpointid", "date_created", "status", "user_assigned", "issuetypeid", "issuesourceid", "createdby", "resolvedby", "date_resolved") VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\wamp\www\dispenserapp\protected\controllers\IssuesController.php (73)
+in C:\wamp\www\dispenserapp\index.php (13)
+2012/12/06 06:23:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 7 ERROR:  invalid input syntax for type date: "". The SQL statement executed was: INSERT INTO "issue" ("waterpointid", "date_created", "status", "user_assigned", "issuetypeid", "issuesourceid", "createdby", "resolvedby", "date_resolved") VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\wamp\www\yii\framework\db\CDbCommand.php:354
 Stack trace:
-#0 /var/www/data/yii/framework/web/CAssetManager.php(113): CAssetManager->setBasePath('/var/www/data/d...')
-#1 /var/www/data/yii/framework/web/CAssetManager.php(235): CAssetManager->getBasePath()
-#2 /var/www/data/yii/framework/web/CClientScript.php(463): CAssetManager->publish('/var/www/data/y...')
-#3 /var/www/data/yii/framework/web/CClientScript.php(500): CClientScript->getCoreScriptUrl()
-#4 /var/www/data/yii/framework/web/CClientScript.php(316): CClientScript->getPackageBaseUrl('jquery')
-#5 /var/www/data/yii/framework/web/CClientScript.php(209): CClientScript->renderCoreScripts()
-#6 /var/www/data/yii/framework/web/CController.php(352): CClientScript->render('??<!DOCTYPE htm...')
-#7 /var/www/data/yii/framework/web/CController.php(789): CController->processOutput('??<!DOCTYPE htm...')
-#8 /var/www/data/dispenserapp/protected/controllers/SiteController.php(32): CController->render('index')
-#9 /var/www/data/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
-#10 /var/www/data/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#11 /var/www/data/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
-#12 /var/www/data/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#13 /var/www/data/yii/framework/web/CWebApplication.php(283): CController->run('')
-#14 /var/www/data/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('')
-#15 /var/www/data/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#16 /var/www/data/dispenserapp/index.php(13): CApplication->run()
-#17 {main}
-REQUEST_URI=/dispenserapp/
+#0 C:\wamp\www\yii\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\wamp\www\yii\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\dispenserapp\protected\controllers\IssuesController.php(73): CActiveRecord->save()
+#3 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(50): IssuesController->actionCreate()
+#4 C:\wamp\www\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\yii\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\wamp\www\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/create')
+#14 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\dispenserapp\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/dispenserapp/index.php?r=issues/create
+HTTP_REFERER=http://localhost:8282/dispenserapp/index.php?r=issues/create
 ---
-2012/12/06 08:59:31 [error] [php] Invalid argument supplied for foreach() (/var/www/data/yii/framework/db/ar/CActiveFinder.php:451)
+2012/12/10 12:21:21 [error] [php] Trying to get property of non-object (C:\wamp\www\dispenserapp\protected\views\issues\view.php:32)
 Stack trace:
-#0 /var/www/data/yii/framework/db/ar/CActiveRecord.php(142): Issue->getRelated()
-#1 /var/www/data/dispenserapp/protected/views/issues/_view.php(13): Issue->__get()
-#2 /var/www/data/yii/framework/web/CBaseController.php(131): require()
-#3 /var/www/data/yii/framework/web/CBaseController.php(96): IssuesController->renderInternal()
-#4 /var/www/data/yii/framework/zii/widgets/CListView.php(260): IssuesController->renderFile()
-#5 /var/www/data/yii/framework/zii/widgets/CBaseListView.php(161): CListView->renderItems()
-#6 unknown(0): CListView->renderSection()
-#7 /var/www/data/yii/framework/zii/widgets/CBaseListView.php(144): preg_replace_callback()
-#8 /var/www/data/yii/framework/zii/widgets/CBaseListView.php(129): CListView->renderContent()
-#9 /var/www/data/yii/framework/web/CBaseController.php(174): CListView->run()
-#10 /var/www/data/dispenserapp/protected/views/issues/index.php(20): IssuesController->widget()
-#11 /var/www/data/yii/framework/web/CBaseController.php(127): require()
-#12 /var/www/data/yii/framework/web/CBaseController.php(96): IssuesController->renderInternal()
-#13 /var/www/data/yii/framework/web/CController.php(870): IssuesController->renderFile()
-#14 /var/www/data/yii/framework/web/CController.php(783): IssuesController->renderPartial()
-#15 /var/www/data/dispenserapp/protected/controllers/IssuesController.php(128): IssuesController->render()
-#16 /var/www/data/yii/framework/web/actions/CInlineAction.php(50): IssuesController->actionIndex()
-#17 /var/www/data/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
-#18 /var/www/data/yii/framework/web/filters/CFilterChain.php(134): IssuesController->runAction()
-#19 /var/www/data/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
-#20 /var/www/data/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
-#21 /var/www/data/yii/framework/web/filters/CInlineFilter.php(59): IssuesController->filterAccessControl()
-#22 /var/www/data/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
-#23 /var/www/data/yii/framework/web/CController.php(292): CFilterChain->run()
-#24 /var/www/data/yii/framework/web/CController.php(266): IssuesController->runActionWithFilters()
-#25 /var/www/data/yii/framework/web/CWebApplication.php(283): IssuesController->run()
-#26 /var/www/data/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
-#27 /var/www/data/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#28 /var/www/data/dispenserapp/index.php(13): CWebApplication->run()
-REQUEST_URI=/dispenserapp/index.php?r=issues/index
-in /var/www/data/dispenserapp/protected/views/issues/_view.php (13)
-in /var/www/data/dispenserapp/protected/views/issues/index.php (20)
-in /var/www/data/dispenserapp/protected/controllers/IssuesController.php (128)
-2012/12/10 10:59:27 [error] [exception.CException] exception 'CException' with message 'Property "User.openid_identity" is not defined.' in /var/www/data/yii/framework/base/CComponent.php:131
+#0 C:\wamp\www\yii\framework\web\CController.php(870): IssuesController->renderFile()
+#1 C:\wamp\www\yii\framework\web\CController.php(783): IssuesController->renderPartial()
+#2 C:\wamp\www\dispenserapp\protected\controllers\IssuesController.php(56): IssuesController->render()
+#3 unknown(0): IssuesController->actionView()
+#4 C:\wamp\www\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#5 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 C:\wamp\www\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#7 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(134): IssuesController->runAction()
+#8 C:\wamp\www\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 C:\wamp\www\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#10 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(59): IssuesController->filterAccessControl()
+#11 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#12 C:\wamp\www\yii\framework\web\CController.php(292): CFilterChain->run()
+#13 C:\wamp\www\yii\framework\web\CController.php(266): IssuesController->runActionWithFilters()
+#14 C:\wamp\www\yii\framework\web\CWebApplication.php(283): IssuesController->run()
+#15 C:\wamp\www\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#16 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\wamp\www\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/dispenserapp/index.php?r=issues/view&id=14
+in C:\wamp\www\dispenserapp\protected\views\issues\view.php (32)
+in C:\wamp\www\dispenserapp\protected\controllers\IssuesController.php (56)
+in C:\wamp\www\dispenserapp\index.php (13)
+2012/12/10 12:21:55 [error] [php] Trying to get property of non-object (C:\wamp\www\dispenserapp\protected\views\issues\view.php:32)
 Stack trace:
-#0 /var/www/data/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('openid_identity')
-#1 /var/www/data/dispenserapp/protected/views/users/_view.php(21): CActiveRecord->__get('openid_identity')
-#2 /var/www/data/yii/framework/web/CBaseController.php(131): require('/var/www/data/d...')
-#3 /var/www/data/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/data/d...', Array, false)
-#4 /var/www/data/yii/framework/zii/widgets/CListView.php(260): CBaseController->renderFile('/var/www/data/d...', Array)
-#5 /var/www/data/yii/framework/zii/widgets/CBaseListView.php(161): CListView->renderItems()
-#6 [internal function]: CBaseListView->renderSection(Array)
-#7 /var/www/data/yii/framework/zii/widgets/CBaseListView.php(144): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{sort...')
-#8 /var/www/data/yii/framework/zii/widgets/CBaseListView.php(129): CBaseListView->renderContent()
-#9 /var/www/data/yii/framework/web/CBaseController.php(174): CBaseListView->run()
-#10 /var/www/data/dispenserapp/protected/views/users/index.php(20): CBaseController->widget('zii.widgets.CLi...', Array)
-#11 /var/www/data/yii/framework/web/CBaseController.php(127): require('/var/www/data/d...')
-#12 /var/www/data/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/data/d...', Array, true)
-#13 /var/www/data/yii/framework/web/CController.php(870): CBaseController->renderFile('/var/www/data/d...', Array, true)
-#14 /var/www/data/yii/framework/web/CController.php(783): CController->renderPartial('index', Array, true)
-#15 /var/www/data/dispenserapp/protected/controllers/UsersController.php(128): CController->render('index', Array)
-#16 /var/www/data/yii/framework/web/actions/CInlineAction.php(50): UsersController->actionIndex()
-#17 /var/www/data/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
-#18 /var/www/data/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
-#19 /var/www/data/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
-#20 /var/www/data/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
-#21 /var/www/data/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
-#22 /var/www/data/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
-#23 /var/www/data/yii/framework/web/CController.php(292): CFilterChain->run()
-#24 /var/www/data/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#25 /var/www/data/yii/framework/web/CWebApplication.php(283): CController->run('index')
-#26 /var/www/data/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('users/index')
-#27 /var/www/data/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
-#28 /var/www/data/dispenserapp/index.php(13): CApplication->run()
-#29 {main}
-REQUEST_URI=/dispenserapp/index.php?r=users/index
-HTTP_REFERER=http://data.safe-water.org/dispenserapp/index.php
+#0 C:\wamp\www\yii\framework\web\CController.php(870): IssuesController->renderFile()
+#1 C:\wamp\www\yii\framework\web\CController.php(783): IssuesController->renderPartial()
+#2 C:\wamp\www\dispenserapp\protected\controllers\IssuesController.php(56): IssuesController->render()
+#3 unknown(0): IssuesController->actionView()
+#4 C:\wamp\www\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#5 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 C:\wamp\www\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#7 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(134): IssuesController->runAction()
+#8 C:\wamp\www\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 C:\wamp\www\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#10 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(59): IssuesController->filterAccessControl()
+#11 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#12 C:\wamp\www\yii\framework\web\CController.php(292): CFilterChain->run()
+#13 C:\wamp\www\yii\framework\web\CController.php(266): IssuesController->runActionWithFilters()
+#14 C:\wamp\www\yii\framework\web\CWebApplication.php(283): IssuesController->run()
+#15 C:\wamp\www\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#16 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\wamp\www\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/dispenserapp/index.php?r=issues/view&id=14
+in C:\wamp\www\dispenserapp\protected\views\issues\view.php (32)
+in C:\wamp\www\dispenserapp\protected\controllers\IssuesController.php (56)
+in C:\wamp\www\dispenserapp\index.php (13)
+2012/12/10 12:25:21 [error] [php] include(Date.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\yii\framework\YiiBase.php:423)
+Stack trace:
+#0 C:\wamp\www\dispenserapp\protected\controllers\IssuesController.php(73): spl_autoload_call()
+#1 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(50): IssuesController->actionCreate()
+#2 C:\wamp\www\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(134): IssuesController->runAction()
+#4 C:\wamp\www\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 C:\wamp\www\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#6 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(59): IssuesController->filterAccessControl()
+#7 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#8 C:\wamp\www\yii\framework\web\CController.php(292): CFilterChain->run()
+#9 C:\wamp\www\yii\framework\web\CController.php(266): IssuesController->runActionWithFilters()
+#10 C:\wamp\www\yii\framework\web\CWebApplication.php(283): IssuesController->run()
+#11 C:\wamp\www\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#12 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/dispenserapp/index.php?r=issues/create
+in C:\wamp\www\dispenserapp\protected\controllers\IssuesController.php (73)
+in C:\wamp\www\dispenserapp\index.php (13)
+2012/12/10 12:26:18 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22008]: Datetime field overflow: 7 ERROR:  date/time field value out of range: "2012201220122012-1212-1010". The SQL statement executed was: INSERT INTO "issue" ("waterpointid", "issuetypeid", "issuesourceid", "date_created") VALUES (:yp0, :yp1, :yp2, :yp3).
+in C:\wamp\www\dispenserapp\protected\controllers\IssuesController.php (74)
+in C:\wamp\www\dispenserapp\index.php (13)
+2012/12/10 12:26:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22008]: Datetime field overflow: 7 ERROR:  date/time field value out of range: "2012201220122012-1212-1010". The SQL statement executed was: INSERT INTO "issue" ("waterpointid", "issuetypeid", "issuesourceid", "date_created") VALUES (:yp0, :yp1, :yp2, :yp3)' in C:\wamp\www\yii\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\wamp\www\yii\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\wamp\www\yii\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\dispenserapp\protected\controllers\IssuesController.php(74): CActiveRecord->save()
+#3 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(50): IssuesController->actionCreate()
+#4 C:\wamp\www\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\yii\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\wamp\www\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/create')
+#14 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\dispenserapp\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/dispenserapp/index.php?r=issues/create
+HTTP_REFERER=http://localhost:8282/dispenserapp/index.php?r=issues/create
+---
+2012/12/10 12:30:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assign".' in C:\wamp\www\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(271): CController->missingAction('assign')
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(283): CController->run('assign')
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/assign')
+#3 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\dispenserapp\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/dispenserapp/index.php?r=issues/assign
+HTTP_REFERER=http://localhost:8282/dispenserapp/index.php?r=issues/create
+---
+2012/12/10 12:31:12 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\yii\framework\web\CWebApplication.php(283): CController->run('assign')
+#8 C:\wamp\www\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/assign')
+#9 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/dispenserapp/index.php?r=issues/assign
+---
+2012/12/10 12:31:46 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\wamp\www\yii\framework\web\CController.php:337
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#3 C:\wamp\www\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\yii\framework\web\CController.php(292): CFilterChain->run()
+#7 C:\wamp\www\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\yii\framework\web\CWebApplication.php(283): CController->run('assign')
+#9 C:\wamp\www\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/assign')
+#10 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\dispenserapp\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/dispenserapp/index.php?r=issues/assign
+---
+2012/12/10 12:32:01 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\wamp\www\yii\framework\web\CController.php:337
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#3 C:\wamp\www\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\yii\framework\web\CController.php(292): CFilterChain->run()
+#7 C:\wamp\www\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\yii\framework\web\CWebApplication.php(283): CController->run('assign')
+#9 C:\wamp\www\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/assign')
+#10 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\dispenserapp\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/dispenserapp/index.php?r=issues/assign
+HTTP_REFERER=http://localhost:8282/dispenserapp/index.php?r=issues/view&id=4
+---
+2012/12/10 12:32:20 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\wamp\www\yii\framework\web\CController.php:337
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#3 C:\wamp\www\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\yii\framework\web\CController.php(292): CFilterChain->run()
+#7 C:\wamp\www\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\yii\framework\web\CWebApplication.php(283): CController->run('assign')
+#9 C:\wamp\www\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/assign')
+#10 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\dispenserapp\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/dispenserapp/index.php?r=issues/assign
+HTTP_REFERER=http://localhost:8282/dispenserapp/index.php?r=issues/view&id=4
 ---
