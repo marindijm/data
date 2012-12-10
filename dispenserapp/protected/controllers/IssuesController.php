@@ -32,7 +32,7 @@ class IssuesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'assign'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -70,6 +70,9 @@ class IssuesController extends Controller
 		if(isset($_POST['Issue']))
 		{
 			$model->attributes=$_POST['Issue'];
+                        $model->date_created = date('Y-m-d');
+                        $model->status = false;
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->issueid));
 		}
@@ -102,6 +105,31 @@ class IssuesController extends Controller
 			'model'=>$model,
 		));
 	}
+         	/**
+	 * Updates a particular model.
+	 * If update is successful, the browser will be redirected to the 'view' page.
+	 * @param integer $id the ID of the model to be updated
+	 */
+	public function actionAssign($id)
+	{
+		$model=$this->loadModel($id);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Issue']))
+		{
+			$model->attributes=$_POST['Issue'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->issueid));
+		}
+
+		$this->render('assign',array(
+			'model'=>$model,
+		));
+	}
+        
+
 
 	/**
 	 * Deletes a particular model.

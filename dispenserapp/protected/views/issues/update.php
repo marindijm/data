@@ -8,12 +8,7 @@ $this->breadcrumbs=array(
 	'Update',
 );
 
-$this->menu=array(
-	array('label'=>'List Issue', 'url'=>array('index')),
-	array('label'=>'Create Issue', 'url'=>array('create')),
-	array('label'=>'View Issue', 'url'=>array('view', 'id'=>$model->issueid)),
-	array('label'=>'Manage Issue', 'url'=>array('admin')),
-);
+include 'menuone.php';
 ?>
 
 <h1>Update Issue <?php echo $model->issueid; ?></h1>

@@ -6,10 +6,7 @@ $this->breadcrumbs=array(
 	'Issues',
 );
 
-$this->menu=array(
-	array('label'=>'Create Issue', 'url'=>array('create')),
-	array('label'=>'Manage Issue', 'url'=>array('admin')),
-);
+include 'menuall.php';
 ?>
 
 <h1>Issues</h1>
