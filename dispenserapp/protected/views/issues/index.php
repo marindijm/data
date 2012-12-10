@@ -13,8 +13,28 @@ $this->menu=array(
 ?>
 
 <h1>Issues</h1>
-
-<?php $this->widget('zii.widgets.CListView', array(
+<h2>New Issues</h2>
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'issue-grid',
 	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+	//'filter'=>$model,
+	'columns'=>array(
+		'issueid',
+		//'waterpointid',
+		array('name'=>'waterpointid', 'type'=>'raw', 'value'=>'CHtml::link( ($data->waterpoint->waterpoint_name . " (" . $data->waterpointid . ")") , array("waterpoints/view", "id"=>$data->waterpointid))', 'header'=>'Waterpoint'),
+		'date_created',
+		'status',
+		'user_assigned',
+		//'issuetypeid',
+		array('name'=>'issuetypeid', 'header'=>'Issue Type', 'value'=>'$data->issuetype->issuetypename'),
+		/*
+		'issuesourceid',
+		'createdby',
+		'resolvedby',
+		*/
+		'date_resolved',
+		array(
+			'class'=>'CButtonColumn',
+		),
+	),
 )); ?>
