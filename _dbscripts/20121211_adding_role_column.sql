@@ -1,0 +1,1 @@
+alter table users add column role character varying(255);
