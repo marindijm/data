@@ -22,7 +22,7 @@ $gridDataProvider = new CArrayDataProvider(array(
 	<div class="stat-block">
 	  <ul>
 		<li class="stat-graph inlinebar" id="weekly-visit">8,4,6,5,9,10</li>
-		<li class="stat-count"><span>23</span><span>Weekly Issues</span></li>
+		<li class="stat-count"><span><?php echo $count ?></span><span>Unassigned </span></li>
 		<li class="stat-percent"><span class="text-success stat-percent">20%</span></li>
 	  </ul>
 	</div>

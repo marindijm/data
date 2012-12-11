@@ -49,8 +49,23 @@ class WaterpointsController extends Controller {
      * @param integer $id the ID of the model to be displayed
      */
     public function actionView($id) {
+        
+        $dataProvider = new CActiveDataProvider('Issue', array(
+                    'criteria' => array(
+                        'condition' => 'waterpointid = :wptid',
+                        'params' => array(':wptid' => $id),
+                    ),
+                    'sort' => array(
+                        'defaultOrder' => 'date_created DESC',
+                    ),
+                    'pagination' => array(
+                        'pageSize' => 30,
+                    ),
+                ));
+        
         $this->render('view', array(
             'model' => $this->loadModel($id),
+            'dataProvider' => $dataProvider
         ));
     }
 
