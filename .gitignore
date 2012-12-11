@@ -170,3 +170,4 @@ pip-log.txt
 assets/
 protected/runtime/
 themes/classic/views/
+/nbproject/private/
