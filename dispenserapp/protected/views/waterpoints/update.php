@@ -18,4 +18,4 @@ $this->menu=array(
 
 <h1>Update Waterpoint <?php echo $model->waterpoint_id; ?></h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_update', array('model'=>$model)); ?>

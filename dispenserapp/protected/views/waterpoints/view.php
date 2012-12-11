@@ -9,10 +9,10 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Waterpoint', 'url'=>array('index')),
-	array('label'=>'Create Waterpoint', 'url'=>array('create')),
+	//array('label'=>'Create Waterpoint', 'url'=>array('create')),
 	array('label'=>'Update Waterpoint', 'url'=>array('update', 'id'=>$model->waterpoint_id)),
-	array('label'=>'Delete Waterpoint', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->waterpoint_id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Waterpoint', 'url'=>array('admin')),
+	//array('label'=>'Delete Waterpoint', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->waterpoint_id),'confirm'=>'Are you sure you want to delete this item?')),
+	//array('label'=>'Manage Waterpoint', 'url'=>array('admin')),
 );
 ?>
 

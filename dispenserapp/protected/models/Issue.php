@@ -68,11 +68,11 @@ class Issue extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'createdby0' => array(self::BELONGS_TO, 'Users', 'createdby'),
+			'createdby0' => array(self::BELONGS_TO, 'User', 'createdby'),
 			'issuesource' => array(self::BELONGS_TO, 'Issuesource', 'issuesourceid'),
 			'issuetype' => array(self::BELONGS_TO, 'Issuetype', 'issuetypeid'),
-			'resolvedby0' => array(self::BELONGS_TO, 'Users', 'resolvedby'),
-			'userAssigned' => array(self::BELONGS_TO, 'Users', 'user_assigned'),
+			'resolvedby0' => array(self::BELONGS_TO, 'User', 'resolvedby'),
+			'userAssigned' => array(self::BELONGS_TO, 'User', 'user_assigned'),
 			'waterpoint' => array(self::BELONGS_TO, 'Waterpoint', 'waterpointid'),
 		);
 	}

@@ -12,4 +12,4 @@ include 'menuall.php';
 
 <h1>Create Issue</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_create', array('model'=>$model)); ?>
