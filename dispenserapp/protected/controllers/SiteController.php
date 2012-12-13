@@ -31,9 +31,8 @@ class SiteController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
                $unassigned_count = 10;
 		$this->render('index',
-                        array('count' =>$unassigned_count
-                        )
-                        );
+                        array('count' =>$unassigned_count)
+                      );
 	}
 
 	/**

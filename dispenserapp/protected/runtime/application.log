@@ -1406,3 +1406,233 @@ Stack trace:
 REQUEST_URI=/dispenserapp/index.php?r=issues/assign
 HTTP_REFERER=http://localhost:8282/dispenserapp/index.php?r=issues/view&id=4
 ---
+2012/12/13 09:14:24 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 7 ERROR:  invalid input syntax for type date: "". The SQL statement executed was: UPDATE "issue" SET "issueid"=:yp0, "waterpointid"=:yp1, "date_created"=:yp2, "status"=:yp3, "user_assigned"=:yp4, "issuetypeid"=:yp5, "issuesourceid"=:yp6, "createdby"=:yp7, "resolvedby"=:yp8, "date_resolved"=:yp9 WHERE "issue"."issueid"=10.
+in C:\wamp\www\data\dispenserapp\protected\controllers\IssuesController.php (93)
+in C:\wamp\www\data\dispenserapp\index.php (13)
+2012/12/13 09:14:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 7 ERROR:  invalid input syntax for type date: "". The SQL statement executed was: UPDATE "issue" SET "issueid"=:yp0, "waterpointid"=:yp1, "date_created"=:yp2, "status"=:yp3, "user_assigned"=:yp4, "issuetypeid"=:yp5, "issuesourceid"=:yp6, "createdby"=:yp7, "resolvedby"=:yp8, "date_resolved"=:yp9 WHERE "issue"."issueid"=10' in C:\wamp\www\data\yii\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\db\ar\CActiveRecord.php(1685): CDbCommand->execute()
+#1 C:\wamp\www\data\yii\framework\db\ar\CActiveRecord.php(1064): CActiveRecord->updateByPk(10, Array)
+#2 C:\wamp\www\data\yii\framework\db\ar\CActiveRecord.php(796): CActiveRecord->update(NULL)
+#3 C:\wamp\www\data\dispenserapp\protected\controllers\IssuesController.php(93): CActiveRecord->save()
+#4 [internal function]: IssuesController->actionUpdate('10')
+#5 C:\wamp\www\data\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(IssuesController), Array)
+#6 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(IssuesController), Object(ReflectionMethod), Array)
+#7 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('update')
+#16 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/update')
+#17 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/update&id=10
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=issues/update&id=10
+---
+2012/12/13 09:29:12 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve&id=10
+---
+2012/12/13 09:30:06 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve&id=10
+---
+2012/12/13 09:30:21 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve&id=2
+---
+2012/12/13 09:32:30 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve&id=10
+---
+2012/12/13 09:37:05 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve&id=10
+---
+2012/12/13 09:37:06 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve&id=10
+---
+2012/12/13 09:40:23 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve&id=10
+---
+2012/12/13 09:40:29 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve
+---
+2012/12/13 09:40:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve&id=10
+---
+2012/12/13 09:41:38 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve&id=10
+---
+2012/12/13 09:41:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve&id=10
+---
+2012/12/13 09:41:47 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve&id=10
+---
+2012/12/13 09:43:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "resolve".' in C:\wamp\www\data\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(271): CController->missingAction('resolve')
+#1 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('resolve')
+#2 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/resolve')
+#3 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/resolve&id=10
+---

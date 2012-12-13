@@ -6,6 +6,21 @@
 
 <div class="form">
 
+  <?php $this->widget('zii.widgets.CDetailView', array(
+	'data'=>$model,
+	'attributes'=>array(
+		'issueid',
+		//'waterpointid',
+		array('label'=>'Waterpoint', 'type'=>'raw', 'value'=>CHtml::link($model->waterpoint->waterpoint_name . ' (' . $model->waterpointid . ')', array('waterpoints/view','id'=>$model->waterpointid))),
+		'date_created',
+		'status',
+		'user_assigned',
+		array('label'=>'Issue Type', 'value'=>$model->issuetype->issuetypename),
+                array('label'=>'Issue Source', 'value'=>$model->issuesource->description),
+		'createdby',
+	),
+)); ?>
+
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'issue-form',
 	'enableAjaxValidation'=>false,
@@ -15,61 +30,13 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'waterpointid'); ?>
-		<?php echo $form->dropDownList($model,'waterpointid', CHtml::listData(Waterpoint::model()->findAll(), 'waterpoint_id', 'waterpoint_name')); ?>
-		<?php echo $form->error($model,'waterpointid'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'date_created'); ?>
-		<?php echo $form->dateField($model,'date_created'); ?>
-		<?php echo $form->error($model,'date_created'); ?>
-	</div>
-
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
 		<?php echo $form->checkBox($model,'status'); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'user_assigned'); ?>
-		<?php echo $form->dropDownList($model,'user_assigned', CHtml::listData(User::model()->findAll(), 'user_id', 'username')); ?>
-		<?php echo $form->error($model,'user_assigned'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'issuetypeid'); ?>
-		<?php echo $form->dropDownList($model,'issuetypeid', CHtml::listData(Issuetype::model()->findAll(), 'issuetypeid', 'issuetypename')); ?>
-		<?php echo $form->error($model,'issuetypeid'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'issuesourceid'); ?>
-		<?php echo $form->textField($model,'issuesourceid'); ?>
-		<?php echo $form->error($model,'issuesourceid'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'createdby'); ?>
-		<?php echo $form->textField($model,'createdby'); ?>
-		<?php echo $form->error($model,'createdby'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'resolvedby'); ?>
-		<?php echo $form->textField($model,'resolvedby'); ?>
-		<?php echo $form->error($model,'resolvedby'); ?>
-	</div>
 	
-	<div class="row">
-		<?php echo $form->labelEx($model,'date_resolved'); ?>
-		<?php echo $form->dateField($model,'date_resolved'); ?>
-		<?php echo $form->error($model,'date_resolved'); ?>
-	</div>
-
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
