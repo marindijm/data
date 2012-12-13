@@ -91,7 +91,7 @@ class IssuesController extends Controller {
         if (isset($_POST['Issue'])) {
             $model->attributes = $_POST['Issue'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->issueid));
+                $this->redirect(array('admin', 'id' => $model->issueid));
         }
 
         $this->render('update', array(
