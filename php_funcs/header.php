@@ -17,7 +17,8 @@
 
 if(!isset($_SESSION['googleidentity']) && $_SESSION['headertype'] != 'login')//check if user has logged in
 {
- 	 header("location:../login.php");//if not redirect to the login page
+ // echo $_SERVER['DOCUMENT_ROOT'];
+	header("location:../login.php");
 }
 
 ?>
