@@ -29,9 +29,9 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
+		
                $unassigned_count = 10;
-		$this->render('index',
-                        array('count' =>$unassigned_count)
+		$this->render('index', array('count'=> $unassigned_count)
                       );
 	}
 
