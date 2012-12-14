@@ -1,229 +1,601 @@
+/* CSS Document */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('fnt/OpenSans-Regular-webfont.eot');
+    src: url('fnt/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fnt/OpenSans-Regular-webfont.woff') format('woff'),
+         url('fnt/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('fnt/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg'); 
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url('fnt/OpenSans-Bold-webfont.eot');
+    src: url('fnt/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fnt/OpenSans-Bold-webfont.woff') format('woff'),
+         url('fnt/OpenSans-Bold-webfont.ttf') format('truetype'),
+         url('fnt/OpenSans-Bold-webfont.svg#OpenSansBold') format('svg');  
+}
+a img {border: none; }
 body
 {
-	margin: 0;
-	padding: 0;
-	color: #555;
-	font: normal 10pt Arial,Helvetica,sans-serif;
-	background: #EFEFEF;
+  margin-bottom:10px; 
+  margin-top:-5px;
+  width:1200px;
+  margin:0px auto;  
+}
+#container
+{ 
+   background-color:#FFFFFF;   
+   border:1px solid #eee;
+    min-height: 350px;
+	height: auto !important;
+	height: 400px; 
+}
+.live_rep_content
+{
+   background-color:#FFFFFF;   
+   width:929px;
+   margin:0px auto;
+   border:1px solid #eee;
+}
+.live_rep_detail_content
+{
+   background-color:#FFFFFF;   
+   width:1090px;
+   margin:0px auto;
+   border:1px solid #eee;
+}
+#pie
+{
+  min-width:400px;
+  height:700px;   
+}
+/*------------------------------------*\
+	NAV-HEADER
+\*------------------------------------*/
+
+#nav-header h1{
+	font-family:'Open Sans Bold', sans-serif;
+	font-size:30px; 
+	color:#00416A;
+	position:relative;
+	top:-50px;
+	left:300px;
+    text-shadow: grey 0.1em 0.1em 0.2em;
+	width:450px;
+	
+}
+#nav-header img{
+	padding:10px;
+	height:100px;
+	position:relative;
+	left:40px;
+
 }
 
-#page
-{
-	margin-top: 5px;
-	margin-bottom: 5px;
-	background: white;
-	border: 1px solid #C9E0ED;
+/*------------------------------------*\
+	NAV-MENU
+\*------------------------------------*/
+.nav-menu{		
+	
+	font-family:'Open Sans Bold', sans-serif;	
+	color:#00416A;
+	border-top:1px solid #eee;	
+	border-bottom:1px solid #eee;	
+	height:55px;
+	
+		
 }
 
-#header
-{
-	margin: 0;
-	padding-top: 10px;
-	border-top: 3px solid #C9E0ED;
-}
+.nav-menu ul li{	
+	list-style:none;
+   display:inline;
 
-#content
-{
-    padding: 20px;
 }
-
-#sidebar
-{
-	padding: 20px 20px 20px 0;
-}
-
-#footer
-{
-	padding: 10px;
-	margin: 10px 20px;
-	font-size: 0.8em;
-	text-align: center;
-	border-top: 1px solid #C9E0ED;
-}
-
-#logo
-{
-	padding: 10px 20px;
-	font-size: 200%;
-}
-
-#mainmenu
-{
-	background:white url(bg.gif) repeat-x left top;
-}
-
-#mainmenu ul
-{
-	padding:10px 20px 10px 20px;
-	margin:0px;
-}
-
-#mainmenu ul li
-{
-	display: inline;
-}
-
-#mainmenu ul li a
-{
-	color:#ffffff;
-	background-color:transparent;
-	font-size:12px;
-	font-weight:bold;
+.nav-menu ul li a{
+	padding-left:75px;
+	padding-right:65px;
+	padding-top:15px;
+	padding-bottom:15px;
+	font-size:16px; 
+	background:#fff;
 	text-decoration:none;
-	padding:5px 8px;
+	color:#00416A;
+	
+}
+/*---SUBMENUS FOR TRACKER, CDM, ETCETERA ----*/
+.sub-menu{		
+	
+	font-family:'Open Sans Bold', sans-serif;	
+	color:#00416A;
+	border-top:1px solid #eee;	
+	border-bottom:1px solid #eee;	
+	height:55px;
+	
+		
 }
 
-#mainmenu ul li a:hover, #mainmenu ul li.active a
-{
-	color: #6399cd;
-	background-color:#EFF4FA;
+.sub-menu ul li{	
+	list-style:none;
+   display:inline;
+
+}
+.sub-menu ul li a{
+	padding-left:75px;
+	padding-right:65px;
+	padding-top:15px;
+	padding-bottom:15px;
+	font-size:16px; 
+	background:#fff;
+	text-decoration:none;
+	color:#00416A;
+	
+}
+.sub-menu li a:hover 
+{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+	background:#00416A;
+	color:#FFFFFF;	
+}
+.sub-menu #active 
+{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+	background:#00416A;
+	color:#FFFFFF;	
+}
+
+/*--- DROPDOWN ---*/
+#nav-menu ul{
+	background:#fff; /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
+	background:rgba(0,0,0,0); /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+	list-style:none;
+	position:absolute;
+	left:-9999px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
+	z-index:100;
+	text-align:left;
+}
+#nav-menu ul li{
+	padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
+	float:none;
+	border:solid 1px #ccc;	
+}
+#nav-menu ul a{
+	white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
+	display:block;
+	padding-left:2%;
+	padding-right:6%;
+	padding-top:10px;
+	padding-bottom:5px;
+	background:#fff;
+	text-decoration:none;
+	font-size:14px; 
+}
+#nav-menu li:hover ul{ /* Display the dropdown on hover */
+	left:-35px; /* Bring back on-screen when needed */
+	top:53px;
+}
+.nav-menu ul li a:hover 
+{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+	background:#00416A;
+	color:#FFFFFF;	
+}
+#nav-menu li:hover ul a{ /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
 	text-decoration:none;
 }
-
-div.flash-error, div.flash-notice, div.flash-success
+#nav-menu li:hover ul li a:hover{ /* Here we define the most explicit hover states--what happens when you hover each individual link. */
+	background:#00416A;
+	color:#fff;
+}
+/*------A TOP HEADER FOR THE TITLES ----*/
+.top_header
 {
-	padding:.8em;
-	margin-bottom:1em;
-	border:2px solid #ddd;
+  color:#00416A;
+  font-family:'Open Sans Bold', sans-serif;
+  margin-left:40%;
+  padding-top:20px;
+  padding-bottom:10px;
+  width:auto;
+}
+.left_header
+{
+  color:#00416A;
+  font-family:'Open Sans Bold', sans-serif;
+  margin-left:20%;
+  padding-top:20px;
+  padding-bottom:10px;
+  width:auto;
+}
+.center_header
+{
+    color:#00416A;
+  font-family:'Open Sans Bold', sans-serif;
+  margin-left:40%;
+  padding-top:20px;
+  padding-bottom:10px;
+  width:auto;
+}
+/*----------LAYOUTS---------*/
+
+.summary_layout{
+ font-family:'Open Sans', sans-serif;
+ font-size:13px;
+ text-align:justify;
+ line-height:1.8em;
+ padding-left:5px;
+ padding-right:5px; 
+
+}
+.summary_layout .para_headings{
+text-decoration:underline;
+ font-family:'Open Sans Bold', sans-serif;
+ color:#00416A;
+margin-left:3%;
+width:auto; 
 }
 
-div.flash-error
+.summary_layout .username
 {
-	background:#FBE3E4;
-	color:#8a1f11;
-	border-color:#FBC2C4;
+color: #903;
+ font-family:'Open Sans Bold', sans-serif;
+ 
 }
 
-div.flash-notice
-{
-	background:#FFF6BF;
-	color:#514721;
-	border-color:#FFD324;
-}
-
-div.flash-success
-{
-	background:#E6EFC2;
-	color:#264409;
-	border-color:#C6D880;
-}
-
-div.flash-error a
-{
-	color:#8a1f11;
-}
-
-div.flash-notice a
-{
-	color:#514721;
-}
-
-div.flash-success a
-{
-	color:#264409;
-}
-
-div.form .rememberMe label
-{
-	display: inline;
-}
-
-div.view
-{
-	padding: 10px;
-	margin: 10px 0;
-	border: 1px solid #C9E0ED;
-}
-
-div.breadcrumbs
-{
-	font-size: 0.9em;
-	padding: 5px 20px;
-}
-
-div.breadcrumbs span
-{
-	font-weight: bold;
-}
-
-div.search-form
-{
-	padding: 10px;
-	margin: 10px 0;
-	background: #eee;
-}
-
-.portlet
-{
+/*----DROP CHARACTER---*/
+.summary_layout .dropcharacter { 
+float: left;  
+color:#0099FF;
+font-size: 55px;  
+padding-top: 4px; 
+ padding-left: 7px; 
 
 }
 
-.portlet-decoration
+/*----------TABLES-----------*/
+#hide_tbl /*..HIDE THE DATASET TBLS FOR NOW.......*/
 {
-	padding: 3px 8px;
-	background: #B7D6E7;
-	border-left: 5px solid #6FACCF;
+ display:none;
+}
+.issue_tbl table /*-----Table for the Issue Tracker-----*/
+{
+   width:98%;
+   border-spacing:0;
+   border-collapse:collapse;
+   border:solid;
+   border-width:1px;  
+   margin-left:1%;
+   margin-top:-75px;
+}
+.issue_tbl tbody tr:hover td
+{
+  background:#d0dafd;
+  
+}
+.issue_tbl .numalign 
+{
+  text-align:right;
+}
+.issue_tbl a
+{
+  text-decoration:none;
+}
+.issue_tbl th
+{
+
+ background-color:#CCCCCC;
+ color:#000000;
+ font-family:'Open Sans Bold', sans-serif;
+ font-size:13px;
+ padding-left:5px;
+ padding-right:5px;
+ padding-top:10px;
+ padding-bottom:10px;
+
+}
+.issue_tbl tbody  td
+{
+   font-family:'Open Sans', sans-serif;
+   font-size:14px; 
+   padding-right:8px;
+   padding-left:10px;
+   padding-top:8px;
+    border-right:1px solid #000;
+}
+.issue_tbl tbody tr:nth-child(2n+1) {
+   background-color: #def;
 }
 
-.portlet-title
+.cd_tbl table
 {
-	font-size: 12px;
-	font-weight: bold;
-	padding: 0;
-	margin: 0;
-	color: #298dcd;
+  border-top:1px solid #fff;
+  color:#000000; 
+  width:auto;
+   border-spacing:0;
+   border-collapse:collapse;
+   border:solid;
+   border-width:1px;
+   font-family:'Open Sans', sans-serif;
+   font-size:13px;
+   padding:5px;
+   table-layout:auto;
+   margin-left:5%;
+}
+.cd_tbl table tbody tr:hover td
+{
+  background:#d0dafd;
+}
+.cd_tbl table .numalign 
+{
+  text-align:right;
+}
+.cd_tbl table a
+{
+  text-decoration:none;
+}
+.cd_tbl th
+{
+
+ background-color:#CCCCCC;
+ color:#000000;
+ padding-left:4px;
+ padding-right:4px;
+ padding-top:4px;
+  font-family:'Open Sans Bold', sans-serif;
+   text-align:right;
+}
+.cd_tbl th, td {
+ 
+    overflow: hidden;
+   
+}
+.cd_tbl tr
+{
+    border: 1px solid black;
+}
+.cd_tbl td
+{
+ text-align:right;
+ padding-left:5px;
+ padding-right:6px;
+ padding-top:6px;
+ padding-bottom:6px;
+}
+.rep_tbl table
+{   
+   width:auto;
+   border-spacing:0;
+   border-collapse:collapse;    
+   font-size:13px;
+   padding:5px;  
+   margin-left:2%;
+}
+.rep_tbl tbody td p:hover
+{
+  border:solid;
+	border-color: rgba(0,0,0,0.03); 
+	border-width:2px;
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	 border-radius: 30px;	
+}
+.rep_tbl tbody td 
+{   
+	padding-top:10px;
+	padding-bottom:10px;
+	text-align:center;
+    font-family:'Open Sans Bold', sans-serif;
+	
+}
+.rep_tbl .repbox{    margin-left:3%;    font-family:'Open Sans Bold', sans-serif;  }
+.rep_tbl #repbox1{ display:block;} 
+.rep_tbl #repbox2{ display:none;} 
+.rep_tbl #repbox3{ display:none;} 
+.repbox #desc{text-decoration:underline;} 
+ 
+/*-----THE DATASETS TABLE-------*/
+.ds_tbl table
+{   
+   width:auto;
+   border-spacing:0;
+   border-collapse:collapse;   
+   margin-left:3%;
+}
+.ds_tbl #dvloader{  display:none; }
+.ds_tbl #downloadFrame{display:none;}
+.ds_tbl tbody td a{text-decoration:none; color:#000000;  font-family:'Open Sans Bold', sans-serif; font-size:13px;}
+.ds_tbl tbody td a:hover{ text-decoration: underline; color:#00416A;}
+.ds_tbl tbody td {padding-top:10px; padding-bottom:10px; }
+.ds_tbl tbody td img{padding-left:20px;}
+.ds_tbl .repbox{margin-left:20%; font-family:'Open Sans Bold', sans-serif; margin-top:-400px; margin-bottom:350px;  }
+.ds_tbl #repbox1{ display:block;} 
+.ds_tbl #repbox2{ display:none;} 
+.ds_tbl #repbox3{ display:none;} 
+.repbox #desc{text-decoration:underline;} 
+
+/*------THE FOOTER---*/
+.footer
+{ 
+	
+	
+}
+.footer table
+{ 
+ width:100%;
+ border:solid;
+ border-color:#eee;
+ border-width:1px;
+ border-spacing:0;
+ border-collapse:collapse; 
+}
+.footer tbody td img
+{   width:50px;
+   height:50px;
+   padding-left:75px;
+  }
+/*-----MISC CLASSES----------*/
+.align_left
+{
+ text-align:left;
+}
+.align_right
+{
+ text-align:right;
+}
+.align_center
+{
+ text-align:center;
+}
+.totals_bolden 
+{
+  text-align:right;
+   font-family:'Open Sans Bold', sans-serif;
+}
+/*-------FIELDSET STYLING---------*/
+ /*class for styling fieldsets for creating issues */
+
+.crt fieldset
+{
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	width:50%;
+	margin-left:5%;
+}
+.crt legend
+{
+	 border: solid 1px black;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+/*-----CLASS TO STYLE THE LOGIN PAGE--------*/
+.login
+{
+ margin-left:27%;
+ margin-top:3%;
+ margin-bottom:5%; 
+}
+.login a
+{
+ text-decoration:none;
+ font-family:'Open Sans Bold', sans-serif;
+ font-size:16px;
+ border:solid;
+ border-width:2px;
+ border-color:#000000;
+ padding:20px;
+ color:#00416A;
+ -webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+.login a:hover{ color:#990000;   text-decoration:underline; }
+.logout { position:relative; left:87%;  top:50px; width:130px; }
+.logout a
+{
+ text-decoration:none;
+ font-family:'Open Sans Bold', sans-serif;
+ font-size:16px;
+ color:#00416A;
+ border:solid;
+ border-width:2px;
+ -webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+ border-color:#000000;
+ padding:5px;
+}
+.logout a:hover{  color:#990000;  text-decoration:underline; }
+.compiled_by
+{
+ float:right; 
 }
 
-.portlet-content
+/*----CLASSES FOR THE MIDDLE BOX LINKS------*/
+.rounded { -moz-border-radius: 20px; -webkit-border-radius: 20px; border-radius: 20px; }
+.widget { width: 200px; padding: 2px; border: 0px solid #999;
+          float: left; position: relative; 
+		  padding-top:10px;
+		  padding-bottom:10px;
+		  padding-left:5px;
+		  padding-right:5px;
+		  }          
+.overlay { 
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.04); 
+    text-align: center; 
+}           
+.widget-button { 
+    position: relative; 
+    padding: 4px 16px; background: black; border: 2px solid white; color: white; text-decoration: none;  font-family:'Open Sans', sans-serif;
+    text-transform: uppercase; font-size:13px; -moz-box-shadow: 0 0 20px white; -webkit-box-shadow: 0 0 20px white; box-shadow: 0 0 20px white; }
+.widget-button:hover { color: #fe4902; }
+/*------CLASS TO STYLE REQUEST ERRORS----*/
+.error
 {
-	font-size:0.9em;
-	margin: 0 0 15px 0;
-	padding: 5px 8px;
-	background:#EFFDFF;
+  font-family:'Open Sans Bold', sans-serif; 
+}
+.error h1
+{
+  margin-left:35%;
+  font-family:'Open Sans Bold', sans-serif;
+  color:#00416A;
+}
+.error p
+{
+ margin-left:20%;
+ font-family:'Open Sans Bold', sans-serif;
+ font-size:13px;
+ color:#00416A;
 }
 
-.portlet-content ul
+/*MOTORCYCLE TBLS CSS*/
+.mc table
 {
-	list-style-image:none;
-	list-style-position:outside;
-	list-style-type:none;
-	margin: 0;
-	padding: 0;
+  border-top:1px solid #fff;
+  color:#000000; 
+  width:98%;
+   border-spacing:0;
+   border-collapse:collapse;
+   border:solid;
+   border-width:1px;
+   font-family:'Open Sans', sans-serif;
+   font-size:13px;
+   padding:5px; 
+   margin-left:1%;
+}
+.mc table tbody tr:hover td
+{
+  background:#d0dafd;
+}
+.mc table .numalign 
+{
+  text-align:right;
+}
+.mc table a
+{
+  text-decoration:none;
+}
+.mc th
+{
+
+ background-color:#CCCCCC;
+ color:#000000;
+ padding-left:4px;
+ padding-right:4px;
+ padding-top:4px;
+ text-align:center;
+}
+.mc td
+{
+
+ padding-left:5px;
+ padding-right:6px;
+ padding-top:6px;
+ padding-bottom:6px;
+ border-right:solid;
+ border-right-width:1px;
+ border-right-color:#000000;
+}
+.mc tbody tr:nth-child(2n+1) {
+   background-color: #def;
 }
 
-.portlet-content li
-{
-	padding: 2px 0 4px 0px;
-}
-
-.operations
-{
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.operations li
-{
-	padding-bottom: 2px;
-}
-
-.operations li a
-{
-	font: bold 12px Arial;
-	color: #0066A4;
-	display: block;
-	padding: 2px 0 2px 8px;
-	line-height: 15px;
-	text-decoration: none;
-}
-
-.operations li a:visited
-{
-	color: #0066A4;
-}
-
-.operations li a:hover
-{
-	background: #80CFFF;
-}
