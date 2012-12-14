@@ -37,6 +37,12 @@
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 	
+	<div class="row">
+		<?php echo $form->labelEx($model,'issuetypeid'); ?>
+		<?php echo $form->dropDownList($model,'issuetypeid', CHtml::listData(Issuetype::model()->findAll(), 'issuetypeid', 'issuetypename')); ?>
+		<?php echo $form->error($model,'issuetypeid'); ?>
+	</div>
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

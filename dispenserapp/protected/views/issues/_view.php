@@ -47,4 +47,7 @@
     <b><?php echo CHtml::encode($data->getAttributeLabel('date_resolved')); ?>:</b>
 	<?php echo CHtml::encode($data->date_resolved); ?>
 	<br />
+	
+	
 </div>
+
