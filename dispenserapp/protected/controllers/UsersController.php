@@ -51,9 +51,22 @@ class UsersController extends Controller
 	 */
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+	  $dataProvider = new CActiveDataProvider('Issue', array(
+                    'criteria' => array(
+                        'condition' => 'user_assigned = :user_assigned',
+                        'params' => array(':user_assigned' => $id),
+                    ),
+                    'sort' => array(
+                        'defaultOrder' => 'issueid asc',
+                    ),
+                    'pagination' => array(
+                        'pageSize' => 30,
+                    ),
+                ));
+		 $this->render('view', array(
+            'model' => $this->loadModel($id),
+            'dataProvider' => $dataProvider
+        ));
 	}
 
 	/**
