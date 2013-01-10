@@ -34,21 +34,11 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'openid_identity'); ?>
-		<?php echo $form->textField($model,'openid_identity',array('size'=>60,'maxlength'=>1024)); ?>
-		<?php echo $form->error($model,'openid_identity'); ?>
+		<?php echo $form->labelEx($model,'password'); ?>
+		<?php echo $form->textField($model,'password'); ?>
+		<?php echo $form->error($model,'password'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'session_id'); ?>
-		<?php echo $form->textField($model,'session_id',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'session_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'loggedin'); ?>
-		<?php echo $form->checkBox($model,'loggedin'); ?>
-		<?php echo $form->error($model,'loggedin'); ?>
 	</div>
 
 	<div class="row buttons">
