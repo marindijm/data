@@ -139,7 +139,7 @@ class IssuesController extends Controller {
      */
     public function actionIndex() {
 
-        $unassigned = new CActiveDataProvider('Issue');
+        
         $unassigned = new CActiveDataProvider('Issue', array(
                     'criteria' => array(
                         'condition' => 'user_assigned IS null',
@@ -152,7 +152,7 @@ class IssuesController extends Controller {
                         'pageSize' => 30,
                     ),
                 ));
-        $resolved = new CActiveDataProvider('Issue');
+
         $resolved = new CActiveDataProvider('Issue', array(
                     'criteria' => array(
                         'condition' => 'status IS TRUE',

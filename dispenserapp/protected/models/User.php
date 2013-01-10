@@ -7,9 +7,8 @@
  * @property integer $user_id
  * @property string $username
  * @property string $email
- * @property string $openid_identity
- * @property string $session_id
- * @property boolean $loggedin
+ * @property string $role
+ * @property string $password
  *
  * The followings are the available model relations:
  * @property Issue[] $issues
@@ -46,13 +45,11 @@ class User extends CActiveRecord
 		return array(
 			array('user_id', 'required'),
 			array('user_id', 'numerical', 'integerOnly'=>true),
-			array('username, email, session_id', 'length', 'max'=>255),
-			array('openid_identity', 'length', 'max'=>1024),
-			array('loggedin', 'safe'),
+			array('username, email, role', 'length', 'max'=>255),
+			array('password', 'length', 'max'=>40),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			//array('user_id, username, email, openid_identity, session_id, loggedin', 'safe', 'on'=>'search'),
-			array('user_id, username, email', 'safe', 'on'=>'search'),
+			array('user_id, username, email, role, password', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -79,7 +76,8 @@ class User extends CActiveRecord
 			'user_id' => 'User',
 			'username' => 'Username',
 			'email' => 'Email',
-			
+			'role' => 'Role',
+			'password' => 'Password',
 		);
 	}
 
@@ -97,10 +95,8 @@ class User extends CActiveRecord
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('username',$this->username,true);
 		$criteria->compare('email',$this->email,true);
-		/*$criteria->compare('openid_identity',$this->openid_identity,true);
-		$criteria->compare('session_id',$this->session_id,true);
-		$criteria->compare('loggedin',$this->loggedin);
-		*/
+		$criteria->compare('role',$this->role,true);
+		$criteria->compare('password',$this->password,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

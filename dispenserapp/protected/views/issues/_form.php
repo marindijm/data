@@ -13,7 +13,7 @@
 		//'waterpointid',
 		array('label'=>'Waterpoint', 'type'=>'raw', 'value'=>CHtml::link($model->waterpoint->waterpoint_name . ' (' . $model->waterpointid . ')', array('waterpoints/view','id'=>$model->waterpointid))),
 		'date_created',
-		'status',
+		array('label' => 'Resolved?', 'type' => 'raw', 'value' => CHtml::checkbox( $model->status, $model->status , array("disabled" =>"true"))),
 		'user_assigned',
 		array('label'=>'Issue Type', 'value'=>$model->issuetype->issuetypename),
                 array('label'=>'Issue Source', 'value'=>$model->issuesource->description),

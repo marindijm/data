@@ -46,7 +46,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		//'waterpointid',
 		array('name'=>'waterpointid', 'type'=>'raw', 'value'=>'CHtml::link( ($data->waterpoint->waterpoint_name . " (" . $data->waterpointid . ")") , array("waterpoints/view", "id"=>$data->waterpointid))', 'header'=>'Waterpoint'),
 		'date_created',
-		'status',
+		array('name' => 'status', 'type' => 'raw', 'value' => 'CHtml::checkbox( $data->status, $data->status , array("disabled" =>"true"))', 'header' => 'Resolved?'),
 		'user_assigned',
 		//'issuetypeid',
 		array('name'=>'issuetypeid', 'header'=>'Issue Type', 'value'=>'$data->issuetype->issuetypename'),

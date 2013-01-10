@@ -21,6 +21,11 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
 	<?php echo CHtml::encode($data->status); ?>
 	<br />
+        
+        <b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
+	<?php echo CHtml::checkbox( $data->status, $data->status , array("disabled" =>"true")); ?>
+	<br />
+     
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('user_assigned')); ?>:</b>
 	<?php echo CHtml::encode($data->user_assigned); ?>

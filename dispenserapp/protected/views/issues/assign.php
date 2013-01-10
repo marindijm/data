@@ -11,6 +11,6 @@ $this->breadcrumbs=array(
 include 'menuone.php';
 ?>
 
-<h1>Assign Issue <?php echo $model->issueid; ?>to User</h1>
+<h1>Assign Issue <?php echo $model->issueid; ?> to User</h1>
 
 <?php echo $this->renderPartial('_assign', array('model'=>$model)); ?>

@@ -26,24 +26,23 @@ class UsersController extends Controller
 	 */
 	public function accessRules()
 	{
-		 return array(
-            array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view'),
-                'roles' => array('reader'),
-            ),
-            array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update'),
-                'roles' => array('writer'),
-            ),
-            array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('admin'),
-                'roles' => array('admin'),
-            ),
-            array('deny', // deny all users
-                'actions' => array('delete'),
-                'roles' => array('admin'),
-            ),
-        );
+		return array(
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','view'),
+				'roles'=>array('reader'),
+			),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('create','update'),
+				'roles'=>array('writer'),
+			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin','delete'),
+				'roles'=>array('admin'),
+			),
+			array('deny',  // deny all users
+				//'roles'=>array('*'),
+			),
+		);
 	}
 
 	/**
@@ -52,22 +51,9 @@ class UsersController extends Controller
 	 */
 	public function actionView($id)
 	{
-	  $dataProvider = new CActiveDataProvider('Issue', array(
-                    'criteria' => array(
-                        'condition' => 'user_assigned = :user_assigned',
-                        'params' => array(':user_assigned' => $id),
-                    ),
-                    'sort' => array(
-                        'defaultOrder' => 'issueid asc',
-                    ),
-                    'pagination' => array(
-                        'pageSize' => 30,
-                    ),
-                ));
-		 $this->render('view', array(
-            'model' => $this->loadModel($id),
-            'dataProvider' => $dataProvider
-        ));
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
 	}
 
 	/**

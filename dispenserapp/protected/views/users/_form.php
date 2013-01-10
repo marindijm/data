@@ -17,7 +17,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'user_id'); ?>
-		<?php echo $form->textField($model,'user_id'); ?>
+		<?php echo $form->textField($model,'user_id', array('value'=>1)); ?>
 		<?php echo $form->error($model,'user_id'); ?>
 	</div>
 
@@ -34,11 +34,15 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->textField($model,'password'); ?>
-		<?php echo $form->error($model,'password'); ?>
+		<?php echo $form->labelEx($model,'role'); ?>
+                <?php echo $form->dropDownList($model,'role', array('reader', 'writer', 'admin') ); ?>
+		<?php echo $form->error($model,'role'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'password'); ?>
+		<?php echo $form->passwordField($model,'password',array('size'=>40,'maxlength'=>40)); ?>
+		<?php echo $form->error($model,'password'); ?>
 	</div>
 
 	<div class="row buttons">

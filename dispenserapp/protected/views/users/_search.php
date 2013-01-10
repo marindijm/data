@@ -27,18 +27,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'openid_identity'); ?>
-		<?php echo $form->textField($model,'openid_identity',array('size'=>60,'maxlength'=>1024)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'session_id'); ?>
-		<?php echo $form->textField($model,'session_id',array('size'=>60,'maxlength'=>255)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'loggedin'); ?>
-		<?php echo $form->checkBox($model,'loggedin'); ?>
+		<?php echo $form->label($model,'role'); ?>
+		<?php echo $form->textField($model,'role',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row buttons">

@@ -86,7 +86,7 @@ class Issue extends CActiveRecord
 			'issueid' => 'Issue ID',
 			'waterpointid' => 'Waterpoint',
 			'date_created' => 'Date Created',
-			'status' => 'Status',
+			'status' => 'Resolved?',
 			'user_assigned' => 'User Assigned',
 			'issuetypeid' => 'Issue Type',
 			'issuesourceid' => 'Issue Source',
