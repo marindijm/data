@@ -79,9 +79,7 @@ class User extends CActiveRecord
 			'user_id' => 'User',
 			'username' => 'Username',
 			'email' => 'Email',
-			'openid_identity' => 'Openid Identity',
-			'session_id' => 'Session',
-			'loggedin' => 'Loggedin',
+			
 		);
 	}
 

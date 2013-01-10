@@ -17,17 +17,6 @@
 	<?php echo CHtml::encode($data->email); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('openid_identity')); ?>:</b>
-	<?php echo CHtml::encode($data->openid_identity); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('session_id')); ?>:</b>
-	<?php echo CHtml::encode($data->session_id); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('loggedin')); ?>:</b>
-	<?php echo CHtml::encode($data->loggedin); ?>
-	<br />
 
 
 </div>
