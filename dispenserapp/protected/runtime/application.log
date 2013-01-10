@@ -1741,3 +1741,112 @@ REQUEST_URI=/data/dispenserapp/index.php?r=site/index
 in C:\wamp\www\data\dispenserapp\protected\views\site\index.php (25)
 in C:\wamp\www\data\dispenserapp\protected\controllers\SiteController.php (38)
 in C:\wamp\www\data\dispenserapp\index.php (13)
+2013/01/10 13:32:31 [error] [php] Undefined variable: model (C:\wamp\www\data\dispenserapp\protected\views\site\login.php:28)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(870): SiteController->renderFile()
+#1 C:\wamp\www\data\yii\framework\web\CController.php(783): SiteController->renderPartial()
+#2 C:\wamp\www\data\dispenserapp\protected\controllers\SiteController.php(92): SiteController->render()
+#3 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#4 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\data\yii\framework\web\CController.php(287): SiteController->runAction()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/index.php?r=site/login
+in C:\wamp\www\data\dispenserapp\protected\views\site\login.php (28)
+in C:\wamp\www\data\dispenserapp\protected\controllers\SiteController.php (92)
+in C:\wamp\www\data\dispenserapp\index.php (13)
+2013/01/10 13:35:15 [error] [exception.CException] exception 'CException' with message 'Property "User.id" is not defined.' in C:\wamp\www\data\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('id')
+#1 C:\wamp\www\data\dispenserapp\protected\components\UserIdentity.php(36): CActiveRecord->__get('id')
+#2 C:\wamp\www\data\dispenserapp\protected\models\LoginForm.php(46): UserIdentity->authenticate()
+#3 C:\wamp\www\data\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#4 C:\wamp\www\data\yii\framework\validators\CValidator.php(214): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#5 C:\wamp\www\data\yii\framework\base\CModel.php(158): CValidator->validate(Object(LoginForm), NULL)
+#6 C:\wamp\www\data\dispenserapp\protected\controllers\SiteController.php(89): CModel->validate()
+#7 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#8 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\data\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#12 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#13 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=site/login
+HTTP_REFERER=http://localhost:8282/data/dispenserapp/index.php?r=site/login
+---
+2013/01/10 13:35:34 [error] [exception.CException] exception 'CException' with message 'LoginForm and its behaviors do not have a method or closure named "login".' in C:\wamp\www\data\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\wamp\www\data\dispenserapp\protected\controllers\SiteController.php(89): CComponent->__call('login', Array)
+#1 C:\wamp\www\data\dispenserapp\protected\controllers\SiteController.php(89): LoginForm->login()
+#2 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#3 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\data\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#8 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=site/login
+HTTP_REFERER=http://localhost:8282/data/dispenserapp/index.php?r=site/login
+---
+2013/01/10 13:35:57 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('users/admin')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=users/admin
+HTTP_REFERER=http://localhost:8282/data/dispenserapp/index.php?r=users/index
+---
+2013/01/10 13:43:24 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('issues/admin')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/admin
+---
+2013/01/10 13:51:08 [error] [php] Undefined variable: dataProvider (C:\wamp\www\data\dispenserapp\protected\views\issues\index.php:17)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(870): IssuesController->renderFile()
+#1 C:\wamp\www\data\yii\framework\web\CController.php(783): IssuesController->renderPartial()
+#2 C:\wamp\www\data\dispenserapp\protected\controllers\IssuesController.php(171): IssuesController->render()
+#3 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): IssuesController->actionIndex()
+#4 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): IssuesController->runAction()
+#6 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\data\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): IssuesController->filterAccessControl()
+#9 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\data\yii\framework\web\CController.php(266): IssuesController->runActionWithFilters()
+#12 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): IssuesController->run()
+#13 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#14 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/index.php?r=issues/index
+in C:\wamp\www\data\dispenserapp\protected\views\issues\index.php (17)
+in C:\wamp\www\data\dispenserapp\protected\controllers\IssuesController.php (171)
+in C:\wamp\www\data\dispenserapp\index.php (13)

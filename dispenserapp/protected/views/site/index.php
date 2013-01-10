@@ -20,11 +20,19 @@ $gridDataProvider = new CArrayDataProvider(array(
 <div class="row-fluid">
   <div class="span3 ">
 	<div class="stat-block">
-	  <ul>
+            
+                <ul>
 		<li class="stat-graph inlinebar" id="weekly-visit">8,4,6,5,9,10</li>
-		<li class="stat-count"><span><?php echo $count ?></span><span>Unassigned </span></li>
-		<li class="stat-percent"><span class="text-success stat-percent">20%</span></li>
+		<li class="stat-count"><span>
+                        <?php 
+                        $baseUrl = Yii::app()->baseUrl; 
+                        $num  = 10;
+                        echo CHtml::link($num,$baseUrl.'/index.php?r=issues/index' ); ?>
+                        
+                    </span><span>Unassigned </span></li>
+		
 	  </ul>
+            
 	</div>
   </div>
   <div class="span3 ">

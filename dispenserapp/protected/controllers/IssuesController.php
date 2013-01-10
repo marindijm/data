@@ -27,18 +27,18 @@ class IssuesController extends Controller {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
                 'actions' => array('index', 'view'),
-                'users' => array('*'),
+                'roles' => array('reader'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions' => array('create', 'update', 'assign'),
-                'users' => array('@'),
+                'roles' => array('writer'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('admin', 'delete'),
-                'users' => array('admin'),
+                'roles' => array('admin'),
             ),
             array('deny', // deny all users
-                'users' => array('*'),
+               // 'roles' => array('*'),
             ),
         );
     }
@@ -139,8 +139,8 @@ class IssuesController extends Controller {
      */
     public function actionIndex() {
 
-        $dataProvider = new CActiveDataProvider('Issue');
-        $dataProvider = new CActiveDataProvider('Issue', array(
+        $unassigned = new CActiveDataProvider('Issue');
+        $unassigned = new CActiveDataProvider('Issue', array(
                     'criteria' => array(
                         'condition' => 'user_assigned IS null',
                        // 'params' => array(':var_assigned' => null),
@@ -152,9 +152,23 @@ class IssuesController extends Controller {
                         'pageSize' => 30,
                     ),
                 ));
+        $resolved = new CActiveDataProvider('Issue');
+        $resolved = new CActiveDataProvider('Issue', array(
+                    'criteria' => array(
+                        'condition' => 'status IS TRUE',
+                       // 'params' => array(':var_assigned' => null),
+                    ),
+                    'sort' => array(
+                        'defaultOrder' => 'date_resolved DESC',
+                    ),
+                    'pagination' => array(
+                        'pageSize' => 30,
+                    ),
+                ));
         $this->render('index', array(
-            'dataProvider' => $dataProvider
-        ));
+            'unassigned' => $unassigned,
+            'resolved' => $resolved,
+            ));
     }
 
     /**

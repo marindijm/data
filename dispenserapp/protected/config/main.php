@@ -37,6 +37,10 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+                'authManager'=>array(
+                'class'=>'CPhpAuthManager',
+    //          'authFile' => 'path'                  // only if necessary
+                  ),
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(

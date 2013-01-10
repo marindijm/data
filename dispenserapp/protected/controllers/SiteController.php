@@ -79,36 +79,37 @@ class SiteController extends Controller
 	 * Displays the login page
 	 */
 	public function actionLogin()
-	{
-		$model=new LoginForm;
-
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
-		}
-		// display the login form
-		$this->render('login',array('model'=>$model));
-	}
+        {
+            $form=new LoginForm;
+            // collect user input data
+            if(isset($_POST['LoginForm']))
+            {
+                $form->attributes=$_POST['LoginForm'];
+                // validate user input and redirect to previous page if valid
+                if($form->validate() ) $this->redirect(Yii::app()->user->returnUrl);
+            }
+            // display the login form
+            $this->render('login',array('form'=>$form));
+        }
 
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */
 	public function actionLogout()
-	{
-		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
-	}
-        
+{
+        $assigned_roles = Yii::app()->authManager->getRoles(Yii::app()->user->id); //obtains all assigned roles for this user id
+        if(!empty($assigned_roles)) //checks that there are assigned roles
+        {
+            $auth=Yii::app()->authManager; //initializes the authManager
+            foreach($assigned_roles as $n=>$role)
+            {
+                if($auth->revoke($n,Yii::app()->user->id)) //remove each assigned role for this user
+                    Yii::app()->authManager->save(); //again always save the result
+            }
+        }
+
+        Yii::app()->user->logout(); //logout the user
+        $this->redirect(Yii::app()->homeUrl); //redirect the user
+    }
       
 }
