@@ -24,6 +24,6 @@ AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css a
 
 RewriteRule  ^dl/([A-Za-z0-9-]+)/?$    download.php?ds=$1    [NC,L] #dummy rewriting to prevent a 404 error
 RewriteRule  ^dl/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$    download.php?ds=$1&dl_cookie=$2    [NC,L]    # rule for datasets
-RewriteRule  ^mr/([A-Za-z0-9-]+)/?$    mr/index.php?mc=$1    [NC,L]    # rule for motorcycle records
+RewriteRule  ^mr/([A-Za-z0-9-]+)/?$    mr.php?mc=$1    [NC,L]    # rule for motorcycle records
 
 </IfModule>

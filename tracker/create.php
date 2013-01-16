@@ -4,14 +4,13 @@ if(!isset($_SESSION))
      session_start();
     $_SESSION['headertype'] = 'is_tr';
  }
- include '../php_funcs/header.php'; 
- include '../php_funcs/funcs.php'; //include all the functions to be used all the pages 
+ include '../header.php'; 
 
  if(isset($_POST['submit'])) //page self call
  {
    $obj = new MainFuncs();//initialize the main class.
    extract($_POST);//get the post variables.
-   $url = 'http://localhost/rest/issues/createissue'; //use localhost in this case because execution is in the server.
+   $url = 'http://localhost/data/rest/issues/createissue'; //use localhost in this case because execution is in the server.
    
    //encode the post variables
    $fields = array(
@@ -33,7 +32,7 @@ if(!isset($_SESSION))
  <div class="top_header">Create Issue(s)</div>
 
  
-  <div class ="crt"> <!--disable this for time being until we get feedback from evana-->
+  <div class ="crt"> <!--disable this for time being until we get feedback from evans-->
   	<fieldset>
 	<legend>Import From CSV/XML</legend>
 	<input type="file" name="somename" size="34" disabled="disabled" >	
@@ -44,15 +43,21 @@ if(!isset($_SESSION))
  <form id="frmCreateIssue" method="post" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" enctype="application/x-www-form-urlencoded">
 	<fieldset>
     	<legend>Create Issue</legend>	
-		<div class="ui-widget">
-			<label for="wpts_id">Waterpoint ID:  </label>
-			<input id="wpts_id" name="wpt_id" />
-		</div>
+		
+<div id="dialog" title="Select Waterpoint" style="display:none"> 
+	 <table id="list1"></table>
+	<div id="pager1"></div>
+	<a href="" id="a1">Get Selected Waterpoint</a>
+ </div>  
+   <a href="#" id="dialog_link">Select Waterpoint</a>
+   <br/>  
+			<label>Waterpoint ID:  </label><input id="wptid" name="wptid" disabled="disabled"  />
+		
 	
 	<label>
 	Waterpoint Name:
 	</label>
-    	<input name="wptname" type="text" maxlength="80" disabled="disabled" />
+    	<input name="wptname" id="wptname" type="text" maxlength="80" disabled="disabled" />
 		 <br/><br/>
 	<label>Issue</label><select name="issue_type" id="issuetypeoptions"></select>
 	<br/><br/>
@@ -66,4 +71,4 @@ if(!isset($_SESSION))
 	
   
 
-<?php include '../php_funcs/footer.php'; ?>
+<?php include '../footer.php'; ?>

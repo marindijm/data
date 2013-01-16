@@ -1,7 +1,7 @@
 <?php
 ob_start();
-include 'php_funcs/funcs.php'; //include all the functions to be used all the pages 
-include 'php_funcs/PHPExcel.php';	
+include 'funcs.php'; //include all the functions to be used all the pages 
+include 'PHPExcel.php';	
 $obj = new MainFuncs();
 
 // Initiate cache

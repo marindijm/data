@@ -22,7 +22,7 @@ if(!isset($_SESSION))
 }
  $_SESSION['headertype'] = 'login'; //just use the default session header so that we don't display any header
  // Insert headers here
-include 'php_funcs/header.php';
+include 'header.php';
 ?>
 
 	<div class="error">
@@ -33,7 +33,7 @@ include 'php_funcs/header.php';
 </div>
 
 <?php
-include 'php_funcs/footer.php';
+include 'footer.php';
 // Insert footer here
 
 ?>

@@ -1,3 +1,36 @@
+<<<<<<< HEAD
+<?php
+/* @var $this IssuesController */
+/* @var $model Issue */
+
+$this->breadcrumbs=array(
+	'Issues'=>array('index'),
+	$model->issueid,
+);
+
+include 'menuone.php';
+?>
+
+<h1>View Issue #<?php echo $model->issueid; ?></h1>
+
+<?php $this->widget('zii.widgets.CDetailView', array(
+	'data'=>$model,
+	'attributes'=>array(
+		'issueid',
+		//'waterpointid',
+		array('label'=>'Waterpoint', 'type'=>'raw', 'value'=>CHtml::link($model->waterpoint->waterpoint_name . ' (' . $model->waterpointid . ')', array('waterpoints/view','id'=>$model->waterpointid))),
+		'date_created',
+		'status',
+		'user_assigned',
+		array('label'=>'Issue Type', 'value'=>$model->issuetype->issuetypename),
+		'issuesourceid',
+		'createdby',
+		'resolvedby',
+		'date_resolved',
+	),
+)); ?>
+
+=======
 <?php
 /* @var $this IssuesController */
 /* @var $model Issue */
@@ -29,3 +62,4 @@ include 'menuone.php';
 	),
 )); ?>
 
+>>>>>>> 7bff53bb31e53dfcc0505a9c7c0b10addae97a98
