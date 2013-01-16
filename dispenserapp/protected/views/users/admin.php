@@ -48,10 +48,27 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'user_id',
 		'username',
 		'email',
+<<<<<<< HEAD
 		'role',
 		'password',
+<<<<<<< HEAD
 		array(
 			'class'=>'CButtonColumn',
 		),
 	),
 )); ?>
+=======
+=======
+		'openid_identity',
+		'session_id',
+		'loggedin',
+>>>>>>> parent of ae9b68a... server changes
+		array(
+			'class'=>'CButtonColumn',
+		),
+	),
+)); ?>
+<<<<<<< HEAD
+>>>>>>> 7bff53bb31e53dfcc0505a9c7c0b10addae97a98
+=======
+>>>>>>> parent of ae9b68a... server changes

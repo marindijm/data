@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">  
+    
+    <com.dsw.dispenserapp.Header  
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"      
+        android:background="@drawable/home_bg" 
+        android:paddingTop="10dip" 
+        android:paddingBottom="10dip" />
+    
+<RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:orientation="horizontal"   >
+       
+    <ListView
+        android:id="@+id/home_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dip"
+        android:divider="#b5b5b5"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/list_selector" />
+    
+
+<RelativeLayout 
+     android:id="@+id/btnSyncAll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:orientation="horizontal"
+    android:layout_alignParentBottom="true"
+     android:background="@drawable/sync_bg">
+        <ImageView
+            android:id="@+id/SyncIcon"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:background="@drawable/sync"
+            android:layout_marginTop="10dip"
+            />
+
+         <TextView
+            android:id="@+id/txtSyncAll"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/SyncIcon"
+            android:layout_marginLeft="120dip"
+              android:layout_centerVertical="true"
+            android:textColor="#000000"       
+            android:text="Sync All"           
+            android:textSize="28dip" 
+             android:textStyle="bold"/>
+        
+        
+           </RelativeLayout>
+   
+    </RelativeLayout>
+</LinearLayout>

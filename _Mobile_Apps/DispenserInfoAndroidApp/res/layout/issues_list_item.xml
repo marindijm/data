@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rect"
+    android:orientation="vertical"
+    android:scrollbarStyle="outsideOverlay"
+    android:scrollbars="vertical" >
+
+  <!-- Issue ID -->
+  <TextView android:id="@+id/i_id"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dip"      
+            android:textColor="#000000"
+            android:text="Issue :"
+            android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect"
+            
+             />
+  
+  <!-- Waterpoint Name -->
+  <TextView android:id="@+id/wpt_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="20dip"  
+            android:text="Waterpoint Name: "
+            android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  <!-- Waterpoint ID -->
+  <TextView android:id="@+id/wpt_id"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Waterpoint ID: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  
+  <!-- issue -->
+  <TextView android:id="@+id/is"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"      		
+      		 android:textSize="20dip"  
+      		android:text="Issue: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  
+   <!-- Date Created -->
+  <TextView android:id="@+id/d_created"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Created: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  
+   <!-- Comments -->
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"      
+        android:background="@drawable/rect" >
+       
+       <TextView
+           android:id="@+id/comments"
+            android:layout_marginRight="5dip"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+         android:textSize="20dip"  
+           android:paddingBottom="20dip"
+           android:paddingLeft="5dip"
+           android:paddingTop="5dip"
+           android:text="Comments: "
+           android:textColor="#000000" />
+
+       <EditText
+           android:id="@+id/txtComments"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/comments"
+           android:layout_weight="1"
+            />
+
+         
+      
+
+   </RelativeLayout>
+   
+    <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"       
+         android:background="@drawable/rect"
+         android:layout_marginTop="40dip"
+       > 
+       
+       <TextView
+           android:id="@+id/resolved"
+            android:layout_marginRight="5dip"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+          android:textSize="20dip"  
+           android:paddingBottom="20dip"
+           android:paddingLeft="5dip"
+           android:paddingTop="20dip"
+           android:text="Mark As Resolved: "
+           android:textColor="#000000" />
+
+       <ToggleButton
+           android:id="@+id/btnMarkAsResolved"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="35dip"/>
+		  		
+      <requestFocus />
+   </LinearLayout>
+</LinearLayout>
+</ScrollView>

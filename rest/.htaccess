@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <IfModule mod_rewrite.c>
    # Turn on URL rewriting
     RewriteEngine On
@@ -26,4 +27,40 @@ RewriteRule    ^issues/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/xml/?$    ws.php?rquest=$
    
 
 
+=======
+<IfModule mod_rewrite.c>
+   # Turn on URL rewriting
+    RewriteEngine On
+
+
+  # Protect application and system files from being viewed
+   RewriteRule ^(application|modules|system) - [F,L]
+
+   # Allow any files or directories that exist to be displayed directly
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_FILENAME} !-d
+
+   # Rewrite all other URLs to ws.php/
+ 
+
+RewriteRule    ^waterpoints/([A-Za-z0-9-]+)/?$   ws.php?rquest=$1   [NC,L]    # Process waterpoints
+RewriteRule    ^waterpoints/([A-Za-z0-9-]+)/xml/?$   ws.php?rquest=$1&format=xml    [NC,L]    # Process Xml for waterpoints request
+RewriteRule    ^waterpoints/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$    ws.php?rquest=$1&id=$2   [NC,L]    # Process Waterpoint details
+RewriteRule    ^waterpoints/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/xml/?$   ws.php?rquest=$1&id=$2&format=xml   [NC,L]    # Process  Xml  format for waterpoint details
+
+RewriteRule    ^issues/([A-Za-z0-9-]+)/?$   ws.php?rquest=$1   [NC,L]    # Process issues
+RewriteRule    ^issues/([A-Za-z0-9-]+)/xml/?$   ws.php?rquest=$1&format=xml    [NC,L]    # Process Xml for issues request
+RewriteRule    ^issues/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$    ws.php?rquest=$1&id=$2   [NC,L]    # Process issue details
+RewriteRule    ^issues/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/xml/?$    ws.php?rquest=$1&id=$2&format=xml   [NC,L]    # Process xml format for issue details
+   
+RewriteRule    ^users/([A-Za-z0-9-]+)/?$   ws.php?rquest=$1   [NC,L]    # Process users
+RewriteRule    ^users/([A-Za-z0-9-]+)/xml/?$   ws.php?rquest=$1&format=xml    [NC,L]    # Process Xml for users request
+RewriteRule    ^users/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$    ws.php?rquest=$1&id=$2   [NC,L]    # Process user details
+RewriteRule    ^users/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/xml/?$    ws.php?rquest=$1&id=$2&format=xml   [NC,L]    # Process xml format for user details
+
+
+RewriteRule    ^count/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$  ws.php?rquest=$1&tbl=$2   [NC,L]    # Process counts only
+RewriteRule    ^count/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/xml/?$   ws.php?rquest=$1&tbl=$2&format=xml    [NC,L]    # Process Xml for counts request
+
+>>>>>>> 7bff53bb31e53dfcc0505a9c7c0b10addae97a98
 </IfModule>
