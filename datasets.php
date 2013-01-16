@@ -1,7 +1,9 @@
 <?php
  //header file
-include 'header.php';
-?>
+include 'php_funcs/header.php';
+
+
+ ?>
  <div class="top_header">Program Datasets</div>     
 			  <br/>
 	<div class="ds_tbl">
@@ -38,4 +40,4 @@ include 'header.php';
 
 <?php 
 //footer file
-include 'footer.php'; ?>
+include 'php_funcs/footer.php'; ?>

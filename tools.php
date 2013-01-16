@@ -1,6 +1,10 @@
 <?php
-include 'header.php';
-$obj = new MainFuncs(); 
+include 'php_funcs/funcs.php';
+
+ $obj = new MainFuncs(); 
+ //header file
+include 'php_funcs/header.php';
+
  ?>
  
 <div class="top_header">Field Tools</div>
@@ -36,4 +40,4 @@ $obj = new MainFuncs();
 
 <?php 
 //footer file
-include 'footer.php'; ?>
+include 'php_funcs/footer.php'; ?>

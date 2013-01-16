@@ -1,6 +1,10 @@
 <?php
-include 'header.php';
+include 'php_funcs/funcs.php';
+//header file
+include 'php_funcs/header.php';
+
 $obj = new MainFuncs(); 
+ 
  ?>
 <div class="top_header">Program Reports</div>	     
 			  <br/>
@@ -8,9 +12,9 @@ $obj = new MainFuncs();
 			<table>				 
 			<tbody>
 				 <tr>
-			<td width="342"><p><a href="#repbox1" id="rep"><img src="images/lv.png"></a><br/>Live Reports</p></td>					
-			<td width="391"><p><a href="#repbox2" id="rep"><img src="images/mc.png"></a><br/>Motorcycle Reports</p></td>
-			<td width="308"><p><a href="#repbox3" id="rep"><img src="images/rand.png"></a><br/>Other Statistics </p></td>
+				<td width="342"><p><a href="#repbox1" id="rep"><img src="images/live_rep.png"></a><br/>Live Reports</p></td>					
+				<td width="391"><p><a href="#repbox2" id="rep"><img src="images/motorcycle_rep.png"></a><br/>Motorcycle Reports</p></td>
+				<td width="308"><p><a href="#repbox3" id="rep"><img src="images/random.png"></a><br/>Other Statistics </p></td>
 				 </tr>	
 								
 			</tbody>
@@ -62,4 +66,4 @@ $obj = new MainFuncs();
 
 <?php 
 //footer file
-include 'footer.php'; ?>
+include 'php_funcs/footer.php'; ?>

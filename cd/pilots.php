@@ -1,9 +1,9 @@
 <?php
-include '../funcs.php';
+include 'php_funcs/funcs.php';
 
  $obj = new ChlorineDeliveryFuncs(); 
   //header file
-include '../header.php';
+include '../php_funcs/header.php';
 
 ?>
 
@@ -51,4 +51,4 @@ include '../header.php';
 
 <?php 
 //footer file
-include '../footer.php'; ?>
+include '../php_funcs/footer.php'; ?>
