@@ -10,12 +10,20 @@ $(document).ready(function() {
 	  $('#a1').exists(function() {
          $("#a1").click( function(){
 			var id = $("#list1").jqGrid('getGridParam','selrow');
-			if (id)	{
+			var id = $("#list1").jqGrid('getGridParam','selrow');
+			if (id)	
+			{
 				var ret = $("#list1").jqGrid('getRowData',id);
-				alert("watrepoint id="+ret.wptid+" waterpoint name="+ret.wptname+"...");
-				 $.unblockUI();	
+			//	alert("watrepoint id="+ret.wptid+" waterpoint name="+ret.wptname+"...");
+				$('#wptid').val(ret.wptid);
+				$('#wptname').val(ret.wptname);
+				 $('#dialog').dialog('close');
 				 return false; 
-			} else { alert("Please select row");}
+			} 
+			else 
+			{// alert("Please select row");}
+			
+			}
 		});
 
      });
@@ -26,26 +34,15 @@ $(document).ready(function() {
 					  $('#dialog').dialog('open'); 
 					  return false; 
 				  });
-				/*  $.blockUI({ message: $('div#dialog'), 
-             css: { 
-             border: 'none', 
-             padding: '15px',         
-            '-webkit-border-radius': '10px', 
-            '-moz-border-radius': '10px', 
-			'border-radius': '10px',            
-            'font-family':'Open Sans Bold',
-             color:'#00416A' 
-            }  }); */
-	
-		
+				
 
      });
 	//preload all our images for faster display
 	$('.preload_imgs').exists(function() {
 		$(['challenge.png','dataset.png',
 		   'dsw_logo.png','dsw_logo_sc.png','dsw_logo_small.png','evidence.png',
-		   'gears.gif','icon_bug_1.png','live_rep.png','loading.gif','models.png',
-		   'motorcycle_rep.png','partners.png','random.png','solution.png',
+		   'gears.gif','icon_bug_1.png','lv.png','loading.gif','models.png',
+		   'mc.png','partners.png','rand.png','solution.png',
 		   'static_rep.png','thumb.png','total_disps.png','wazi.png','map.png','snow.png']).preloadImages();
 	});
 	//call the necessary javascript functions
@@ -297,7 +294,7 @@ $.fn.preloadImages = function() {
 }
 $.fn.getLoginLink = function() {
     $.ajax({
-            url: 'link.php',
+            url: 'funcs.php?lnk=y',
             success: function(response) {
             //   document.write(data);
 			  $("a").attr("href", response)
@@ -306,7 +303,7 @@ $.fn.getLoginLink = function() {
 }
 $.fn.loadWpts = function() {
 	$("#list1").jqGrid({
-    url:'server.php',
+    url:'../funcs.php?lst=y',
 	datatype: "json",
 	 width:900,
     height:250,

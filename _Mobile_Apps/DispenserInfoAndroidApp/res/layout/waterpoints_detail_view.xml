@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rect"
+    android:orientation="vertical"
+    android:scrollbarStyle="outsideOverlay"
+    android:scrollbars="vertical" >
+
+ <com.dsw.dispenserapp.Header  
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"      
+        android:background="@drawable/home_bg" 
+        android:paddingTop="10dip" 
+        android:paddingBottom="10dip" />
+    
+  <!-- Waterpoint ID -->
+  <TextView android:id="@+id/wpt_details_id"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Waterpoint ID: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  <!-- Waterpoint Name -->
+  <TextView android:id="@+id/wpt_details_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="20dip"  
+            android:text="Waterpoint Name: "
+            android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  
+  
+ <!-- Dstrict Name-->
+  <TextView android:id="@+id/wpt_details_dist"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="District Name: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+<!-- Division Name-->
+  <TextView android:id="@+id/wpt_details_div"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Division Name: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  
+  <!-- Location Name-->
+  <TextView android:id="@+id/wpt_details_loc"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Location Name: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+
+  <!-- Sub Location Name-->
+  <TextView android:id="@+id/wpt_details_subloc"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Sublocation Name: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  
+   <!-- Village Name-->
+  <TextView android:id="@+id/wpt_details_village"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Village Name: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  
+  <!-- Directions-->
+  <TextView android:id="@+id/wpt_details_directions"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Directions: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  
+   <!-- Promoter Name-->
+  <TextView android:id="@+id/wpt_details_pname"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Promoter Name: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  <!-- Promoter Contact 1-->
+  <TextView android:id="@+id/wpt_details_pcontact1"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Promoter Contact 1: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  
+  <!-- Promoter Contact 2-->
+  <TextView android:id="@+id/wpt_details_pcontact2"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Promoter Contact 2: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  
+  <!-- Assistant Promoter Name-->
+  <TextView android:id="@+id/wpt_details_asst_pname"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Assistant Promoter Name: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  <!--Assistant Promoter Contact 1-->
+  <TextView android:id="@+id/wpt_details_asst_pcontact1"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Assistant Promoter Contact 1: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+  
+  <!--Assistant Promoter Contact 2-->
+  <TextView android:id="@+id/wpt_details_asst_pcontact2"
+      		android:layout_width="fill_parent"
+      		android:layout_height="wrap_content"      		
+      		android:textColor="#000000"
+      		android:textSize="20dip"  
+      		android:text="Assistant Promoter Contact 2: "
+      		android:paddingLeft="5dip" 
+            android:paddingTop="20dip" 
+            android:paddingBottom="20dip"        
+            android:background="@drawable/rect" />
+</LinearLayout>
+</ScrollView>

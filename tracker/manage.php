@@ -5,7 +5,7 @@ if(!isset($_SESSION))
     $_SESSION['headertype'] = 'is_tr';
  }
 
-include '../php_funcs/header.php'; ?>
+include '../header.php'; ?>
 <div id="container">
  <div class="top_header">Manage Issues</div>
  
@@ -15,4 +15,4 @@ include '../php_funcs/header.php'; ?>
   <br/>	
   
 </div>
-<?php include '../php_funcs/footer.php'; ?>
+<?php include '../footer.php'; ?>
