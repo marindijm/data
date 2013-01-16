@@ -35,11 +35,11 @@ if(!isset($_SESSION['googleidentity']) && $_SESSION['headertype'] != 'login')//c
 
 
 <!-- link to neccessary files -->
-<link href="<?php echo 'http://'.$obj->_domain.'/'; ?>images/dsw_logo_sc.png" rel="SHORTCUT ICON">
-<link href="<?php echo 'http://'.$obj->_domain.'/'; ?>css/main.css" rel="stylesheet"> 
-<link href="<?php echo 'http://'.$obj->_domain.'/'; ?>css/live_rep.css" rel="stylesheet"> 
-<link href="<?php echo 'http://'.$obj->_domain.'/'; ?>css/jquery-ui-1.9.2.custom.min.css" rel="stylesheet"> 
-<link href="<?php echo 'http://'.$obj->_domain.'/'; ?>css/ui.jqgrid.css" rel="stylesheet">
+<link href="images/dsw_logo_sc.png" rel="SHORTCUT ICON">
+<link href="css/main.css" rel="stylesheet"> 
+<link href="css/live_rep.css" rel="stylesheet"> 
+<link href="css/jquery-ui-1.9.2.custom.min.css" rel="stylesheet"> 
+<link href="css/ui.jqgrid.css" rel="stylesheet">
 <!--
 <link rel="stylesheet" media="screen" href="css/christmaslights.css" />
 <script type="text/javascript" src="js_funcs/soundmanager2-nodebug-jsmin.js"></script>
@@ -60,12 +60,12 @@ soundManager.url = './';
 if(isset($_SESSION['googleidentity']))//check if user has logged in and show log out link
 {
 ?>
-<div class="logout"><a href="<?php echo 'http://'.$obj->_domain.'/'; ?>header.php?logout=yes">Log Out</a></div>
+<div class="logout"><a href="header.php?logout=yes">Log Out</a></div>
 <?php
 }
 ?>
 <div id="nav-header">  
-   <a href="/"><img src="<?php echo 'http://'.$obj->_domain.'/'; ?>images/dsw_logo_small.png" alt="DSW Logo" id="dsw_logo" ></a>
+   <a href="/"><img src="images/dsw_logo_small.png" alt="DSW Logo" id="dsw_logo" ></a>
    <h1>Dispensers For Safe Water</h1>  
 </div>
 <?php
@@ -77,11 +77,11 @@ if($_SESSION['headertype'] == 'gen')//general DSW header
    
    <div class="nav-menu">
 	   <ul>
-			<li><a href="<?php echo 'http://'.$obj->_domain.'/'; ?>index.php">Home</a></li>
-			<li><a href="<?php echo 'http://'.$obj->_domain.'/'; ?>datasets.php">Datasets</a></li>		
-			<li><a href="<?php echo 'http://'.$obj->_domain.'/'; ?>tools.php">Field Tools</a></li>
-			<li><a href="<?php echo 'http://'.$obj->_domain.'/'; ?>reports.php">Reports</a></li>			
-			<li><a href="<?php echo 'http://'.$obj->_domain.'/'; ?>dashboard.php">Dashboard</a></li>
+			<li><a href="index.php">Home</a></li>
+			<li><a href="datasets.php">Datasets</a></li>		
+			<li><a href="tools.php">Field Tools</a></li>
+			<li><a href="reports.php">Reports</a></li>			
+			<li><a href="dashboard.php">Dashboard</a></li>
 	  </ul>
   </div>
 
@@ -97,10 +97,10 @@ if($_SESSION['headertype'] == 'is_tr')//header for issue tracker
 
    <div class="nav-menu">
       <ul>
-        <li id="home_tab"><a href="<?php echo 'http://'.$obj->_domain.'/'; ?>index.php">Home</a></li>
-		<li><a href="<?php echo 'http://'.$obj->_domain.'/'; ?>/tracker/create.php">Create Issue(s)</a></li>
-		<li><a href="<?php echo 'http://'.$obj->_domain.'/'; ?>/tracker/view.php">View Issue(s)</a></li>		
-		<li><a href="<?php echo 'http://'.$obj->_domain.'/'; ?>/tracker/manage.php">Manage Issue(s)</a></li>	
+        <li id="home_tab"><a href="index.php">Home</a></li>
+		<li><a href="tracker/create.php">Create Issue(s)</a></li>
+		<li><a href="tracker/view.php">View Issue(s)</a></li>		
+		<li><a href="tracker/manage.php">Manage Issue(s)</a></li>	
 	
    </ul>
 </div>
