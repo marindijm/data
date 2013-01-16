@@ -42,8 +42,7 @@ class API extends REST
 		 if($this->get_request_method() != "GET"){
 			$this->response('',406,"");
 		 }	
-		 
-		  $tbl = $this->_request['tbl'];//request for the sanitized waterpoint id	
+    	  $tbl = $this->_request['tbl'];//request for the sanitized waterpoint id	
 		 //set the xml nodes just in case xml is requested	
 		$this->pnode = 'counts';
 		$this->cnode = 'count';     
