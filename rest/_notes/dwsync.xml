@@ -1,19 +1,11 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="utf-8" ?>
-<dwsync>
-<file name=".htaccess" local="129965921195358134" remote="129965921190000000" testing="129965921190000000" />
-<<<<<<< HEAD
-<file name="rest.inc.php" local="130023035616538713" remote="130023035610000000" testing="129993754020000000" />
-<file name="ws.php" local="130023211403934388" remote="130023211400000000" testing="129993755490000000" />
-=======
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
 <file name=".htaccess" local="129965921195358134" remote="129965921190000000" testing="129965921190000000" />
 <file name="rest.inc.php" local="130023035616538713" remote="130023035610000000" testing="129993754020000000" />
 <file name="ws.php" local="130023211403934388" remote="130023211400000000" testing="129993755490000000" />
->>>>>>> 7bff53bb31e53dfcc0505a9c7c0b10addae97a98
-=======
-<file name="rest.inc.php" local="129993754025109054" remote="129993754020000000" testing="129993754020000000" />
-<file name="ws.php" local="129993755496853233" remote="129993755490000000" testing="129993755490000000" />
->>>>>>> parent of ae9b68a... server changes
+<file name=".htaccess" local="129965921195358134" remote="129965921190000000" testing="129965921190000000" />
+<file name="rest.inc.php" local="130023035616538713" remote="130023035610000000" testing="129993754020000000" />
+<file name="ws.php" local="130023211403934388" remote="130023211400000000" testing="129993755490000000" />
+<file name="rest.inc.php" local="130028111777247337" remote="130028111770000000" testing="129993754020000000" />
+<file name="ws.php" local="130028112026931618" remote="130028112020000000" testing="129993755490000000" />
 </dwsync>
