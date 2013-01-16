@@ -19,7 +19,7 @@ $obj = new MainFuncs();//initialize the functions class
 if(!isset($_SESSION['googleidentity']) && $_SESSION['headertype'] != 'login')//check if user has logged in
 {
  // echo $_SERVER['DOCUMENT_ROOT'];
-	//header("location:login.php");
+	header("location:login.php");
 }
 
 ?>
