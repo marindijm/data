@@ -1,7 +1,7 @@
 <?php
  //header file
-include '../header.php';
-include '../funcs.php';
+include '../php_funcs/header.php';
+include '../php_funcs/funcs.php';
 $obj = new MainFuncs(); 
 ?>
 <div class="sub-menu">
@@ -132,4 +132,4 @@ $obj = new MainFuncs();
 
 <?php 
 //footer file
-include '../footer.php'; ?>
+include '../php_funcs/footer.php'; ?>

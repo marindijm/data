@@ -1,10 +1,12 @@
+_notes/dwsync.xml
 #################
 ## Eclipse
 #################
+
 *.pydevproject
 .project
 .metadata
-# bin/
+bin/
 tmp/
 *.tmp
 *.bak
@@ -165,12 +167,8 @@ pip-log.txt
 #############
 ## Yii
 #############
-dispenserapp/assets/
+
+assets/
 protected/runtime/
 themes/classic/views/
 /nbproject/
-
-#############
-## Dreamweaver
-#############
-_notes/

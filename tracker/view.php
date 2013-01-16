@@ -5,10 +5,10 @@ if(!isset($_SESSION))
     $_SESSION['headertype'] = 'is_tr';
  }
 
-include '../header.php';
+include '../php_funcs/header.php';
 
 
-$jsonurl = "http://localhost/data/rest/issues/getissues";
+$jsonurl = "http://localhost/rest/issues/getissues";
 $json = file_get_contents($jsonurl,0,null,null);
 $json_output = json_decode($json);
  ?>
@@ -51,4 +51,4 @@ $json_output = json_decode($json);
 
   </div>
 </div>
-<?php include '../footer.php'; ?>
+<?php include '../php_funcs/footer.php'; ?>

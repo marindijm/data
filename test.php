@@ -1,5 +1,5 @@
 <?php
- include 'funcs.php'; //include all the functions to be used all the pages  
+ include 'php_funcs/funcs.php'; //include all the functions to be used all the pages  
 
  $obj = new MainFuncs();
 $conn = $obj->connectToDB('odk_prod');

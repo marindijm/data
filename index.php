@@ -4,8 +4,8 @@ if(!isset($_SESSION))
  session_start();//start new session
 }
 $_SESSION['headertype'] = 'gen';// set the default header for the pages
-
-include 'header.php';
+include 'php_funcs/funcs.php'; //include all the functions to be used all the pages 
+include 'php_funcs/header.php';
 ?>
 <div class="summary_layout">
  <br/>
@@ -33,6 +33,6 @@ This study found that spring protection reduced source contamination by 66%, but
 </div> <!--end of summary layout-->
 
 
-<?php include 'footer.php'; ?>
+<?php include 'php_funcs/footer.php'; ?>
 
 

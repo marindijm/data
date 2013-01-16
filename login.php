@@ -1,11 +1,19 @@
+
 <?php
+
 if(!isset($_SESSION))
 {
     session_start();//start if session not started new session
 }
  $_SESSION['headertype'] = 'login'; //set session variable for login
+ 
+
 //include necessary files
-include 'header.php';
+include 'php_funcs/funcs.php'; //include all the functions to be used all the pages 
+include 'php_funcs/openid.php';
+include 'php_funcs/header.php';
+
+
 
  $obj = new MainFuncs();//initialize the functions class
  $obj->logOutUser();//make sure previou sessions nullified
@@ -20,9 +28,10 @@ if(isset($_SESSION['googleidentity']))//check if user has logged in
  		header("location:index.php");//redirect to the login page if user logged in already
 }
 
+
 ?>
 
-<!--<script type="text/javascript">
+<script type="text/javascript">
 
 /******************************************
 * Snow Effect Script- By Altan d.o.o. (http://www.altan.hr/snow/index.html)
@@ -113,7 +122,7 @@ if (ie4up||ns6up){
 		setTimeout("hidesnow()", hidesnowtime*1000)
 		}
 
-</script>-->
+</script>
  
 <div id="container"> 
 
@@ -137,4 +146,4 @@ if (ie4up||ns6up){
 
 <?php 
 //footer file
-include 'footer.php'; ?>
+include 'php_funcs/footer.php'; ?>
