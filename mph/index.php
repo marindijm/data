@@ -1,10 +1,7 @@
 <?php
-include '../php_funcs/funcs.php';
- $obj = new MainFuncs(); 
- 
  //header file
-include '../php_funcs/header.php';
-
+include '../header.php';
+ $obj = new MainFuncs(); 
  ?>
 
 <div class="live_rep_content">   
@@ -179,4 +176,4 @@ include '../php_funcs/header.php';
 
 <?php 
 //footer file
-include '../php_funcs/footer.php'; ?>
+include '../footer.php'; ?>

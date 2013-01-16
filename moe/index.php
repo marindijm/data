@@ -1,9 +1,8 @@
 <?php
-include '../php_funcs/funcs.php';
+ //header file
+include '../header.php';
  $obj = new MainFuncs(); 
  
- //header file
-include '../php_funcs/header.php';
 
  ?>
 
@@ -175,4 +174,4 @@ include '../php_funcs/header.php';
 
 <?php 
 //footer file
-include '../php_funcs/footer.php'; ?>
+include '../footer.php'; ?>

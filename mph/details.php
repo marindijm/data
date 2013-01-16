@@ -1,5 +1,6 @@
 <?php
-include '../php_funcs/funcs.php';
+ //header file
+include '../header.php';
 
  $obj = new MainFuncs(); 
  $id = $_GET['id'];
@@ -13,8 +14,6 @@ include '../php_funcs/funcs.php';
   header('location:index.php');
  }
  
- //header file
-include '../php_funcs/header.php'
 
 ?>
 
@@ -211,4 +210,4 @@ include '../php_funcs/header.php'
 </div>	
 <?php 
 //footer file
-include '../php_funcs/footer.php'; ?>
+include '../footer.php'; ?>

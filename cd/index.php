@@ -1,7 +1,7 @@
 <?php
  //header file
 include '../header.php';
-include '../funcs.php';
+
 $obj = new MainFuncs(); 
 ?>
 <div class="sub-menu">
