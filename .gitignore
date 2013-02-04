@@ -166,8 +166,8 @@ pip-log.txt
 ## Yii
 #############
 dispenserapp/assets/
-protected/runtime/
-themes/classic/views/
+dispenserapp/protected/runtime/
+dispenserapp/themes/classic/views/
 /nbproject/
 
 #############
