@@ -103,13 +103,6 @@ $('div#dialog').dialog({ autoOpen: false })
 		<?php echo $form->dropDownList($model,'issuetypeid', CHtml::listData(Issuetype::model()->findAll(), 'issuetypeid', 'issuetypename')); ?>
 		<?php echo $form->error($model,'issuetypeid'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'issuesourceid'); ?>
-		<?php echo $form->dropDownList($model,'issuesourceid', CHtml::listData(Issuesource::model()->findAll(), 'issuesourceid', 'description')); ?>
-		<?php echo $form->error($model,'issuesourceid'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

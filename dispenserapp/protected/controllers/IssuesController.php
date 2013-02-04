@@ -66,6 +66,7 @@ class IssuesController extends Controller {
         if (isset($_POST['Issue'])) {
             $model->attributes = $_POST['Issue'];
             $model->date_created = date('Y-m-d');
+			$model->issuesourceid = 3;
             $model->status = false;
 
             if ($model->save())
