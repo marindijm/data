@@ -1,0 +1,79 @@
+
+CREATE TABLE pilot (
+    id serial NOT NULL,
+    code character varying,
+    regional_office_id integer
+);
+
+
+CREATE TABLE regional_office (
+    office_id serial NOT NULL,
+    office_name character varying
+);
+
+
+INSERT INTO pilot VALUES (1, 'BCC1', 1);
+INSERT INTO pilot VALUES (2, 'BMC1', 1);
+INSERT INTO pilot VALUES (3, 'CFD1', 6);
+INSERT INTO pilot VALUES (4, 'DVS1', 5);
+INSERT INTO pilot VALUES (5, 'ENG1', 1);
+INSERT INTO pilot VALUES (6, 'JICA1', 1);
+INSERT INTO pilot VALUES (7, 'LVN1', 1);
+INSERT INTO pilot VALUES (8, 'MMC1', 1);
+INSERT INTO pilot VALUES (9, 'MoE1', 1);
+INSERT INTO pilot VALUES (10, 'MoE2', 1);
+INSERT INTO pilot VALUES (11, 'MoE3', 1);
+INSERT INTO pilot VALUES (12, 'MPH1', 1);
+INSERT INTO pilot VALUES (13, 'MPH2', 2);
+INSERT INTO pilot VALUES (14, 'OAF1', 4);
+INSERT INTO pilot VALUES (15, 'OAF2', 2);
+INSERT INTO pilot VALUES (16, 'PMI1', 4);
+INSERT INTO pilot VALUES (17, 'SND1', 1);
+INSERT INTO pilot VALUES (18, 'SND2', 1);
+INSERT INTO pilot VALUES (19, 'SND3', 1);
+INSERT INTO pilot VALUES (20, 'SWAP 1', 7);
+INSERT INTO pilot VALUES (21, 'WASH1', 8);
+
+
+
+INSERT INTO regional_office VALUES (1, 'Busia');
+INSERT INTO regional_office VALUES (2, 'Kakamega');
+INSERT INTO regional_office VALUES (3, 'Ugunja');
+INSERT INTO regional_office VALUES (4, 'Bungoma');
+INSERT INTO regional_office VALUES (5, 'Kisumu');
+INSERT INTO regional_office VALUES (6, 'Rachuonyo');
+INSERT INTO regional_office VALUES (7, 'Nyando');
+INSERT INTO regional_office VALUES (8, 'Siaya');
+
+
+
+ALTER TABLE ONLY pilot    ADD CONSTRAINT pk_pilots PRIMARY KEY (id);
+
+
+ALTER TABLE ONLY regional_office
+    ADD CONSTRAINT pk_regional_office PRIMARY KEY (office_id);
+
+
+ALTER TABLE ONLY pilot
+    ADD CONSTRAINT fk_regional_office_pilots FOREIGN KEY (regional_office_id) REFERENCES regional_office(office_id);
+
+
+ALTER table waterpoints ADD COLUMN regional_office_id INTEGER;
+
+ALTER table waterpoints ADD  CONSTRAINT fk_regional_office_waterpoints FOREIGN KEY (regional_office_id)
+      REFERENCES regional_office (office_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+    
+
+ALTER table users ADD COLUMN regional_office_id INTEGER;
+
+ALTER table users ADD  CONSTRAINT fk_regional_office_users FOREIGN KEY (regional_office_id)
+      REFERENCES regional_office (office_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+UPDATE waterpoints SET regional_office_id = ro.roid
+FROM  (SELECT pilot.regional_office_id as roid, verification_info.waterpointid::Integer as wptid  FROM pilot
+  INNER JOIN verification_survey.verification_info on pilot.code = verification_info.t011)ro
+  WHERE waterpoint_id = ro.wptid;
+
