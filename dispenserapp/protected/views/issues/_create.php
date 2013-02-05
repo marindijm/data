@@ -97,10 +97,20 @@ $('div#dialog').dialog({ autoOpen: false })
 		<?php echo $form->textField($model,'waterpointid',array('readonly'=>true,'id'=>'wptid')); ?>
 		<?php echo $form->error($model,'waterpointid'); ?>
 	</div>
+   
+        <div class="row">
+		<?php echo $form->labelEx($model,'dispenser_functional'); ?>
+	
+		<?php echo $form->checkBox($model,'dispenser_functional'); ?>
+                                 
+		<?php echo $form->error($model,'dispenser_functional'); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'issuetypeid'); ?>
-		<?php echo $form->dropDownList($model,'issuetypeid', CHtml::listData(Issuetype::model()->findAll(), 'issuetypeid', 'issuetypename')); ?>
+		<?php echo $form->dropDownList($model,'issuetypeid', 
+                        CHtml::listData(Issuetype::model()->findAll('issuecategory is not NULL'), 
+                                'issuetypeid', 'issuecategory')); ?>
 		<?php echo $form->error($model,'issuetypeid'); ?>
 	</div>
 	<div class="row buttons">

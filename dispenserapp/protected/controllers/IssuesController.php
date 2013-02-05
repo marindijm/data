@@ -30,7 +30,7 @@ class IssuesController extends Controller {
                 'roles' => array('reader'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'assign'),
+                'actions' => array('create', 'update', 'assign', 'resolve'),
                 'roles' => array('writer'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -66,7 +66,8 @@ class IssuesController extends Controller {
         if (isset($_POST['Issue'])) {
             $model->attributes = $_POST['Issue'];
             $model->date_created = date('Y-m-d');
-			$model->issuesourceid = 3;
+            $model->issuesourceid = 3;
+            $model->createdby = Yii::app()->user->id;
             $model->status = false;
 
             if ($model->save())
@@ -77,7 +78,31 @@ class IssuesController extends Controller {
             'model' => $model,
         ));
     }
+	
+	/**
+     * Resolves an issue
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id the ID of the model to be updated
+     */
+    public function actionResolve($id) {
+        $model = $this->loadModel($id);
 
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if (isset($_POST['Issue'])) {
+            $model->attributes = $_POST['Issue'];
+             $model->date_resolved = date('Y-m-d');
+            $model->resolvedby = Yii::app()->user->id;
+            
+            if ($model->save())
+                $this->redirect(array('admin', 'id' => $model->issueid));
+        }
+
+        $this->render('resolve', array(
+            'model' => $model,
+        ));
+    }
     /**
      * Updates a particular model.
      * If update is successful, the browser will be redirected to the 'view' page.
