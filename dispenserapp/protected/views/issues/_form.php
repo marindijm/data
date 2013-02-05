@@ -42,7 +42,11 @@
 		<?php echo $form->dropDownList($model,'issuetypeid', CHtml::listData(Issuetype::model()->findAll(), 'issuetypeid', 'issuetypename')); ?>
 		<?php echo $form->error($model,'issuetypeid'); ?>
 	</div>
-	
+	<div class="row">
+		<?php echo $form->labelEx($model,'user_comments'); ?>
+		<?php echo $form->textArea($model,'user_comments',array('rows'=>4, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'user_comments'); ?>
+	</div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

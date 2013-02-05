@@ -54,7 +54,7 @@ class Issue extends CActiveRecord
 		return array(
 			array('waterpointid', 'required'),
 			array('waterpointid, user_assigned, issuetypeid, issuesourceid, createdby, resolvedby', 'numerical', 'integerOnly'=>true),
-			array('date_created, status, date_resolved', 'safe'),
+			array('date_created, status, date_resolved,user_comments', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('issueid, waterpointid, date_created, status, user_assigned, issuetypeid, issuesourceid, createdby, resolvedby, date_resolved', 'safe', 'on'=>'search'),
@@ -121,7 +121,6 @@ class Issue extends CActiveRecord
 		$criteria->compare('createdby',$this->createdby);
 		$criteria->compare('resolvedby',$this->resolvedby);
 		$criteria->compare('date_resolved',$this->date_resolved,true);
-
 		//load the related table at the same time:
 		$criteria->with=array('issuetype');
 		
