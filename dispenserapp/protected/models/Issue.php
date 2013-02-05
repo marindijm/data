@@ -14,7 +14,7 @@
  * @property integer $createdby
  * @property integer $resolvedby
  * @property string $date_resolved
- * @property string $comments
+ * @property string $user_comments
  *
  * The followings are the available model relations:
  * @property Users $createdby0
@@ -94,7 +94,7 @@ class Issue extends CActiveRecord
 			'createdby' => 'Created by',
 			'resolvedby' => 'Resolved by',
 			'date_resolved' => 'Date Resolved',
-			'comments' => 'User Comment',
+			'user_comments' => 'User Comment',
 		);
 	}
 

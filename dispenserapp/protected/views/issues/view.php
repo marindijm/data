@@ -26,7 +26,7 @@ include 'menuone.php';
 		'createdby', 
 		'resolvedby',
 		'date_resolved',
-		'comments',
+		'user_comments',
 	),
 )); ?>
 
