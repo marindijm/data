@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * This is the model class for table "issue".
@@ -8,13 +8,13 @@
  * @property integer $waterpointid
  * @property string $date_created
  * @property boolean $status
- * @property boolean $dispenser_functional
  * @property integer $user_assigned
  * @property integer $issuetypeid
  * @property integer $issuesourceid
  * @property integer $createdby
  * @property integer $resolvedby
  * @property string $date_resolved
+ * @property string $user_comment
  *
  * The followings are the available model relations:
  * @property Users $createdby0
@@ -57,7 +57,7 @@ class Issue extends CActiveRecord
 			array('date_created, status, date_resolved', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('issueid, waterpointid, date_created, status, dispenser_functional, user_assigned, issuetypeid, issuesourceid, createdby, resolvedby, date_resolved', 'safe', 'on'=>'search'),
+			array('issueid, waterpointid, date_created, status, user_assigned, issuetypeid, issuesourceid, createdby, resolvedby, date_resolved', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -88,13 +88,13 @@ class Issue extends CActiveRecord
 			'waterpointid' => 'Waterpoint',
 			'date_created' => 'Date Created',
 			'status' => 'Resolved?',
-                        'dispenser_functional' => 'Dispenser Functional?',
 			'user_assigned' => 'User Assigned',
 			'issuetypeid' => 'Issue Type',
 			'issuesourceid' => 'Issue Source',
 			'createdby' => 'Created by',
 			'resolvedby' => 'Resolved by',
 			'date_resolved' => 'Date Resolved',
+			'user_comment' => 'User Comment',
 		);
 	}
 
@@ -113,7 +113,6 @@ class Issue extends CActiveRecord
 		$criteria->compare('waterpointid',$this->waterpointid);
 		$criteria->compare('date_created',$this->date_created,true);
 		$criteria->compare('status',$this->status);
-                $criteria->compare('dispenser_functional',$this->dispenser_functional);
 		$criteria->compare('user_assigned',$this->user_assigned);
 		//$criteria->compare('issuetypeid',$this->issuetypeid);
 		$criteria->compare('t.id',$this->issueid);

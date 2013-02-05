@@ -23,9 +23,10 @@ include 'menuone.php';
 		'user_assigned',
 		array('label'=>'Issue Type', 'value'=>$model->issuetype->issuetypename),
 		'issuesourceid',
-		'createdby',
+		'createdby', 
 		'resolvedby',
 		'date_resolved',
+		'user_comment',
 	),
 )); ?>
 
