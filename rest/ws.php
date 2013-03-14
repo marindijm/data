@@ -49,7 +49,7 @@ class API extends REST
 		 $sql = "SELECT count(*) as cnt FROM ".$tbl;		
 		 $this->getQueryData($sql);	//get query results	
 	}
-	private function getIssueCountByUser()//get row counts from any of da tables
+	private function getIssueNotResolvedCountByUser()//get row counts from any of da tables
 	{
 	     // Cross validation if the request method is GET else it will return "Not Acceptable" status
 		 if($this->get_request_method() != "GET"){
@@ -59,7 +59,7 @@ class API extends REST
 		 //set the xml nodes just in case xml is requested	
 		$this->pnode = 'counts';
 		$this->cnode = 'count';     
-		 $sql = "SELECT count(*) as cnt FROM issue WHERE user_assigned =".$id;		
+		 $sql = "SELECT count(*) as cnt FROM issue WHERE user_assigned =".$id." and status = 'false'";		
 		 $this->getQueryData($sql);	//get query results	
 	}
 	private function getWaterpoints()//basic waterpoint info apart from view
