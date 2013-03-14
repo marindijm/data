@@ -59,7 +59,7 @@ class API extends REST
 		 //set the xml nodes just in case xml is requested	
 		$this->pnode = 'counts';
 		$this->cnode = 'count';     
-		 $sql = "SELECT count(*) as cnt FROM issue WHERE userassigned =".$id;		
+		 $sql = "SELECT count(*) as cnt FROM issue WHERE user_assigned =".$id;		
 		 $this->getQueryData($sql);	//get query results	
 	}
 	private function getWaterpoints()//basic waterpoint info apart from view
