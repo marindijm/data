@@ -37,6 +37,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
           'resolvedby',
          */
         'date_resolved',
+		array('name'=>'issuetypeid', 'header'=>'Regional Office', 'value'=>'$data->waterpoint->region->office_name'),
         array
             (
             'class' => 'CButtonColumn',
@@ -82,6 +83,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
           'resolvedby',
          */
         'date_resolved',
+		array('name'=>'issuetypeid', 'header'=>'Regional Office', 'value'=>'$data->waterpoint->region->office_name'),
         array
             (
             'class' => 'CButtonColumn',

@@ -9,7 +9,7 @@
  * @property string $district_name
  * @property string $division_name
  * @property string $location_name
- * @property string $directions
+ * @property string $directions 
  * @property string $promoter
  * @property string $promoter_contact_1
  * @property string $promoter_contact_2
@@ -37,7 +37,7 @@ class Waterpoint extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'waterpoints';
+		return 'waterpoints'; 
 	}
 
 	/**
@@ -67,6 +67,7 @@ class Waterpoint extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'issues' => array(self::HAS_MANY, 'Issue', 'waterpointid'),
+			'region' => array(self::BELONGS_TO, 'RegionalOffice', 'regional_office_id'),
 		);
 	}
 
@@ -88,6 +89,7 @@ class Waterpoint extends CActiveRecord
 			'assistant_promoter' => 'Assistant Promoter',
 			'assistant_promoter_contact_1' => 'Assistant Promoter Contact 1',
 			'assistant_promoter_contact_2' => 'Assistant Promoter Contact 2',
+			'regional_office_id' => 'Regional Office',
 		);
 	}
 

@@ -46,7 +46,7 @@ class Issue extends CActiveRecord
 
 	/**
 	 * @return array validation rules for model attributes.
-	 */
+	 */ 
 	public function rules()
 	{
 		// NOTE: you should only define rules for those attributes that
@@ -95,6 +95,7 @@ class Issue extends CActiveRecord
 			'resolvedby' => 'Resolved by',
 			'date_resolved' => 'Date Resolved',
 			'user_comments' => 'User Comment',
+			'office' => 'Regional Office',
 		);
 	}
 

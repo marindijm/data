@@ -27,6 +27,7 @@ include 'menuone.php';
 		'resolvedby',
 		'date_resolved',
 		'user_comments',
+		array('name'=>'office', 'header'=>'Regional Office', 'value'=>$model->waterpoint->region->office_name),
 	),
 )); ?>
 

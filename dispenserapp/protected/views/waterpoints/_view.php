@@ -31,8 +31,7 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('promoter')); ?>:</b>
 	<?php echo CHtml::encode($data->promoter); ?>
-	<br />
-
+	<br />	
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('promoter_contact_1')); ?>:</b>
 	<?php echo CHtml::encode($data->promoter_contact_1); ?>

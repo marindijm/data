@@ -33,6 +33,7 @@ $this->menu=array(
 		'assistant_promoter',
 		'assistant_promoter_contact_1',
 		'assistant_promoter_contact_2',
+		array('name'=>'office', 'header'=>'Regional Office', 'value'=>$model->region->office_name),
 	),
 )); 
 ?>
@@ -61,6 +62,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
           'resolvedby',
          */
         'date_resolved',
+		array('name'=>'issuetypeid', 'header'=>'Regional Office', 'value'=>'$data->waterpoint->region->office_name'),
         array
             (
             'class' => 'CButtonColumn',

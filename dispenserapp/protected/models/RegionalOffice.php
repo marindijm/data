@@ -1,26 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "users".
+ * This is the model class for table "regional_office".
  *
- * The followings are the available columns in table 'users':
- * @property integer $user_id
- * @property string $username
- * @property string $email
- * @property string $role
- * @property string $password
+ * The followings are the available columns in table 'regional_office':
+ * @property integer $office_id
+ * @property string $office_name
  *
  * The followings are the available model relations:
- * @property Issue[] $issues
- * @property Issue[] $issues1
- * @property Issue[] $issues2
+ * @property Pilot[] $pilots
+ * @property Users[] $users
+ * @property Waterpoints[] $waterpoints
  */
-class User extends CActiveRecord 
+class RegionalOffice extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return User the static model class
+	 * @return RegionalOffice the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -32,7 +29,7 @@ class User extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'users';
+		return 'regional_office';
 	}
 
 	/**
@@ -43,13 +40,10 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id', 'required'),
-			array('user_id', 'numerical', 'integerOnly'=>true),
-			array('username, email, role', 'length', 'max'=>255),
-			array('password', 'length', 'max'=>40),
+			array('office_name', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('user_id, username, email, role, password', 'safe', 'on'=>'search'),
+			array('office_id, office_name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,9 +55,9 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'issues' => array(self::HAS_MANY, 'Issue', 'createdby'),
-			'issues1' => array(self::HAS_MANY, 'Issue', 'resolvedby'),
-			'issues2' => array(self::HAS_MANY, 'Issue', 'user_assigned'),
+			'pilots' => array(self::HAS_MANY, 'Pilot', 'regional_office_id'),
+			'users' => array(self::HAS_MANY, 'Users', 'regional_office_id'),
+			'waterpoints' => array(self::HAS_MANY, 'Waterpoints', 'regional_office_id'),
 		);
 	}
 
@@ -73,11 +67,8 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'user_id' => 'User',
-			'username' => 'Username',
-			'email' => 'Email',
-			'role' => 'Role',
-			'password' => 'Password',
+			'office_id' => 'Office',
+			'office_name' => 'Office Name',
 		);
 	}
 
@@ -92,17 +83,11 @@ class User extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('email',$this->email,true);
-		$criteria->compare('role',$this->role,true);
-		$criteria->compare('password',$this->password,true);
+		$criteria->compare('office_id',$this->office_id);
+		$criteria->compare('office_name',$this->office_name,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
-			'sort' => array(
-				'defaultOrder' => 'username ASC',
-			),
 		));
 	}
 }

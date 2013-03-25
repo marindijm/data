@@ -34,7 +34,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'user_assigned'); ?>
-		<?php echo $form->dropDownList($model,'user_assigned', CHtml::listData(User::model()->findAll(), 'user_id', 'username')); ?>
+		<?php echo $form->dropDownList($model,'user_assigned', CHtml::listData(User::model()->findAll(array('order'=>'username ASC')), 'user_id', 'username')); ?>
 		<?php echo $form->error($model,'user_assigned'); ?>
 	</div>
 

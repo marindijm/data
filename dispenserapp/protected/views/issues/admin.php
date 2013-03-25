@@ -56,6 +56,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'resolvedby',
 		*/
 		'date_resolved',
+		array('name'=>'issuetypeid', 'header'=>'Regional Office', 'value'=>'$data->waterpoint->region->office_name'),
 		array(
 			'class'=>'CButtonColumn',
 		),

@@ -15,7 +15,7 @@ $this->menu = array(
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
-	$('.search-form').toggle();
+	$('.search-form').toggle(); 
 	return false;
 });
 $('.search-form form').submit(function(){
