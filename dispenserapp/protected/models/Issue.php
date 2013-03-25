@@ -38,7 +38,7 @@ class Issue extends CActiveRecord
 
 	/**
 	 * @return string the associated database table name
-	 */
+	 */ 
 	public function tableName()
 	{
 		return 'issue';
@@ -96,6 +96,7 @@ class Issue extends CActiveRecord
 			'date_resolved' => 'Date Resolved',
 			'user_comments' => 'User Comment',
 			'office' => 'Regional Office',
+			'dispenser_functional' => 'Dispenser Functional',
 		);
 	}
 
@@ -122,6 +123,7 @@ class Issue extends CActiveRecord
 		$criteria->compare('createdby',$this->createdby);
 		$criteria->compare('resolvedby',$this->resolvedby);
 		$criteria->compare('date_resolved',$this->date_resolved,true);
+		$criteria->compare('dispenser_functional',$this->dispenser_functional,true);
 		//load the related table at the same time:
 		$criteria->with=array('issuetype');
 		

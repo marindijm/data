@@ -11,6 +11,7 @@ include 'menuall.php';
 
 <h1>Issues</h1>
 <h2>Unassigned</h2>
+
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
     'id' => 'issue-grid',
@@ -38,6 +39,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
          */
         'date_resolved',
 		array('name'=>'issuetypeid', 'header'=>'Regional Office', 'value'=>'$data->waterpoint->region->office_name'),
+		'dispenser_functional',
         array
             (
             'class' => 'CButtonColumn',
@@ -84,6 +86,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
          */
         'date_resolved',
 		array('name'=>'issuetypeid', 'header'=>'Regional Office', 'value'=>'$data->waterpoint->region->office_name'),
+		'dispenser_functional',
         array
             (
             'class' => 'CButtonColumn',
