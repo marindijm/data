@@ -98,6 +98,19 @@ class API extends REST
 		 $sql = "SELECT * FROM issuetype";		
 		 $this->getQueryData($sql);	//get query results	
 	}
+	
+	private function getRegionalOffices()
+	{
+	  	if($this->get_request_method() != "GET"){
+				$this->response('',406,"");
+		}   
+		//set the xml nodes just in case xml is requested	
+		$this->pnode = 'regional_offices';
+		$this->cnode = 'regional_office';        
+		
+		 $sql = "SELECT * FROM regional_office";		
+		 $this->getQueryData($sql);	//get query results	
+	}
 	private function getUsers()
 	{
 	  	if($this->get_request_method() != "GET"){
