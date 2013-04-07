@@ -74,6 +74,31 @@ class API extends REST
 		 $sql = "SELECT * FROM waterpoints order by waterpoint_id";		
 		 $this->getQueryData($sql);	//get query results	
 	}
+	
+	private function getsublocations()
+	{
+	       // Cross validation if the request method is GET else it will return "Not Acceptable" status
+		 if($this->get_request_method() != "GET"){
+			$this->response('',406,"");
+		 }	
+		 //set the xml nodes just in case xml is requested	
+		$this->pnode = 'sublocations';
+		$this->cnode = 'sublocation';     
+		 $sql = "SELECT * FROM sublocations order by sublocation_id";		
+		 $this->getQueryData($sql);	//get query results	
+	}
+	private function getvillages()
+	{
+	        // Cross validation if the request method is GET else it will return "Not Acceptable" status
+		 if($this->get_request_method() != "GET"){
+			$this->response('',406,"");
+		 }	
+		 //set the xml nodes just in case xml is requested	
+		$this->pnode = 'villages';
+		$this->cnode = 'village';     
+		 $sql = "SELECT * FROM villages order by village_id";		
+		 $this->getQueryData($sql);	//get query results	
+	}
 	private function getWaterpointDetails()
 	{
 	  	if($this->get_request_method() != "GET"){
