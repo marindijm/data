@@ -191,8 +191,22 @@ class IssuesController extends Controller {
                         'pageSize' => 30,
                     ),
                 ));
+				
+	 $assigned_unresolved = new CActiveDataProvider('Issue', array(
+                    'criteria' => array(
+                        'condition' => 'user_assigned IS NOT null and status IS FALSE',
+                       // 'params' => array(':var_assigned' => null),
+                    ),
+                    'sort' => array(
+                        'defaultOrder' => 'date_created DESC',
+                    ),
+                    'pagination' => array(
+                        'pageSize' => 30,
+                    ),
+                ));
         $this->render('index', array(
             'unassigned' => $unassigned,
+			'assigned_unresolved' =>  $assigned_unresolved,
             'resolved' => $resolved,
             ));
     }
