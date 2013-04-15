@@ -27,3 +27,140 @@ $this->menu=array(
 		'role',
 	),
 )); ?>
+
+<h3> Issues Created By This User </h3>
+
+<?php
+
+$this->widget('zii.widgets.grid.CGridView', array(
+    'id' => 'issue-grid',
+    'dataProvider' => $dataProvider,
+    //'filter'=>$model,
+    'columns' => array(
+        //'issueid',
+        array('name' => 'issueid', 'type' => 'raw', 'value' => 'CHtml::link( ($data->issueid  ) , array("issues/view", "id"=>$data->issueid))', 'header' => 'Issue ID'),
+        //'waterpointid',
+        array('name' => 'waterpointid', 'type' => 'raw', 'value' => 'CHtml::link( ($data->waterpoint->waterpoint_name . " (" . $data->waterpointid . ")") , array("waterpoints/view", "id"=>$data->waterpointid))', 'header' => 'Waterpoint'),
+        'date_created',
+        'status',
+        //'user_assigned',
+        array('name' => 'user_assigned', 'type' => 'raw', 'value' => 'CHtml::link( ($data->user_assigned) , array("users/view", "id"=>$data->user_assigned))', 'header' => 'User Assigned'),
+        //'issuetypeid',
+        array('name' => 'issuetypeid', 'header' => 'Issue Type', 'value' => '$data->issuetype->issuetypename'),
+        /*
+          'issuesourceid',
+          'createdby',
+          'resolvedby',
+         */
+        'date_resolved',
+		array('name'=>'issuetypeid', 'header'=>'Regional Office', 'value'=>'$data->waterpoint->region->office_name'),
+        array
+            (
+            'class' => 'CButtonColumn',
+            'template' => '{assign}{view}',
+            'buttons' => array
+                (
+                'assign' => array
+                    (
+                    'label' => '[ + ]',
+                    //TODO: find icon
+                    'url' => 'Yii::app()->createUrl("issues/assign", array("id"=>$data->issueid))',
+                )
+            ),
+        ),
+    ),
+));
+
+?>
+
+
+<h3> Issues Assigned To This User </h3>
+
+<?php
+
+$this->widget('zii.widgets.grid.CGridView', array(
+    'id' => 'issue-grid',
+    'dataProvider' => $issuesAssigned,
+    //'filter'=>$model,
+    'columns' => array(
+        //'issueid',
+        array('name' => 'issueid', 'type' => 'raw', 'value' => 'CHtml::link( ($data->issueid  ) , array("issues/view", "id"=>$data->issueid))', 'header' => 'Issue ID'),
+        //'waterpointid',
+        array('name' => 'waterpointid', 'type' => 'raw', 'value' => 'CHtml::link( ($data->waterpoint->waterpoint_name . " (" . $data->waterpointid . ")") , array("waterpoints/view", "id"=>$data->waterpointid))', 'header' => 'Waterpoint'),
+        'date_created',
+        'status',
+        //'user_assigned',
+        array('name' => 'user_assigned', 'type' => 'raw', 'value' => 'CHtml::link( ($data->user_assigned) , array("users/view", "id"=>$data->user_assigned))', 'header' => 'User Assigned'),
+        //'issuetypeid',
+        array('name' => 'issuetypeid', 'header' => 'Issue Type', 'value' => '$data->issuetype->issuetypename'),
+        /*
+          'issuesourceid',
+          'createdby',
+          'resolvedby',
+         */
+        'date_resolved',
+		array('name'=>'issuetypeid', 'header'=>'Regional Office', 'value'=>'$data->waterpoint->region->office_name'),
+        array
+            (
+            'class' => 'CButtonColumn',
+            'template' => '{assign}{view}',
+            'buttons' => array
+                (
+                'assign' => array
+                    (
+                    'label' => '[ + ]',
+                    //TODO: find icon
+                    'url' => 'Yii::app()->createUrl("issues/assign", array("id"=>$data->issueid))',
+                )
+            ),
+        ),
+    ),
+));
+?>
+
+
+<h3> Issues Resolved By This User </h3>
+
+<?php
+
+$this->widget('zii.widgets.grid.CGridView', array(
+    'id' => 'issue-grid',
+    'dataProvider' => $issuesResolved,
+    //'filter'=>$model,
+    'columns' => array(
+        //'issueid',
+        array('name' => 'issueid', 'type' => 'raw', 'value' => 'CHtml::link( ($data->issueid  ) , array("issues/view", "id"=>$data->issueid))', 'header' => 'Issue ID'),
+        //'waterpointid',
+        array('name' => 'waterpointid', 'type' => 'raw', 'value' => 'CHtml::link( ($data->waterpoint->waterpoint_name . " (" . $data->waterpointid . ")") , array("waterpoints/view", "id"=>$data->waterpointid))', 'header' => 'Waterpoint'),
+        'date_created',
+        'status',
+        //'user_assigned',
+        array('name' => 'user_assigned', 'type' => 'raw', 'value' => 'CHtml::link( ($data->user_assigned) , array("users/view", "id"=>$data->user_assigned))', 'header' => 'User Assigned'),
+        //'issuetypeid',
+        array('name' => 'issuetypeid', 'header' => 'Issue Type', 'value' => '$data->issuetype->issuetypename'),
+        /*
+          'issuesourceid',
+          'createdby',
+          'resolvedby',
+         */
+        'date_resolved',
+		array('name'=>'issuetypeid', 'header'=>'Regional Office', 'value'=>'$data->waterpoint->region->office_name'),
+        array
+            (
+            'class' => 'CButtonColumn',
+            'template' => '{assign}{view}',
+            'buttons' => array
+                (
+                'assign' => array
+                    (
+                    'label' => '[ + ]',
+                    //TODO: find icon
+                    'url' => 'Yii::app()->createUrl("issues/assign", array("id"=>$data->issueid))',
+                )
+            ),
+        ),
+    ),
+));
+?>
+
+

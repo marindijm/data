@@ -77,7 +77,22 @@ class Issue extends CActiveRecord
 			'waterpoint' => array(self::BELONGS_TO, 'Waterpoint', 'waterpointid'),
 		);
 	}
-
+	
+	public function getCreatedBy(){
+		return isset($this->createdby0)?$this->createdby0->username:"User Not Set";
+	}
+	
+	public function getIssueSource(){
+		return isset($this->issuesource)?$this->issuesource->issuesource:"Source Not Set";
+	}
+	
+	public function getResolvedBy(){
+		return isset($this->resolvedby0)?$this->resolvedby0->username:"User Not Set";
+	}
+	
+	public function getAssigned(){
+		return isset($this->userAssigned)?$this->userAssigned->username:"User Not Set";
+	}
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
