@@ -543,7 +543,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 					$filename = htmlspecialchars($filename);
 
 					$html .= PHP_EOL;
-					$html .= '		<img style="position: relative; left: ' . $drawing->getOffsetX() . 'px; top: ' . $drawing->getOffsetY() . 'px; width: ' . $drawing->getWidth() . 'px; height: ' . $drawing->getHeight() . 'px;" src="../../php_funcs/PHPExcel/Writer/' . $filename . '" border="0" width="' . $drawing->getWidth() . '" height="' . $drawing->getHeight() . '" />' . PHP_EOL;
+					$html .= '		<img style="position: relative; left: ' . $drawing->getOffsetX() . 'px; top: ' . $drawing->getOffsetY() . 'px; width: ' . $drawing->getWidth() . 'px; height: ' . $drawing->getHeight() . 'px;" src="' . $filename . '" border="0" width="' . $drawing->getWidth() . '" height="' . $drawing->getHeight() . '" />' . PHP_EOL;
 				}
 			}
 		}
@@ -1098,7 +1098,7 @@ class PHPExcel_Writer_HTML implements PHPExcel_Writer_IWriter {
 
 				// Hyperlink?
 				if ($pSheet->hyperlinkExists($coordinate) && !$pSheet->getHyperlink($coordinate)->isInternal()) {
-					$cellData = '<a href="../../php_funcs/PHPExcel/Writer/' . htmlspecialchars($pSheet->getHyperlink($coordinate)->getUrl()) . '" title="' . htmlspecialchars($pSheet->getHyperlink($coordinate)->getTooltip()) . '">' . $cellData . '</a>';
+					$cellData = '<a href="' . htmlspecialchars($pSheet->getHyperlink($coordinate)->getUrl()) . '" title="' . htmlspecialchars($pSheet->getHyperlink($coordinate)->getTooltip()) . '">' . $cellData . '</a>';
 				}
 
 				// Should the cell be written or is it swallowed by a rowspan or colspan?

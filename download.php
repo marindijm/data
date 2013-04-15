@@ -4,10 +4,6 @@ include 'funcs.php'; //include all the functions to be used all the pages
 include 'PHPExcel.php';	
 $obj = new MainFuncs();
 
-// Initiate cache
-/*$cacheMethod = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
-$cacheSettings = array( 'memoryCacheSize' => '32MB');
-PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);*/
 
 
 if(@isset($_GET['ds']))//self server calls
