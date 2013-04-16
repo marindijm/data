@@ -6249,3 +6249,23 @@ REQUEST_URI=/dispenserapp/index.php?r=issues%2Findex&ajax=issue-grid&Issue_sort=
 in /var/www/data/dispenserapp/protected/views/issues/index.php (152)
 in /var/www/data/dispenserapp/protected/controllers/IssuesController.php (211)
 in /var/www/data/dispenserapp/index.php (13)
+2013/04/16 12:29:39 [error] [exception.CException] exception 'CException' with message 'Unknown authorization item "admin".' in /var/www/data/yii/framework/web/auth/CPhpAuthManager.php:180
+Stack trace:
+#0 /var/www/data/dispenserapp/protected/components/UserIdentity.php(43): CPhpAuthManager->assign('admin', 2522)
+#1 /var/www/data/dispenserapp/protected/models/LoginForm.php(46): UserIdentity->authenticate()
+#2 /var/www/data/yii/framework/validators/CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#3 /var/www/data/yii/framework/validators/CValidator.php(214): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#4 /var/www/data/yii/framework/base/CModel.php(158): CValidator->validate(Object(LoginForm), NULL)
+#5 /var/www/data/dispenserapp/protected/controllers/SiteController.php(89): CModel->validate()
+#6 /var/www/data/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionLogin()
+#7 /var/www/data/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /var/www/data/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#9 /var/www/data/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/data/yii/framework/web/CWebApplication.php(283): CController->run('login')
+#11 /var/www/data/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/login')
+#12 /var/www/data/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /var/www/data/dispenserapp/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/dispenserapp/index.php?r=site/login
+HTTP_REFERER=http://data.safe-water.org/dispenserapp/index.php?r=site/login
+---
