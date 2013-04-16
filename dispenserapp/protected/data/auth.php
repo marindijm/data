@@ -41,11 +41,6 @@ return array (
         'bizRule' => NULL,
         'data' => NULL,
       ),
-      2522 => 
-      array (
-        'bizRule' => NULL,
-        'data' => NULL,
-      ),
     ),
   ),
 );
