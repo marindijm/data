@@ -51,9 +51,52 @@ class UsersController extends Controller
 	 */
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+		$issuesCreated = new CActiveDataProvider('Issue', array(
+                    'criteria' => array(
+                        'condition' => 'createdby = :userid',
+                        'params' => array(':userid' => $id),
+                    ),
+                    'sort' => array(
+                        'defaultOrder' => 'date_created DESC',
+                    ),
+                    'pagination' => array(
+                        'pageSize' => 30,
+                    ),
+                ));
+		
+		$issuesResolved = new CActiveDataProvider('Issue', array(
+                    'criteria' => array(
+                        'condition' => 'resolvedby = :userid',
+                        'params' => array(':userid' => $id),
+                    ),
+                    'sort' => array(
+                        'defaultOrder' => 'date_created DESC',
+                    ),
+                    'pagination' => array(
+                        'pageSize' => 30,
+                    ),
+                ));
+				
+		$issuesAssigned = new CActiveDataProvider('Issue', array(
+                    'criteria' => array(
+                        'condition' => 'user_assigned = :userid',
+                        'params' => array(':userid' => $id),
+                    ),
+                    'sort' => array(
+                        'defaultOrder' => 'date_created DESC',
+                    ),
+                    'pagination' => array(
+                        'pageSize' => 30,
+                    ),
+                ));
+				
+				
+		$this->render('view', array(
+            'model' => $this->loadModel($id),
+            'dataProvider' => $issuesCreated,
+			'issuesResolved' => $issuesResolved,
+			'issuesAssigned' => $issuesAssigned
+        ));
 	}
 
 	/**

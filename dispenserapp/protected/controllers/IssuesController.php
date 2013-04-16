@@ -164,8 +164,8 @@ class IssuesController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-
-        
+		$model = new Issue('search');
+        $model->unsetAttributes();  // clear any default values
         $unassigned = new CActiveDataProvider('Issue', array(
                     'criteria' => array(
                         'condition' => 'user_assigned IS null',
@@ -208,6 +208,7 @@ class IssuesController extends Controller {
             'unassigned' => $unassigned,
 			'assigned_unresolved' =>  $assigned_unresolved,
             'resolved' => $resolved,
+			'model' => $model,
             ));
     }
 
