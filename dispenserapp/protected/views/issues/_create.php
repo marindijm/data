@@ -34,8 +34,8 @@ $("#list1").jqGrid({
    		{name:'dname',index:'dname', width:80, align:"right"},
    		{name:'dvname',index:'dvname', width:80, align:"right"},		
    		{name:'lname',index:'lname', width:80,align:"right"}	
-		{name:'subloc',index:'lname', width:80,align:"right"}	
-		{name:'vill',index:'lname', width:80,align:"right"}	
+		{name:'subloc',index:'subloc', width:80,align:"right"}	
+		{name:'vill',index:'vill', width:80,align:"right"}	
    	],
     rowNum:10,
 	rowTotal: 3142,
