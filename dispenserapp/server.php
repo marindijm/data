@@ -17,7 +17,7 @@ if($totalrows) {
 		 }
 
 
-$result = pg_query($dbc,"SELECT COUNT(*) as cnt FROM   waterpoint_summary ");
+$result = pg_query($dbc,"SELECT COUNT(*) as cnt FROM   waterpoints ");
 $row = pg_fetch_array($result,NULL, PGSQL_ASSOC);
 $count = $row['cnt'];
 if( $count >0 ) {
@@ -29,9 +29,9 @@ if ($page > $total_pages) $page=$total_pages;
 if ($limit<0) $limit = 0;
 $start = $limit*$page - $limit; // do not put $limit*($page - 1)
 if ($start<0) $start = 0;
-$SQL = 'SELECT "Waterpoint ID" as wptid, "Waterpoint Name" as wptname, "Program Code" as pcode, "District Name" as dname, 
-       "Division Name" as dvname, "Location Name" as lname
-  FROM waterpoint_summary
+$SQL = 'SELECT waterpoint_id as wptid, waterpoint_name as wptname, program_code as pcode, district_name as dname, 
+       division_name as dvname, location_name as lname, sublocation as subloc, village as vill
+  FROM waterpoints
  ORDER BY '.$sidx.'  '. $sord .' LIMIT  '.$limit.' OFFSET '.$start.';';
 		//die($SQL );		
 $result =  pg_query($dbc, $SQL );
@@ -44,7 +44,7 @@ $i=0;
 while($row = pg_fetch_array($result,NULL, PGSQL_ASSOC)) {
     $responce->rows[$i]['id']=$row['wptid'];
     $responce->rows[$i]['cell']=array($row['wptid'],$row['wptname'],$row['pcode'],
-	$row['dname'],$row['dvname'],$row['lname'],"");
+	$row['dname'],$row['dvname'],$row['lname'],$row['subloc'],$row['vill'],"");
     $i++;
 } 
 pg_close($dbc);

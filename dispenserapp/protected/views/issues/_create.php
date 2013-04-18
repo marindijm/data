@@ -26,7 +26,7 @@ $("#list1").jqGrid({
 	datatype: "json",
 	 width:900,
     height:250,
-   	colNames:['Waterpoint ID','Waterpoint Name','Program Code','District Name','Division Name','Location Name'],
+   	colNames:['Waterpoint ID','Waterpoint Name','Program Code','District Name','Division Name','Location Name','Sublocation Name', 'Village Name'],
    	colModel:[
    		{name:'wptid',index:'wptid', width:45, sorttype:'int'},
    		{name:'wptname',index:'wptname', width:90},
@@ -34,9 +34,11 @@ $("#list1").jqGrid({
    		{name:'dname',index:'dname', width:80, align:"right"},
    		{name:'dvname',index:'dvname', width:80, align:"right"},		
    		{name:'lname',index:'lname', width:80,align:"right"}	
+		{name:'subloc',index:'lname', width:80,align:"right"}	
+		{name:'vill',index:'lname', width:80,align:"right"}	
    	],
     rowNum:10,
-	rowTotal: 2141,
+	rowTotal: 3142,
 	rowList : [10,20,30],
 	loadonce:true,
    	mtype: "GET",
