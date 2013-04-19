@@ -228,6 +228,28 @@ class API extends REST
 	$this->setQueryData($sql,"Successfully created issue","Failed to create issue, query was ".$sql);	//set query results	
 		 
  	}
+	private function setPhoneDetails()
+	{
+	//first of all sanitize the inputs to prevent code injections
+	 $imeinumber = $this->_request['imei'];  
+	 $username = $this->_request['username'];
+	 $staffid = $this->_request['staffid'];  
+	 $email = $this->_request['email'];  
+	 $phonemodel = $this->_request['phonemodel'];
+	  $phonebrand = $this->_request['phonebrand'];  
+	 $androidversion = $this->_request['androidversion'];  
+	 // Cross validation if the request method is POST else it will return "Not Acceptable" status
+	if($this->get_request_method() != "POST"){
+		$this->response('',406,"");
+	}	   
+	$sql = "INSERT INTO phonedetails(imei, username, staffid, email, phonemodel,phonebrand, androidversion, date_updated)
+	   VALUES 
+	  ('". $imeinumber."','".$username."', '".$staffid."', '".$email."','". $phonemodel ."','".$phonebrand."','".$androidversion."',
+	   '".date("Y-m-d H:i:s")."');";
+	
+	$this->setQueryData($sql,"Successfully posted phone details","Failed to post phone details, query was ".$sql);	//set query results	
+		 
+ 	}
 	private function resolveIssue()
 	{
 	//first of all sanitize the inputs to prevent code injections
