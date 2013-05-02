@@ -302,7 +302,7 @@ class API extends REST
 	    nearest_boma_name ='".$nearest_boma_name."',   nearest_boma_contact1='". $nearest_boma_contact1."', 
 		nearest_boma_contact2 ='". $nearest_boma_contact2."',village_elder_name='". $village_elder_name."',
 		 village_elder_contact1='".$village_elder_contact1."', village_elder_contact2='".$village_elder_contact2."', 
-       promoter='".$promoter_name."', promoter_contact_1='".$promoter_contact1."', promoter_contact_2='".$promoter_contact2 ."',  assistant_promoter='".$assistant_promoter_name."', assistant_promoter_contact_1='".$assistant_promoter_contact1."', assistant_promoter_contact_2='".$assistant_promoter_contact2."', synced_by= synced_by + '  [".$staffid." - ".date("Y-m-d H:i:s")."]', 
+       promoter='".$promoter_name."', promoter_contact_1='".$promoter_contact1."', promoter_contact_2='".$promoter_contact2 ."',  assistant_promoter='".$assistant_promoter_name."', assistant_promoter_contact_1='".$assistant_promoter_contact1."', assistant_promoter_contact_2='".$assistant_promoter_contact2."', synced_by= synced_by || ' _ ' || '  [".$staffid." - ".date("Y-m-d H:i:s")."]', 
 	   has_been_recently_synced ='true'  WHERE waterpoint_id='".$waterpointid."';";
 	
 	$this->setQueryData($sql,"Successfully updated waterpoint details","Failed to updated waterpoint details, query was ".$sql);	//set query results	
