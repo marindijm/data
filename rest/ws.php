@@ -71,7 +71,7 @@ class API extends REST
 		 //set the xml nodes just in case xml is requested	
 		$this->pnode = 'waterpoints';
 		$this->cnode = 'waterpoint';     
-		 $sql = "SELECT * FROM waterpoints order by waterpoint_id";		
+		 $sql = "SELECT * FROM waterpoints_mobi order by waterpoint_id";		
 		 $this->getQueryData($sql);	//get query results	
 	}
 	
@@ -250,6 +250,8 @@ class API extends REST
 	$this->setQueryData($sql,"Successfully posted phone details","Failed to post phone details, query was ".$sql);	//set query results	
 		 
  	}
+	
+	
 	private function resolveIssue()
 	{
 	//first of all sanitize the inputs to prevent code injections
