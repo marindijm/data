@@ -74,6 +74,18 @@ class API extends REST
 		 $sql = "SELECT * FROM waterpoints_mobi order by waterpoint_id";		
 		 $this->getQueryData($sql);	//get query results	
 	}
+	private function getWaterpointsRecentlySynced()//basic waterpoint info apart from view
+	{
+	     // Cross validation if the request method is GET else it will return "Not Acceptable" status
+		 if($this->get_request_method() != "GET"){
+			$this->response('',406,"");
+		 }	
+		 //set the xml nodes just in case xml is requested	
+		$this->pnode = 'waterpoints';
+		$this->cnode = 'waterpoint';     
+		 $sql = "SELECT * FROM waterpoints_mobi where has_been_recently_synced ='true' order by waterpoint_id";		
+		 $this->getQueryData($sql);	//get query results	
+	}
 	
 	private function getsublocations()
 	{
@@ -248,6 +260,52 @@ class API extends REST
 	   '".date("Y-m-d H:i:s")."');";
 	
 	$this->setQueryData($sql,"Successfully posted phone details","Failed to post phone details, query was ".$sql);	//set query results	
+		 
+ 	}
+	private function updateWaterpointDetails()
+	{
+	//first of all sanitize the inputs to prevent code injections
+	 $waterpointid = $this->_request['waterpointid'];  
+	 $waterpointname = $this->_request['waterpointname'];
+	 $dist_name = $this->_request['dist_name'];
+	 $div_name = $this->_request['div_name'];   
+	 $loc_name = $this->_request['loc_name'];  
+	 $subloc_name = $this->_request['subloc_name'];  
+	 $vill_name = $this->_request['vill_name'];
+	 $directions = $this->_request['directions']; 
+	 $landowner_name = $this->_request['lowner']; 
+	 $landowner_contact1 = $this->_request['lowner_contact1'];
+     $landowner_contact2 = $this->_request['lowner_contact2']; 
+	 $nearest_boma_name = $this->_request['nearest_boma_name']; 
+	 $nearest_boma_contact1 = $this->_request['nearest_boma_contact1'];
+     $nearest_boma_contact2 = $this->_request['nearest_boma_contact2']; 
+     $village_elder_name = $this->_request['vill_elder']; 
+	 $village_elder_contact1 = $this->_request['vill_contact1'];
+     $village_elder_contact2 = $this->_request['vill_contact2']; 
+	 $promoter_name = $this->_request['pname']; 
+	 $promoter_contact1 = $this->_request['pcontact1'];
+     $promoter_contact2 = $this->_request['pcontact2']; 
+	 $assistant_promoter_name = $this->_request['assist_pname']; 
+	 $assistant_promoter_contact1 = $this->_request['assist_pcontact1'];
+     $assistant_promoter_contact2 = $this->_request['assist_pcontact2']; 
+	  $staffid = $this->_request['staffid'];  
+	 
+	 // Cross validation if the request method is POST else it will return "Not Acceptable" status
+	if($this->get_request_method() != "POST"){
+		$this->response('',406,"");
+	}	   
+	$sql = "UPDATE waterpoints_mobi
+       SET waterpoint_name='".$waterpointname."', district_name='".$dist_name."',
+       division_name='".$div_name."', location_name='".$loc_name."', sublocation='".$subloc_name."', 
+	   village='".$vill_name."', directions='".$directions."',  landowner_name='".$landowner_name."', 
+	   landowner_contact1 ='".landowner_contact1."',  landowner_contact2 ='".landowner_contact2."',
+	    nearest_boma_name ='".$nearest_boma_name."',   nearest_boma_contact1='". $nearest_boma_contact1."', 
+		nearest_boma_contact2 ='". $nearest_boma_contact2."',village_elder_name='". $village_elder_name."',
+		 village_elder_contact1='".$village_elder_contact1."', village_elder_contact2='".$village_elder_contact2."', 
+       promoter='".$promoter_name."', promoter_contact_1='".$promoter_contact1."', promoter_contact_2='".$promoter_contact2 ."',  assistant_promoter='".$assistant_promoter_name."', assistant_promoter_contact_1='".$assistant_promoter_contact1."', assistant_promoter_contact_2='".$assistant_promoter_contact2."', synced_by='  [".$staffid." - ".date("Y-m-d H:i:s")."]', 
+	   has_been_recently_synced ='true'  WHERE waterpoint_id='".$waterpointid."';";
+	
+	$this->setQueryData($sql,"Successfully updated waterpoint details","Failed to updated waterpoint details, query was ".$sql);	//set query results	
 		 
  	}
 	
