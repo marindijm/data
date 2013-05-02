@@ -411,7 +411,7 @@ class API extends REST
 		// Complete XML document
 		$doc->formatOutput = true;
 		$xmlContent = $doc->saveXML();
-		echo $xmlContent;
+		//echo $xmlContent;
 	}
 	/*
 	 *	Encode array into JSON
