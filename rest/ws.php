@@ -241,8 +241,8 @@ class API extends REST
 	$sql = "INSERT INTO issue(waterpointid, date_created, status, user_assigned,issuetypeid, issuesourceid, createdby, resolvedby,
 	        date_resolved,user_comments,dispenser_functional)
 	   VALUES 
-	  ('". $wptid."','". $datecreated."', '".$status."', '".$userassigned."','". $issuetypeid ."','".$issuesourceid."',
-	   '".$createdby."','".$resolvedby."','".$date_resolved."','".$user_comments."','".$dispenser_functional."');";
+	  ('". $wptid."','". $datecreated."', '".$status."', ".$userassigned.",". $issuetypeid .",".$issuesourceid.",
+	   ".$createdby.",".$resolvedby.",'".$date_resolved."','".$user_comments."','".$dispenser_functional."');";
 	
 	$this->setQueryData($sql,"Successfully created issue","Failed to create issue, query was ".$sql);	//set query results	
 		 
