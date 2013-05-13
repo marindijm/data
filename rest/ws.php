@@ -227,15 +227,23 @@ class API extends REST
 	 $wptid = $this->_request['wptid'];  
 	 $createdby = $this->_request['createdby'];  
 	 $issuetypeid = $this->_request['issuetypeid'];  
-	 $createsourceid = $this->_request['createsourceid'];  
+	 $issuesourceid = $this->_request['issuesourceid'];  
 	 $userassigned = $this->_request['userassigned'];  
+	 $status =  $this->_request['status'];  
+	 $datecreated = $this->_request['datecreated'];  
+	 $resolvedby = $this->_request['resolvedby']; 
+	 $date_resolved = $this->_request['date_resolved']; 
+	 $user_comments = $this->_request['user_comments']; 
+	 $dispenser_functional = $this->_request['dispenser_functional']; 
 	 // Cross validation if the request method is POST else it will return "Not Acceptable" status
 	if($this->get_request_method() != "POST"){
 		$this->response('',406,"");
 	}	   
-	$sql = "INSERT INTO issue(waterpointid, date_created, status, user_assigned,issuetypeid, issuesourceid, createdby)
+	$sql = "INSERT INTO issue(waterpointid, date_created, status, user_assigned,issuetypeid, issuesourceid, createdby, resolvedby,
+	        date_resolved,user_comments,dispenser_functional)
 	   VALUES 
-	  ('". $wptid."','".date("Y-m-d H:i:s")."', 'False', '".$userassigned."','". $issuetypeid ."','".$createsourceid."', '".$createdby."');";
+	  ('". $wptid."','". $datecreated."', '".$status."', '".$userassigned."','". $issuetypeid ."','".$issuesourceid."',
+	   '".$createdby."','".$resolvedby."','".$date_resolved."','".$user_comments."','".$dispenser_functional."');";
 	
 	$this->setQueryData($sql,"Successfully created issue","Failed to create issue, query was ".$sql);	//set query results	
 		 
