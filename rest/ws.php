@@ -200,8 +200,9 @@ class API extends REST
 		 $id = (int)$this->_request['id'];//request for the sanitized issue id		   
 		 $sql = "SELECT issueid, waterpointid,
 				(SELECT waterpoint_name FROM waterpoints WHERE waterpoint_id = waterpointid) AS   waterpoint_name, 
-				date_created, status, 	user_assigned,
-				issuetypeid,  date_resolved,user_comments
+				date_created, status, 	(SELECT username FROM users WHERE user_id=user_assigned) AS user_assigned,
+				issuetypeid, 
+			 date_resolved,user_comments
 				 FROM issue WHERE user_assigned ='".$id."' AND status ='false' ORDER BY  waterpointid";
 		 
 		 $this->getQueryData($sql);	//get query results	
