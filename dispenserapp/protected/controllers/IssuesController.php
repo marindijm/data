@@ -30,7 +30,7 @@ class IssuesController extends Controller {
                 'roles' => array('reader'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'assign', 'resolve'),
+                'actions' => array('create', 'update', 'assign', 'resolve','report'),
                 'roles' => array('writer'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -211,7 +211,22 @@ class IssuesController extends Controller {
 			'model' => $model,
             ));
     }
-
+	/*
+	 *Give all report models
+	 */
+	public function actionReport() {
+		$mostCommonIssues = new CActiveDataProvider('MostCommonIssues');
+		$mostCommonIssuesByOffice = new CActiveDataProvider('MostCommonIssuesByOffice');
+		$avgDays = new CActiveDataProvider('AverageDaysToResolveIssue'); 
+		$avgDaysByOffice = new CActiveDataProvider('AverageDaysToResolveIssueByRegionalOffice'); 
+		$this->render('report', array(
+            'common_issues' => $mostCommonIssues,
+			'common_issues_by_office' => $mostCommonIssuesByOffice,
+			'averageDays' => $avgDays,
+			'averageDaysOffice' => $avgDaysByOffice,
+            ));
+		
+	}
     /**
      * Manages all models.
      */
