@@ -30,7 +30,7 @@ class WaterpointsController extends Controller {
                 'roles' => array('reader'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update'),
+                'actions' => array('create', 'update','wpreport'),
                 'roles' => array('writer'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -158,7 +158,25 @@ class WaterpointsController extends Controller {
             'model' => $model,
         ));
     }
-
+	/*
+	 *Give all waterpoint reports
+	 */
+	 public function actionWpreport(){
+		$wpoints_regional = new CActiveDataProvider('WaterpointsByOffice',array(
+                    'pagination' => array(
+                        'pageSize' => 30,
+                    ),
+                ));
+		$wpoints_code = new CActiveDataProvider('WaterpointsByCode',array(
+                    'pagination' => array(
+                        'pageSize' => 30,
+                    ),
+				));
+		$this->render('wpreport', array(
+            'waterpoints_regional' => $wpoints_regional,
+			'waterpoints_code' => $wpoints_code,
+            ));
+	 }
     /**
      * Returns the data model based on the primary key given in the GET variable.
      * If the data model is not found, an HTTP exception will be raised.

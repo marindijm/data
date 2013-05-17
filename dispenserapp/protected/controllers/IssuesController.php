@@ -215,10 +215,26 @@ class IssuesController extends Controller {
 	 *Give all report models
 	 */
 	public function actionReport() {
-		$mostCommonIssues = new CActiveDataProvider('MostCommonIssues');
-		$mostCommonIssuesByOffice = new CActiveDataProvider('MostCommonIssuesByOffice');
-		$avgDays = new CActiveDataProvider('AverageDaysToResolveIssue'); 
-		$avgDaysByOffice = new CActiveDataProvider('AverageDaysToResolveIssueByRegionalOffice'); 
+		$mostCommonIssues = new CActiveDataProvider('MostCommonIssues',array(
+                    'pagination' => array(
+                        'pageSize' => 35,
+                    ),
+				));
+		$mostCommonIssuesByOffice = new CActiveDataProvider('MostCommonIssuesByOffice',array(
+                    'pagination' => array(
+                        'pageSize' => 35,
+                    ),
+				));
+		$avgDays = new CActiveDataProvider('AverageDaysToResolveIssue',array(
+                    'pagination' => array(
+                        'pageSize' => 35,
+                    ),
+				)); 
+		$avgDaysByOffice = new CActiveDataProvider('AverageDaysToResolveIssueByRegionalOffice',array(
+                    'pagination' => array(
+                        'pageSize' => 35,
+                    ),
+				)); 
 		$this->render('report', array(
             'common_issues' => $mostCommonIssues,
 			'common_issues_by_office' => $mostCommonIssuesByOffice,
@@ -227,7 +243,7 @@ class IssuesController extends Controller {
             ));
 		
 	}
-    /**
+	/**
      * Manages all models.
      */
     public function actionAdmin() {

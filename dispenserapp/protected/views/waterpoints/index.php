@@ -6,12 +6,13 @@ $this->breadcrumbs = array(
     'Waterpoints',
 );
 
-/*
+
 $this->menu = array(
-    array('label' => 'Create Waterpoint', 'url' => array('create')),
-    array('label' => 'Manage Waterpoint', 'url' => array('admin')),
+    //array('label' => 'Create Waterpoint', 'url' => array('create')),
+    //array('label' => 'Manage Waterpoint', 'url' => array('admin')),
+	array('label' => 'Waterpoints Report', 'url' => array('wpreport')),
 );
-*/
+
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
