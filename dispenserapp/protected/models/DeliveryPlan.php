@@ -8,6 +8,7 @@
  * @property string $name
  * @property string $start_date
  * @property string $end_date
+ * @property string deliveries_per_dayu
  *
  * The followings are the available model relations:
  * @property Delivery[] $deliveries
@@ -69,7 +70,8 @@ class DeliveryPlan extends CActiveRecord
 			'delivery_plan_id' => 'Delivery Plan',
 			'name' => 'Name',
 			'start_date' => 'Start Date',
-			'end_date' => 'End Date',
+			'end_date' => 'End Date', 
+			'deliveries_per_day' => 'Deliveries Per Day', 
 		);
 	}
 

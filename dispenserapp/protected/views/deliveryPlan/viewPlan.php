@@ -28,8 +28,9 @@ $this->menu=array(
 	),
 )); ?>
 
-<h3> Deliveries For <?php echo $model->name; ?> </h3>
+<?php echo $deliveries ?>
 
+<h3> Deliveries For <?php echo $model->name; ?> </h3>
 <?php
 
 $this->widget('zii.widgets.grid.CGridView', array(

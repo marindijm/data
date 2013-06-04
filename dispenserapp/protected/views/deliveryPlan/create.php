@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create DeliveryPlan</h1>
+<h1>New Delivery Plan</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
