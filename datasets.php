@@ -16,7 +16,7 @@ include 'header.php';
 			</table>			
 			<div class="repbox" id="repbox1">
 				<div class="center_header" id="desc">Description</div>
-				 This dataset includes  all the waterpoints plus relevant info i.e. districts, counties, divisions, directions, promoter info, location, village elder contacts etcetera.	
+				 This dataset includes  all the waterpoints plus relevant info i.e. districts, counties, divisions,  promoter info, location, village elder contacts etcetera.	
 				 <br/><br/>
 				 <a href="dl/summary" class="export_rpt" id="dl1">Download Dataset</a>		
 	        </div>
