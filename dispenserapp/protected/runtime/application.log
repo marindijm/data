@@ -261,3 +261,122 @@ in C:\wamp\www\data\dispenserapp\index.php (13)
 2013/06/04 13:55:41 [warning] [application] Failed to set unsafe attribute "deliveries_per_day" of "DeliveryPlan".
 in C:\wamp\www\data\dispenserapp\protected\controllers\DeliveryPlanController.php (106)
 in C:\wamp\www\data\dispenserapp\index.php (13)
+2013/09/04 12:12:36 [warning] [application] Failed to set unsafe attribute "dispenser_functional" of "Issue".
+in C:\wamp\www\data\dispenserapp\protected\controllers\IssuesController.php (67)
+in C:\wamp\www\data\dispenserapp\index.php (13)
+2013/09/16 06:47:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/ad...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/admin
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryLog/index
+---
+2013/09/16 06:47:46 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/ad...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/admin
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryLog/index
+---
+2013/09/16 06:48:27 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/ad...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/admin
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryLog/create
+---
+2013/09/16 06:53:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\wamp\www\data\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(271): CController->missingAction('index.php')
+#1 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('index.php')
+#2 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryCosts/...')
+#3 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryCosts/index.php
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryLog/index
+---
+2013/09/16 06:53:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\wamp\www\data\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(271): CController->missingAction('index.php')
+#1 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('index.php')
+#2 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryCosts/...')
+#3 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryCosts/index.php
+---
+2013/09/16 06:53:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in C:\wamp\www\data\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(271): CController->missingAction('index.php')
+#1 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('index.php')
+#2 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryCosts/...')
+#3 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryCosts/index.php
+---
+2013/09/16 06:54:07 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/ad...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/admin
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryLog/index
+---
+2013/09/16 06:54:10 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryCosts/...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryCosts/admin
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryCosts
+---

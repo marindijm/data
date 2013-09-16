@@ -22,6 +22,7 @@
 						array('label'=>'Issues', 'url'=>array('/issues/index')),
 						array('label'=>'Delivery Plans', 'url'=>array('/deliveryPlan/index')),
 						array('label'=>'Deliveries', 'url'=>array('/delivery/index')),
+						array('label'=>'Mortocycles','url'=>array('/dataEntryLog/index')),
 						array('label'=>'Users', 'url'=>array('/users/index')),
 						array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 						array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
