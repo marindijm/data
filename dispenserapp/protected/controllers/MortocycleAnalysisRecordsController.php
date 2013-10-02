@@ -1,16 +1,16 @@
 <?php
 
-class DataEntryLogController extends Controller
+class MortocycleAnalysisRecordsController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-	 * using two-column layout. See 'protected/views/layouts/column2.php'.
+	 * using two-column layout. See 'protected/views/layouts/column2.php'. 
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/column2'; 
 
 	/**
 	 * @return array action filters
-	 */
+	 */  
 	public function filters()
 	{
 		return array(
@@ -22,13 +22,13 @@ class DataEntryLogController extends Controller
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
+	 * @return array access control rules 
 	 */
 	public function accessRules()
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions  
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','report','details'),
 				'roles' => array('reader'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -61,77 +61,46 @@ class DataEntryLogController extends Controller
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	 
-	public function actionCreate()
-	{
-		$model=new DataEntryLog;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['DataEntryLog']))
-		{
-			$model->attributes=$_POST['DataEntryLog'];
-			$model->logyear = date('Y');
-			$model->analysisperiod = 999;
-			$kms_covered = (($model->odometer_current_reading) - ($model->odometer_previous_reading));
-			$model->kilometers_covered_per_litre = ($kms_covered/($model->fuel_quantity));
-			$model->kilometers_covered = $kms_covered;
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->log_rec_id));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
+	/*
+	 *Give all report models
 	 */
-	public function actionUpdate($id)
-	{
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['DataEntryLog']))
-		{
-			$model->attributes=$_POST['DataEntryLog'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->log_rec_id));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
+	public function actionReport() {
+		$allAnalysis = new CActiveDataProvider('MortocycleAnalysisRecords',array(
+        		'pagination' => array(
+            	'pageSize' => 10,
+             ),
 		));
+		$this->render('analysisReport', array(
+            'allAnalysis' => $allAnalysis,
+        ));
 	}
-
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
+	
+	/*
+	 * Morto Details
 	 */
-	public function actionDelete($id)
-	{
-		$this->loadModel($id)->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-	}
-
+	public function actionDetails(){
+		$details = new CActiveDataProvider('Details',array(
+        		'pagination' => array(
+            	'pageSize' => 10,
+             ),
+		));
+		$this->render('index', array(
+            'details' => $details,
+        ));
+	}	
 	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('DataEntryLog');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+		$details = new CActiveDataProvider('Details',array(
+        		'pagination' => array(
+            	'pageSize' => 10,
+             ),
 		));
+		$this->render('index', array(
+            'details' => $details,
+        ));
 	}
 
 	/**

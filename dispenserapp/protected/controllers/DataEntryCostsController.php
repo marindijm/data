@@ -27,20 +27,20 @@ class DataEntryCostsController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
+			array('allow',  // allow all users to perform 'index' and 'view' actions 
+				'actions'=>array('index','view','report'),
+				'roles' => array('reader'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'roles' => array('writer'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'roles' => array('admin'),
 			),
 			array('deny',  // deny all users
-				'users'=>array('*'),
+				//'users'=>array('*'),
 			),
 		);
 	}
@@ -70,6 +70,8 @@ class DataEntryCostsController extends Controller
 		if(isset($_POST['DataEntryCosts']))
 		{
 			$model->attributes=$_POST['DataEntryCosts'];
+			$model->costyear = date('Y');
+			$model->analysisperiod = 999;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->cost_rec_id));
 		}

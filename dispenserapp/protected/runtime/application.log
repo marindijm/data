@@ -380,3 +380,753 @@ Stack trace:
 REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryCosts/admin
 HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryCosts
 ---
+2013/09/25 06:23:37 [error] [php] Missing argument 3 for CHtml::listData(), called in C:\wamp\www\data\dispenserapp\protected\views\dataEntryLog\_form.php on line 28 and defined (C:\wamp\www\data\yii\framework\web\helpers\CHtml.php:1765)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): DataEntryLogController->renderInternal()
+#1 C:\wamp\www\data\yii\framework\web\CController.php(870): DataEntryLogController->renderFile()
+#2 C:\wamp\www\data\dispenserapp\protected\views\dataEntryLog\create.php(18): DataEntryLogController->renderPartial()
+#3 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require()
+#4 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): DataEntryLogController->renderInternal()
+#5 C:\wamp\www\data\yii\framework\web\CController.php(870): DataEntryLogController->renderFile()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(783): DataEntryLogController->renderPartial()
+#7 C:\wamp\www\data\dispenserapp\protected\controllers\DataEntryLogController.php(79): DataEntryLogController->render()
+#8 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): DataEntryLogController->actionCreate()
+#9 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#10 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): DataEntryLogController->runAction()
+#11 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\wamp\www\data\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#13 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): DataEntryLogController->filterAccessControl()
+#14 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#15 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\wamp\www\data\yii\framework\web\CController.php(266): DataEntryLogController->runActionWithFilters()
+#17 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): DataEntryLogController->run()
+#18 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#19 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/create
+in C:\wamp\www\data\dispenserapp\protected\views\dataEntryLog\_form.php (28)
+in C:\wamp\www\data\dispenserapp\protected\views\dataEntryLog\create.php (18)
+in C:\wamp\www\data\dispenserapp\protected\controllers\DataEntryLogController.php (79)
+2013/09/25 06:24:31 [error] [exception.CException] exception 'CException' with message 'Property "DataEntryLog.reg_no" is not defined.' in C:\wamp\www\data\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('reg_no')
+#1 C:\wamp\www\data\yii\framework\web\helpers\CHtml.php(2158): CActiveRecord->__get('reg_no')
+#2 C:\wamp\www\data\yii\framework\web\helpers\CHtml.php(1515): CHtml::resolveValue(Object(DataEntryLog), 'reg_no')
+#3 C:\wamp\www\data\yii\framework\web\widgets\CActiveForm.php(764): CHtml::activeDropDownList(Object(DataEntryLog), 'reg_no', Array, Array)
+#4 C:\wamp\www\data\dispenserapp\protected\views\dataEntryLog\_form.php(28): CActiveForm->dropDownList(Object(DataEntryLog), 'reg_no', Array)
+#5 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\dat...')
+#6 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\dat...', Array, true)
+#7 C:\wamp\www\data\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\dat...', Array, true)
+#8 C:\wamp\www\data\dispenserapp\protected\views\dataEntryLog\create.php(18): CController->renderPartial('_form', Array)
+#9 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\dat...')
+#10 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\dat...', Array, true)
+#11 C:\wamp\www\data\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\dat...', Array, true)
+#12 C:\wamp\www\data\yii\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#13 C:\wamp\www\data\dispenserapp\protected\controllers\DataEntryLogController.php(79): CController->render('create', Array)
+#14 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): DataEntryLogController->actionCreate()
+#15 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#16 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#17 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#18 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#19 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#20 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#21 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#22 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('create')
+#24 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/cr...')
+#25 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#26 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/create
+---
+2013/09/25 06:24:59 [error] [exception.CException] exception 'CException' with message 'Property "Details.registrationNumber" is not defined.' in C:\wamp\www\data\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('registrationNum...')
+#1 C:\wamp\www\data\yii\framework\web\helpers\CHtml.php(1809): CActiveRecord->__get('registrationNum...')
+#2 C:\wamp\www\data\yii\framework\web\helpers\CHtml.php(1772): CHtml::value(Object(Details), 'registrationNum...')
+#3 C:\wamp\www\data\dispenserapp\protected\views\dataEntryLog\_form.php(28): CHtml::listData(Array, 'registrationNum...', 'officebase_loca...')
+#4 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\dat...')
+#5 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\dat...', Array, true)
+#6 C:\wamp\www\data\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\dat...', Array, true)
+#7 C:\wamp\www\data\dispenserapp\protected\views\dataEntryLog\create.php(18): CController->renderPartial('_form', Array)
+#8 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\dat...')
+#9 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\dat...', Array, true)
+#10 C:\wamp\www\data\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\dat...', Array, true)
+#11 C:\wamp\www\data\yii\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#12 C:\wamp\www\data\dispenserapp\protected\controllers\DataEntryLogController.php(79): CController->render('create', Array)
+#13 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): DataEntryLogController->actionCreate()
+#14 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('create')
+#23 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/cr...')
+#24 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/create
+---
+2013/09/25 06:25:33 [error] [exception.CException] exception 'CException' with message 'Property "Details.morto_reg_no" is not defined.' in C:\wamp\www\data\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('morto_reg_no')
+#1 C:\wamp\www\data\yii\framework\web\helpers\CHtml.php(1809): CActiveRecord->__get('morto_reg_no')
+#2 C:\wamp\www\data\yii\framework\web\helpers\CHtml.php(1772): CHtml::value(Object(Details), 'morto_reg_no')
+#3 C:\wamp\www\data\dispenserapp\protected\views\dataEntryLog\_form.php(28): CHtml::listData(Array, 'morto_reg_no', 'officebase_loca...')
+#4 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\dat...')
+#5 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\dat...', Array, true)
+#6 C:\wamp\www\data\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\dat...', Array, true)
+#7 C:\wamp\www\data\dispenserapp\protected\views\dataEntryLog\create.php(18): CController->renderPartial('_form', Array)
+#8 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\dat...')
+#9 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\dat...', Array, true)
+#10 C:\wamp\www\data\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\dat...', Array, true)
+#11 C:\wamp\www\data\yii\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#12 C:\wamp\www\data\dispenserapp\protected\controllers\DataEntryLogController.php(79): CController->render('create', Array)
+#13 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): DataEntryLogController->actionCreate()
+#14 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('create')
+#23 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/cr...')
+#24 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/create
+---
+2013/09/25 06:28:33 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/ad...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/admin
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryLog/view&id=2
+---
+2013/09/25 06:42:06 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryCosts/...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryCosts/admin
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryCosts/create
+---
+2013/09/25 13:02:02 [error] [php] Undefined index: odometer_current_reading (C:\wamp\www\data\dispenserapp\protected\controllers\DataEntryLogController.php:75)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): DataEntryLogController->runAction()
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): DataEntryLogController->filterAccessControl()
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): DataEntryLogController->runActionWithFilters()
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): DataEntryLogController->run()
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/create
+in C:\wamp\www\data\dispenserapp\protected\controllers\DataEntryLogController.php (75)
+in C:\wamp\www\data\dispenserapp\index.php (13)
+2013/09/25 13:13:45 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryCosts/...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryCosts/admin
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryCosts/create
+---
+2013/09/25 13:15:39 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryCosts/...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryCosts/admin
+---
+2013/09/25 13:16:58 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryCosts/...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryCosts/admin
+---
+2013/09/25 13:16:59 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryCosts/...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryCosts/admin
+---
+2013/09/29 20:03:13 [error] [php] Undefined offset: 0 (C:\wamp\www\data\yii\framework\zii\widgets\CMenu.php:303)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\zii\widgets\CMenu.php(151): CMenu->normalizeItems()
+#1 C:\wamp\www\data\yii\framework\web\CBaseController.php(148): CMenu->init()
+#2 C:\wamp\www\data\yii\framework\web\CBaseController.php(173): SiteController->createWidget()
+#3 C:\wamp\www\data\dispenserapp\themes\abound\views\layouts\tpl_navigation.php(61): SiteController->widget()
+#4 C:\wamp\www\data\dispenserapp\themes\abound\views\layouts\main.php(56): require_once()
+#5 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require()
+#6 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#7 C:\wamp\www\data\yii\framework\web\widgets\CContentDecorator.php(77): SiteController->renderFile()
+#8 C:\wamp\www\data\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate()
+#9 C:\wamp\www\data\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput()
+#10 C:\wamp\www\data\yii\framework\web\CBaseController.php(207): CContentDecorator->run()
+#11 C:\wamp\www\data\yii\framework\web\CBaseController.php(301): SiteController->endWidget()
+#12 C:\wamp\www\data\dispenserapp\themes\abound\views\layouts\column1.php(14): SiteController->endContent()
+#13 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require()
+#14 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#15 C:\wamp\www\data\yii\framework\web\CController.php(785): SiteController->renderFile()
+#16 C:\wamp\www\data\dispenserapp\protected\controllers\SiteController.php(35): SiteController->render()
+#17 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#18 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#19 C:\wamp\www\data\yii\framework\web\CController.php(287): SiteController->runAction()
+#20 C:\wamp\www\data\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#21 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#22 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#23 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#24 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/
+in C:\wamp\www\data\dispenserapp\themes\abound\views\layouts\tpl_navigation.php (61)
+in C:\wamp\www\data\dispenserapp\themes\abound\views\layouts\main.php (56)
+in C:\wamp\www\data\dispenserapp\themes\abound\views\layouts\column1.php (14)
+2013/09/30 05:56:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "allAnalysis".' in C:\wamp\www\data\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(271): CController->missingAction('allAnalysis')
+#1 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('allAnalysis')
+#2 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/al...')
+#3 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/allAnalysis
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryLog/index
+---
+2013/09/30 05:57:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "allAnalysis".' in C:\wamp\www\data\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(271): CController->missingAction('allAnalysis')
+#1 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('allAnalysis')
+#2 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/al...')
+#3 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/allAnalysis
+---
+2013/09/30 05:58:01 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('Report')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/Re...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/Report
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryLog/index
+---
+2013/09/30 05:58:37 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('Report')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/Re...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/Report
+---
+2013/09/30 05:58:47 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('report')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/re...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/report
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryLog/index
+---
+2013/09/30 05:58:47 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('report')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/re...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/report
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryLog/index
+---
+2013/09/30 05:59:01 [error] [exception.CException] exception 'CException' with message 'DataEntryLogController cannot find the requested view "analysisReport".' in C:\wamp\www\data\yii\framework\web\CController.php:879
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(783): CController->renderPartial('analysisReport', Array, true)
+#1 C:\wamp\www\data\dispenserapp\protected\controllers\DataEntryLogController.php(75): CController->render('analysisReport', Array)
+#2 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): DataEntryLogController->actionReport()
+#3 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('report')
+#12 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryLog/re...')
+#13 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryLog/report
+---
+2013/09/30 06:07:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "report".' in C:\wamp\www\data\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(271): CController->missingAction('report')
+#1 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('report')
+#2 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryCosts/...')
+#3 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryCosts/report
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryCosts/index
+---
+2013/09/30 06:08:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "report".' in C:\wamp\www\data\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(271): CController->missingAction('report')
+#1 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('report')
+#2 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('dataEntryCosts/...')
+#3 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=dataEntryCosts/report
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=dataEntryCosts/index
+---
+2013/09/30 06:25:33 [error] [php] Undefined variable: allAnalysis (C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\analysisReport.php:22)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\zii\widgets\CListView.php(260): MortocycleAnalysisRecordsController->renderFile()
+#1 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(161): CListView->renderItems()
+#2 unknown(0): CListView->renderSection()
+#3 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(144): preg_replace_callback()
+#4 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(129): CListView->renderContent()
+#5 C:\wamp\www\data\yii\framework\web\CBaseController.php(174): CListView->run()
+#6 C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\index.php(20): MortocycleAnalysisRecordsController->widget()
+#7 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require()
+#8 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): MortocycleAnalysisRecordsController->renderInternal()
+#9 C:\wamp\www\data\yii\framework\web\CController.php(870): MortocycleAnalysisRecordsController->renderFile()
+#10 C:\wamp\www\data\yii\framework\web\CController.php(783): MortocycleAnalysisRecordsController->renderPartial()
+#11 C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php(87): MortocycleAnalysisRecordsController->render()
+#12 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): MortocycleAnalysisRecordsController->actionIndex()
+#13 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#14 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): MortocycleAnalysisRecordsController->runAction()
+#15 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#16 C:\wamp\www\data\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#17 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): MortocycleAnalysisRecordsController->filterAccessControl()
+#18 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#19 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#20 C:\wamp\www\data\yii\framework\web\CController.php(266): MortocycleAnalysisRecordsController->runActionWithFilters()
+#21 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): MortocycleAnalysisRecordsController->run()
+#22 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#23 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#24 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/index.php?r=MortocycleAnalysisRecords
+in C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\analysisReport.php (22)
+in C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\index.php (20)
+in C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php (87)
+2013/09/30 06:25:50 [error] [php] Undefined variable: allAnalysis (C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\analysisReport.php:22)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\zii\widgets\CListView.php(260): MortocycleAnalysisRecordsController->renderFile()
+#1 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(161): CListView->renderItems()
+#2 unknown(0): CListView->renderSection()
+#3 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(144): preg_replace_callback()
+#4 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(129): CListView->renderContent()
+#5 C:\wamp\www\data\yii\framework\web\CBaseController.php(174): CListView->run()
+#6 C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\index.php(20): MortocycleAnalysisRecordsController->widget()
+#7 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require()
+#8 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): MortocycleAnalysisRecordsController->renderInternal()
+#9 C:\wamp\www\data\yii\framework\web\CController.php(870): MortocycleAnalysisRecordsController->renderFile()
+#10 C:\wamp\www\data\yii\framework\web\CController.php(783): MortocycleAnalysisRecordsController->renderPartial()
+#11 C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php(87): MortocycleAnalysisRecordsController->render()
+#12 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): MortocycleAnalysisRecordsController->actionIndex()
+#13 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#14 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): MortocycleAnalysisRecordsController->runAction()
+#15 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#16 C:\wamp\www\data\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#17 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): MortocycleAnalysisRecordsController->filterAccessControl()
+#18 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#19 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#20 C:\wamp\www\data\yii\framework\web\CController.php(266): MortocycleAnalysisRecordsController->runActionWithFilters()
+#21 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): MortocycleAnalysisRecordsController->run()
+#22 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#23 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#24 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords
+in C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\analysisReport.php (22)
+in C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\index.php (20)
+in C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php (87)
+2013/09/30 06:26:45 [error] [php] Undefined variable: allAnalysis (C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\index.php:18)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(870): MortocycleAnalysisRecordsController->renderFile()
+#1 C:\wamp\www\data\yii\framework\web\CController.php(783): MortocycleAnalysisRecordsController->renderPartial()
+#2 C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php(87): MortocycleAnalysisRecordsController->render()
+#3 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): MortocycleAnalysisRecordsController->actionIndex()
+#4 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): MortocycleAnalysisRecordsController->runAction()
+#6 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\data\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): MortocycleAnalysisRecordsController->filterAccessControl()
+#9 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\data\yii\framework\web\CController.php(266): MortocycleAnalysisRecordsController->runActionWithFilters()
+#12 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): MortocycleAnalysisRecordsController->run()
+#13 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#14 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords
+in C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\index.php (18)
+in C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php (87)
+in C:\wamp\www\data\dispenserapp\index.php (13)
+2013/09/30 06:27:37 [error] [php] Undefined variable: dataProvider (C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php:86)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): MortocycleAnalysisRecordsController->runAction()
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): MortocycleAnalysisRecordsController->filterAccessControl()
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): MortocycleAnalysisRecordsController->runActionWithFilters()
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): MortocycleAnalysisRecordsController->run()
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords
+in C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php (86)
+in C:\wamp\www\data\dispenserapp\index.php (13)
+2013/09/30 06:28:02 [error] [exception.CException] exception 'CException' with message 'Property "CListView.allAnalysis" is not defined.' in C:\wamp\www\data\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CWidgetFactory.php(162): CComponent->__set('allAnalysis', Object(CActiveDataProvider))
+#1 C:\wamp\www\data\yii\framework\web\CBaseController.php(147): CWidgetFactory->createWidget(Object(MortocycleAnalysisRecordsController), 'zii.widgets.CLi...', Array)
+#2 C:\wamp\www\data\yii\framework\web\CBaseController.php(173): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#3 C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\index.php(20): CBaseController->widget('zii.widgets.CLi...', Array)
+#4 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\dat...')
+#5 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\dat...', Array, true)
+#6 C:\wamp\www\data\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\dat...', Array, true)
+#7 C:\wamp\www\data\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#8 C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php(87): CController->render('index', Array)
+#9 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): MortocycleAnalysisRecordsController->actionIndex()
+#10 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('')
+#19 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('mortocycleAnaly...')
+#20 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords
+---
+2013/09/30 06:54:37 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('Details')
+#8 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('mortocycleAnaly...')
+#9 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords/Details
+---
+2013/09/30 06:54:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "analysisReport".' in C:\wamp\www\data\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(271): CController->missingAction('analysisReport')
+#1 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('analysisReport')
+#2 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('mortocycleAnaly...')
+#3 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords/analysisReport
+HTTP_REFERER=http://localhost/data/dispenserapp/index.php?r=mortocycleAnalysisRecords/Details
+---
+2013/09/30 07:06:15 [error] [php] Undefined variable: details (C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\index.php:15)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CController.php(870): MortocycleAnalysisRecordsController->renderFile()
+#1 C:\wamp\www\data\yii\framework\web\CController.php(783): MortocycleAnalysisRecordsController->renderPartial()
+#2 C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php(99): MortocycleAnalysisRecordsController->render()
+#3 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): MortocycleAnalysisRecordsController->actionIndex()
+#4 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): MortocycleAnalysisRecordsController->runAction()
+#6 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\data\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): MortocycleAnalysisRecordsController->filterAccessControl()
+#9 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\data\yii\framework\web\CController.php(266): MortocycleAnalysisRecordsController->runActionWithFilters()
+#12 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): MortocycleAnalysisRecordsController->run()
+#13 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#14 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords/index
+in C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\index.php (15)
+in C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php (99)
+in C:\wamp\www\data\dispenserapp\index.php (13)
+2013/09/30 07:06:45 [error] [php] Undefined variable: details (C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\_details.php:3)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\zii\widgets\CListView.php(260): MortocycleAnalysisRecordsController->renderFile()
+#1 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(161): CListView->renderItems()
+#2 unknown(0): CListView->renderSection()
+#3 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(144): preg_replace_callback()
+#4 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(129): CListView->renderContent()
+#5 C:\wamp\www\data\yii\framework\web\CBaseController.php(174): CListView->run()
+#6 C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\index.php(17): MortocycleAnalysisRecordsController->widget()
+#7 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require()
+#8 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): MortocycleAnalysisRecordsController->renderInternal()
+#9 C:\wamp\www\data\yii\framework\web\CController.php(870): MortocycleAnalysisRecordsController->renderFile()
+#10 C:\wamp\www\data\yii\framework\web\CController.php(783): MortocycleAnalysisRecordsController->renderPartial()
+#11 C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php(103): MortocycleAnalysisRecordsController->render()
+#12 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): MortocycleAnalysisRecordsController->actionIndex()
+#13 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#14 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): MortocycleAnalysisRecordsController->runAction()
+#15 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#16 C:\wamp\www\data\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#17 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): MortocycleAnalysisRecordsController->filterAccessControl()
+#18 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#19 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#20 C:\wamp\www\data\yii\framework\web\CController.php(266): MortocycleAnalysisRecordsController->runActionWithFilters()
+#21 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): MortocycleAnalysisRecordsController->run()
+#22 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#23 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#24 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords/index
+in C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\_details.php (3)
+in C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\index.php (17)
+in C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php (103)
+2013/09/30 07:20:27 [error] [php] number_format() expects parameter 1 to be double, string given (C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\analysisReport.php:28)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): MortocycleAnalysisRecordsController->renderInternal()
+#1 C:\wamp\www\data\yii\framework\web\CController.php(870): MortocycleAnalysisRecordsController->renderFile()
+#2 C:\wamp\www\data\yii\framework\web\CController.php(783): MortocycleAnalysisRecordsController->renderPartial()
+#3 C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php(75): MortocycleAnalysisRecordsController->render()
+#4 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): MortocycleAnalysisRecordsController->actionReport()
+#5 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#6 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): MortocycleAnalysisRecordsController->runAction()
+#7 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 C:\wamp\www\data\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#9 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): MortocycleAnalysisRecordsController->filterAccessControl()
+#10 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#12 C:\wamp\www\data\yii\framework\web\CController.php(266): MortocycleAnalysisRecordsController->runActionWithFilters()
+#13 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): MortocycleAnalysisRecordsController->run()
+#14 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords/report
+in C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\analysisReport.php (28)
+in C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php (75)
+in C:\wamp\www\data\dispenserapp\index.php (13)
+2013/09/30 07:21:16 [error] [php] number_format() expects parameter 1 to be double, string given (C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\analysisReport.php:28)
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): MortocycleAnalysisRecordsController->renderInternal()
+#1 C:\wamp\www\data\yii\framework\web\CController.php(870): MortocycleAnalysisRecordsController->renderFile()
+#2 C:\wamp\www\data\yii\framework\web\CController.php(783): MortocycleAnalysisRecordsController->renderPartial()
+#3 C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php(75): MortocycleAnalysisRecordsController->render()
+#4 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): MortocycleAnalysisRecordsController->actionReport()
+#5 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#6 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): MortocycleAnalysisRecordsController->runAction()
+#7 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 C:\wamp\www\data\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#9 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): MortocycleAnalysisRecordsController->filterAccessControl()
+#10 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#12 C:\wamp\www\data\yii\framework\web\CController.php(266): MortocycleAnalysisRecordsController->runActionWithFilters()
+#13 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): MortocycleAnalysisRecordsController->run()
+#14 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\data\dispenserapp\index.php(13): CWebApplication->run()
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords/report
+in C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\analysisReport.php (28)
+in C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php (75)
+in C:\wamp\www\data\dispenserapp\index.php (13)
+2013/09/30 07:25:50 [error] [exception.CException] exception 'CException' with message 'The column must be specified in the format of "Name:Type:Label", where "Type" and "Label" are optional.' in C:\wamp\www\data\yii\framework\zii\widgets\grid\CGridView.php:360
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\zii\widgets\grid\CGridView.php(331): CGridView->createDataColumn('number_format(m...')
+#1 C:\wamp\www\data\yii\framework\zii\widgets\grid\CGridView.php(307): CGridView->initColumns()
+#2 C:\wamp\www\data\yii\framework\web\CBaseController.php(148): CGridView->init()
+#3 C:\wamp\www\data\yii\framework\web\CBaseController.php(173): CBaseController->createWidget('zii.widgets.gri...', Array)
+#4 C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\analysisReport.php(36): CBaseController->widget('zii.widgets.gri...', Array)
+#5 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\dat...')
+#6 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\dat...', Array, true)
+#7 C:\wamp\www\data\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\dat...', Array, true)
+#8 C:\wamp\www\data\yii\framework\web\CController.php(783): CController->renderPartial('analysisReport', Array, true)
+#9 C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php(75): CController->render('analysisReport', Array)
+#10 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): MortocycleAnalysisRecordsController->actionReport()
+#11 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#13 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#18 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('report')
+#20 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('mortocycleAnaly...')
+#21 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords/report
+---
+2013/09/30 07:27:54 [error] [exception.CException] exception 'CException' with message 'Property "MortocycleAnalysisRecords.number" is not defined.' in C:\wamp\www\data\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('number')
+#1 C:\wamp\www\data\yii\framework\web\helpers\CHtml.php(1809): CActiveRecord->__get('number')
+#2 C:\wamp\www\data\yii\framework\zii\widgets\grid\CDataColumn.php(134): CHtml::value(Object(MortocycleAnalysisRecords), 'number')
+#3 C:\wamp\www\data\yii\framework\zii\widgets\grid\CGridColumn.php(145): CDataColumn->renderDataCellContent(0, Object(MortocycleAnalysisRecords))
+#4 C:\wamp\www\data\yii\framework\zii\widgets\grid\CGridView.php(546): CGridColumn->renderDataCell(0)
+#5 C:\wamp\www\data\yii\framework\zii\widgets\grid\CGridView.php(517): CGridView->renderTableRow(0)
+#6 C:\wamp\www\data\yii\framework\zii\widgets\grid\CGridView.php(427): CGridView->renderTableBody()
+#7 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(161): CGridView->renderItems()
+#8 [internal function]: CBaseListView->renderSection(Array)
+#9 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(144): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#10 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(129): CBaseListView->renderContent()
+#11 C:\wamp\www\data\yii\framework\web\CBaseController.php(174): CBaseListView->run()
+#12 C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\analysisReport.php(36): CBaseController->widget('zii.widgets.gri...', Array)
+#13 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\dat...')
+#14 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\dat...', Array, true)
+#15 C:\wamp\www\data\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\dat...', Array, true)
+#16 C:\wamp\www\data\yii\framework\web\CController.php(783): CController->renderPartial('analysisReport', Array, true)
+#17 C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php(75): CController->render('analysisReport', Array)
+#18 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): MortocycleAnalysisRecordsController->actionReport()
+#19 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#20 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#21 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#22 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#23 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#26 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('report')
+#28 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('mortocycleAnaly...')
+#29 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#30 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords/report
+---
+2013/09/30 07:28:14 [error] [exception.CException] exception 'CException' with message 'Property "MortocycleAnalysisRecords.number" is not defined.' in C:\wamp\www\data\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\data\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('number')
+#1 C:\wamp\www\data\yii\framework\web\helpers\CHtml.php(1809): CActiveRecord->__get('number')
+#2 C:\wamp\www\data\yii\framework\zii\widgets\grid\CDataColumn.php(134): CHtml::value(Object(MortocycleAnalysisRecords), 'number')
+#3 C:\wamp\www\data\yii\framework\zii\widgets\grid\CGridColumn.php(145): CDataColumn->renderDataCellContent(0, Object(MortocycleAnalysisRecords))
+#4 C:\wamp\www\data\yii\framework\zii\widgets\grid\CGridView.php(546): CGridColumn->renderDataCell(0)
+#5 C:\wamp\www\data\yii\framework\zii\widgets\grid\CGridView.php(517): CGridView->renderTableRow(0)
+#6 C:\wamp\www\data\yii\framework\zii\widgets\grid\CGridView.php(427): CGridView->renderTableBody()
+#7 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(161): CGridView->renderItems()
+#8 [internal function]: CBaseListView->renderSection(Array)
+#9 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(144): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#10 C:\wamp\www\data\yii\framework\zii\widgets\CBaseListView.php(129): CBaseListView->renderContent()
+#11 C:\wamp\www\data\yii\framework\web\CBaseController.php(174): CBaseListView->run()
+#12 C:\wamp\www\data\dispenserapp\protected\views\mortocycleAnalysisRecords\analysisReport.php(36): CBaseController->widget('zii.widgets.gri...', Array)
+#13 C:\wamp\www\data\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\dat...')
+#14 C:\wamp\www\data\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\dat...', Array, true)
+#15 C:\wamp\www\data\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\dat...', Array, true)
+#16 C:\wamp\www\data\yii\framework\web\CController.php(783): CController->renderPartial('analysisReport', Array, true)
+#17 C:\wamp\www\data\dispenserapp\protected\controllers\MortocycleAnalysisRecordsController.php(75): CController->render('analysisReport', Array)
+#18 C:\wamp\www\data\yii\framework\web\actions\CInlineAction.php(50): MortocycleAnalysisRecordsController->actionReport()
+#19 C:\wamp\www\data\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#20 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#21 C:\wamp\www\data\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#22 C:\wamp\www\data\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#23 C:\wamp\www\data\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\wamp\www\data\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\wamp\www\data\yii\framework\web\CController.php(292): CFilterChain->run()
+#26 C:\wamp\www\data\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\wamp\www\data\yii\framework\web\CWebApplication.php(283): CController->run('report')
+#28 C:\wamp\www\data\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('mortocycleAnaly...')
+#29 C:\wamp\www\data\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#30 C:\wamp\www\data\dispenserapp\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/data/dispenserapp/index.php?r=mortocycleAnalysisRecords/report
+---

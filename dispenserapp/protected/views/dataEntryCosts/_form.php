@@ -13,20 +13,27 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
-
+	<?php echo $form->errorSummary($model); ?>	
+	<!-- Extended Test Row -->
 	<div class="row">
 		<?php echo $form->labelEx($model,'reg_no'); ?>
-		<?php echo $form->textField($model,'reg_no',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->dropDownList($model,'reg_no', CHtml::listData(Details::model()->findAll(), 'reg_no', 'reg_no')); ?>
 		<?php echo $form->error($model,'reg_no'); ?>
-	</div>
-
+	</div>	
+	<!-- Extended Date Object -->
 	<div class="row">
 		<?php echo $form->labelEx($model,'service_date'); ?>
-		<?php echo $form->textField($model,'service_date'); ?>
+		<?php Yii::import('application.extensions.CJuiDateTimePicker.CJuiDateTimePicker');
+            $this->widget('CJuiDateTimePicker',array(
+                'model'=>$model, //Model object
+                'attribute'=>'service_date', //attribute name
+                'mode'=>'date', //use "time","date" or "datetime" (default)
+                'options'=>array("dateFormat"=>'yy-mm-dd'), // jquery plugin options
+                'language' => ''
+            ));
+		?>
 		<?php echo $form->error($model,'service_date'); ?>
 	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'oil_lubricant_type'); ?>
 		<?php echo $form->textField($model,'oil_lubricant_type',array('size'=>60,'maxlength'=>255)); ?>
@@ -81,17 +88,17 @@
 		<?php echo $form->error($model,'duration_week'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'costyear'); ?>
-		<?php echo $form->textField($model,'costyear'); ?>
-		<?php echo $form->error($model,'costyear'); ?>
-	</div>
+	<!--<div class="row">
+		<?php //echo $form->labelEx($model,'costyear'); ?>
+		<?php //echo $form->textField($model,'costyear'); ?>
+		<?php //echo $form->error($model,'costyear'); ?>
+	</div>-->
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'analysisperiod'); ?>
-		<?php echo $form->textField($model,'analysisperiod'); ?>
-		<?php echo $form->error($model,'analysisperiod'); ?>
-	</div>
+	<!--<div class="row">
+		<?php //echo $form->labelEx($model,'analysisperiod'); ?>
+		<?php //echo $form->textField($model,'analysisperiod'); ?>
+		<?php //echo $form->error($model,'analysisperiod'); ?>
+	</div>-->
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

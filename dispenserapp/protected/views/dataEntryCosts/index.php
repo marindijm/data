@@ -11,7 +11,7 @@ $this->menu=array(
 	array('label'=>'Manage Costs', 'url'=>array('admin')),
 );
 ?>
-
+<?php //include 'menuall.php'; ?>
 <h1>Data Entry Costs</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
